@@ -1,0 +1,29 @@
+[build]
+  command = "pip install -r requirements.txt && python3 src/build.py"
+  publish = "public"
+  functions = "netlify/functions"
+
+[build.environment]
+  PYTHON_VERSION = "3.13"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+[[headers]]
+  for = "/llms.txt"
+  [headers.values]
+    Content-Type = "text/plain; charset=utf-8"
+
+[[redirects]]
+  from = "https://www.maisontruffe.fr/*"
+  to = "https://maisontruffe.fr/:splat"
+  status = 301
+  force = true
