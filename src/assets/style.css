@@ -346,3 +346,7 @@ h1 em,h2 em{font-style:normal;color:var(--gold-d)}
 .cookie-bar[hidden]{display:none}.cookie-bar p{margin:0;flex:1}.cookie-bar a{color:var(--gold-d);font-weight:600}
 .cookie-btns{display:flex;gap:8px;flex:none}
 @media(max-width:700px){.cookie-bar{flex-direction:column;align-items:stretch}.cookie-btns .btn{flex:1}}
+.logo-txt{display:flex;flex-direction:column;line-height:1}
+.logo-txt small{font-family:"Cormorant Garamond",Georgia,serif;font-weight:700;font-size:.42em;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-d);margin-top:5px}
+.logo-footer .logo-txt small{color:var(--gold-l)}
+@media(max-width:520px){.logo-txt small{font-size:.4em;letter-spacing:.14em}}

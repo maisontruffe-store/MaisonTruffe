@@ -94,7 +94,7 @@ def page(path, title, desc, body, schema=None, og_img=None, noindex=False, cls="
 <div class="topbar">Livraison offerte dès {FREE_SHIP} € · Expédition sous 1 à 3 jours ouvrés · Paiement sécurisé</div>
 <header class="site-header">
   <div class="wrap header-inner">
-    <a class="logo" href="/" aria-label="{BRAND} — accueil"><img class="logo-mark" src="/assets/logo-emblem.png" alt="" width="58" height="47">Maison <em>Truffe</em></a>
+    <a class="logo" href="/" aria-label="{BRAND} — accueil"><img class="logo-mark" src="/assets/logo-emblem.png" alt="" width="58" height="47"><span class="logo-txt">Maison Truffe<small>Spécialités à la truffe</small></span></a>
     <nav class="nav" aria-label="Navigation principale">
       <a href="/categorie/offres/" class="nav-hot">Coffrets malins</a>
       <a href="/boutique/">Boutique</a>
@@ -120,7 +120,7 @@ def page(path, title, desc, body, schema=None, og_img=None, noindex=False, cls="
 <footer class="site-footer">
   <div class="wrap footer-grid">
     <div>
-      <div class="logo logo-footer"><img class="logo-mark" src="/assets/logo-emblem.png" alt="" width="58" height="47">Maison <em>Truffe</em></div>
+      <div class="logo logo-footer"><img class="logo-mark" src="/assets/logo-emblem.png" alt="" width="58" height="47"><span class="logo-txt">Maison Truffe<small>Spécialités à la truffe</small></span></div>
       <p>Épicerie fine en ligne dédiée à la truffe : des plats de chef en 10 minutes, sans savoir cuisiner. Livraison partout en France.</p>
       <p>✉️ <a href="mailto:{EMAIL}">{EMAIL}</a></p>
     </div>
