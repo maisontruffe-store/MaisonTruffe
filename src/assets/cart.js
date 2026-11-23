@@ -12,7 +12,8 @@
   function lines(c) { return Object.keys(c).filter(function (k) { return C[k] && c[k] > 0; }).map(function (k) { return { slug: k, qty: c[k], p: C[k] }; }); }
   function totals(c) {
     var sub = lines(c).reduce(function (s, l) { return s + l.p.price * l.qty; }, 0);
-    var ship = sub === 0 ? 0 : (sub >= S.free ? 0 : S.price);
+    var onlyTest = lines(c).length > 0 && lines(c).every(function (l) { return l.p.test; });
+    var ship = sub === 0 || onlyTest ? 0 : (sub >= S.free ? 0 : S.price);
     return { sub: sub, ship: ship, total: sub + ship };
   }
   function toast(msg) {

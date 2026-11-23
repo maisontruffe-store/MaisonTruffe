@@ -23,6 +23,8 @@ VER = datetime.datetime.now().strftime("%Y%m%d%H%M")
 
 P = json.loads((SRC / "products.json").read_text(encoding="utf-8"))
 BYSLUG = {p["slug"]: p for p in P}
+TESTS = [p for p in P if p.get("test")]
+P = [p for p in P if not p.get("test")]
 BUNDLES = [p for p in P if p.get("bundle")]
 SINGLES = [p for p in P if not p.get("bundle")]
 for b in BUNDLES:
@@ -286,15 +288,15 @@ def weight_of(p):
         ws = [BYSLUG[s].get("weight_g") for s in p["bundle"]]
         return sum(ws) if all(w for w in ws) else None
     return p.get("weight_g")
-cat_js = {p["slug"]: {"name": p["name"], "price": p["price"], "img": img(p, 200), "cat": p["cat"]} for p in P}
-cat_srv = {p["slug"]: {"name": p["name"], "price": p["price"], "img": img(p, 200), "cat": p["cat"], "weight_g": weight_of(p)} for p in P}
+cat_js = {p["slug"]: {"name": p["name"], "price": p["price"], "img": img(p, 200), "cat": p["cat"], **({"test": True} if p.get("test") else {})} for p in P + TESTS}
+cat_srv = {p["slug"]: {"name": p["name"], "price": p["price"], "img": img(p, 200), "cat": p["cat"], "weight_g": weight_of(p), "test": bool(p.get("test"))} for p in P + TESTS}
 (OUT / "assets" / "catalog.js").write_text(
     "window.MT_CATALOG=" + json.dumps(cat_js, ensure_ascii=False) +
     f";window.MT_SHIP={{price:{SHIP_PRICE},free:{FREE_SHIP}}};", encoding="utf-8")
 (ROOT / "netlify" / "lib").mkdir(parents=True, exist_ok=True)
 (ROOT / "netlify" / "lib" / "catalog.mts").write_text(
     "// Généré par src/build.py — ne pas modifier à la main\n"
-    "export const CATALOG: Record<string, { name: string; price: number; img: string; cat: string; weight_g: number | null }> = " +
+    "export const CATALOG: Record<string, { name: string; price: number; img: string; cat: string; weight_g: number | null; test: boolean }> = " +
     json.dumps(cat_srv, ensure_ascii=False, indent=1) + f";\nexport const SHIP = {{ price: {SHIP_PRICE}, free: {FREE_SHIP} }};\n"
     f"export const PACKAGING_G = {PACKAGING_G};\nexport const OWNER_EMAIL = {json.dumps(EMAIL)};\n",
     encoding="utf-8")
@@ -487,6 +489,13 @@ for p in P:
     page(f"/produit/{p['slug']}/", f"{p['name']} — {eur(p['price'])} | {BRAND}",
          f"{p['short']} {p['name']} à {eur(p['price'])}. Livraison offerte dès {FREE_SHIP} €.",
          body, [crs, schema, faq_schema(pfaq)], og_img=img(p, 1200) or None)
+
+# ---- Page de test (non référencée)
+for t in TESTS:
+    page(f"/produit/{t['slug']}/", f"{t['name']} — {BRAND}", t["short"],
+         f"""<section class="section wrap narrow center"><h1>{e(t['name'])}</h1><p class="lead">{e(t['short'])}</p>
+<p class="price big">{eur(t['price'])} <small>livraison offerte</small></p>
+<p><button class="btn btn-gold btn-lg" data-add="{t['slug']}">Ajouter au panier</button> <a class="btn btn-outline btn-lg" href="/panier/">Voir le panier</a></p></section>""", noindex=True)
 
 # ---- Recettes
 cr, crs = crumbs([("Accueil", "/"), ("Recettes", None)])

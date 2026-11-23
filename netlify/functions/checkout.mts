@@ -28,7 +28,8 @@ export default async (req: Request, context: Context) => {
 
   const origin = new URL(req.url).origin
   const subtotal = items.reduce((s, i) => s + CATALOG[i.slug].price * i.qty, 0)
-  const shipCents = subtotal >= SHIP.free ? 0 : Math.round(SHIP.price * 100)
+  const onlyTest = items.every((i) => CATALOG[i.slug].test)
+  const shipCents = subtotal >= SHIP.free || onlyTest ? 0 : Math.round(SHIP.price * 100)
 
   const p = new URLSearchParams()
   p.set("mode", "payment")
