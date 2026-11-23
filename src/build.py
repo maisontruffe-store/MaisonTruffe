@@ -269,6 +269,8 @@ if OUT.exists():
 (OUT / "assets").mkdir(parents=True)
 for f in (SRC / "assets").iterdir():
     shutil.copy(f, OUT / "assets" / f.name)
+for f in (SRC / "static").glob("*"):
+    shutil.copy(f, OUT / f.name)   # fichiers à la racine (vérifications Google, Bing…)
 
 cat_js = {p["slug"]: {"name": p["name"], "price": p["price"], "img": img(p, 200), "cat": p["cat"]} for p in P}
 (OUT / "assets" / "catalog.js").write_text(
