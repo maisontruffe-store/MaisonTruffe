@@ -416,21 +416,5 @@
    "Avec l'huile à la truffe blanche"
   ],
   "weight_g": null
- },
- {
-  "slug": "test-commande",
-  "name": "Produit test (1 €)",
-  "cat": "epicerie-charcuterie",
-  "price": 1.0,
-  "img": "",
-  "truffle": "—",
-  "short": "Produit de test pour vérifier le paiement et les e-mails. Ne pas commander.",
-  "desc": "Page de test interne. Ce produit n'est pas expédié.",
-  "uses": [
-   "Test du paiement",
-   "Test des e-mails"
-  ],
-  "test": true,
-  "weight_g": 100
  }
 ]

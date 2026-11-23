@@ -183,14 +183,6 @@ export const CATALOG: Record<string, { name: string; price: number; img: string;
   "cat": "epicerie-charcuterie",
   "weight_g": null,
   "test": false
- },
- "test-commande": {
-  "name": "Produit test (1 €)",
-  "price": 1.0,
-  "img": "",
-  "cat": "epicerie-charcuterie",
-  "weight_g": 100,
-  "test": true
  }
 };
 export const SHIP = { price: 6.9, free: 59 };
