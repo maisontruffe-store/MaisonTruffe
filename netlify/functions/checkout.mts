@@ -1,5 +1,5 @@
 import type { Context } from "@netlify/functions"
-import { CATALOG, SHIP } from "../lib/catalog.mts"
+import { CATALOG, SHIP, PACKAGING_G } from "../lib/catalog.mts"
 
 // Crée une session de paiement Stripe Checkout à partir du panier.
 // Les prix viennent du catalogue côté serveur (jamais du navigateur).
@@ -60,6 +60,10 @@ export default async (req: Request, context: Context) => {
   })
 
   const recap = items.map((i) => `${i.qty}x ${CATALOG[i.slug].name}`).join(" | ").slice(0, 490)
+  p.set("metadata[items]", items.map((i) => `${i.slug}:${i.qty}`).join(";").slice(0, 490))
+  const weights = items.map((i) => (CATALOG[i.slug].weight_g ? CATALOG[i.slug].weight_g! * i.qty : null))
+  p.set("metadata[poids_g]", weights.every((w) => w !== null) ? String(weights.reduce((a, b) => a! + b!, 0)! + PACKAGING_G) : "inconnu")
+  p.set("payment_intent_data[description]", `Maison Truffe — ${recap}`.slice(0, 490))
   p.set("metadata[commande]", recap)
   if (body.customer?.name) p.set("metadata[nom]", String(body.customer.name).slice(0, 200))
   if (body.customer?.message) p.set("metadata[message]", String(body.customer.message).slice(0, 490))

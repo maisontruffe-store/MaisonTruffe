@@ -14,6 +14,7 @@ IMG_BASE = "https://latruffieredemarcel.com/cdn/shop/files/"
 # ------------------------------------------------------------ réglages commerciaux
 SHIP_PRICE = 6.90          # frais de port
 FREE_SHIP = 59             # livraison offerte à partir de
+PACKAGING_G = 250        # poids estimé du carton + calage (à ajuster)
 GUARANTEE_TITLE = "Colis protégé"
 GUARANTEE_TEXT = ("Un pot cassé ou un produit abîmé à la réception ? Envoyez-nous une photo sous 48 h : "
                   "on vous le remplace ou on vous le rembourse.")
@@ -278,15 +279,22 @@ for f in (SRC / "assets").iterdir():
 for f in (SRC / "static").glob("*"):
     shutil.copy(f, OUT / f.name)   # fichiers à la racine (vérifications Google, Bing…)
 
+def weight_of(p):
+    if p.get("bundle"):
+        ws = [BYSLUG[s].get("weight_g") for s in p["bundle"]]
+        return sum(ws) if all(w for w in ws) else None
+    return p.get("weight_g")
 cat_js = {p["slug"]: {"name": p["name"], "price": p["price"], "img": img(p, 200), "cat": p["cat"]} for p in P}
+cat_srv = {p["slug"]: {"name": p["name"], "price": p["price"], "img": img(p, 200), "cat": p["cat"], "weight_g": weight_of(p)} for p in P}
 (OUT / "assets" / "catalog.js").write_text(
     "window.MT_CATALOG=" + json.dumps(cat_js, ensure_ascii=False) +
     f";window.MT_SHIP={{price:{SHIP_PRICE},free:{FREE_SHIP}}};", encoding="utf-8")
 (ROOT / "netlify" / "lib").mkdir(parents=True, exist_ok=True)
 (ROOT / "netlify" / "lib" / "catalog.mts").write_text(
     "// Généré par src/build.py — ne pas modifier à la main\n"
-    "export const CATALOG: Record<string, { name: string; price: number; img: string; cat: string }> = " +
-    json.dumps(cat_js, ensure_ascii=False, indent=1) + f";\nexport const SHIP = {{ price: {SHIP_PRICE}, free: {FREE_SHIP} }};\n",
+    "export const CATALOG: Record<string, { name: string; price: number; img: string; cat: string; weight_g: number | null }> = " +
+    json.dumps(cat_srv, ensure_ascii=False, indent=1) + f";\nexport const SHIP = {{ price: {SHIP_PRICE}, free: {FREE_SHIP} }};\n"
+    f"export const PACKAGING_G = {PACKAGING_G};\nexport const OWNER_EMAIL = {json.dumps(EMAIL)};\n",
     encoding="utf-8")
 
 # ---- Accueil

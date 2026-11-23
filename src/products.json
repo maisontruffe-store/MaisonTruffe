@@ -88,7 +88,8 @@
    "Viandes rôties et volailles",
    "Cadeau d'anniversaire, de Noël ou de remerciement"
   ],
-  "bestseller": true
+  "bestseller": true,
+  "weight_g": null
  },
  {
   "slug": "truffe-ete-en-lamelles",
@@ -105,7 +106,8 @@
    "Salades et carpaccios de poisson",
    "Fromages affinés, volaille, purée"
   ],
-  "bestseller": true
+  "bestseller": true,
+  "weight_g": null
  },
  {
   "slug": "huile-olive-vierge-extra-truffe-noire",
@@ -122,7 +124,8 @@
    "Pizza blanche, carpaccio de bœuf",
    "Vinaigrette de fête"
   ],
-  "bestseller": true
+  "bestseller": true,
+  "weight_g": null
  },
  {
   "slug": "huile-olive-vierge-extra-truffe-blanche",
@@ -138,7 +141,8 @@
    "Risotto, polenta, purée",
    "Carpaccio et burrata",
    "Frites maison et pop-corn"
-  ]
+  ],
+  "weight_g": null
  },
  {
   "slug": "condiment-saveur-truffe-noire",
@@ -154,7 +158,8 @@
    "Pâtes et risottos",
    "Viandes grillées, légumes rôtis",
    "Foie gras, gratins, purées"
-  ]
+  ],
+  "weight_g": null
  },
  {
   "slug": "condiment-truffe-blanche-lamelles-bianchetto",
@@ -170,7 +175,8 @@
    "Poisson cru et carpaccios",
    "Pâtes fraîches, risotto",
    "Foie gras, volaille, légumes"
-  ]
+  ],
+  "weight_g": null
  },
  {
   "slug": "condiment-saveur-truffe-ete-poudre",
@@ -186,7 +192,8 @@
    "Pâtes, risottos, purées",
    "Sauces et gratins",
    "Pop-corn et frites"
-  ]
+  ],
+  "weight_g": null
  },
  {
   "slug": "sel-de-guerande-saveur-truffe-noire",
@@ -202,7 +209,8 @@
    "Œufs, purées, pâtes",
    "Légumes rôtis",
    "Foie gras et toasts apéritifs"
-  ]
+  ],
+  "weight_g": null
  },
  {
   "slug": "creme-vinaigre-balsamique-modene-truffe",
@@ -218,7 +226,8 @@
    "Légumes grillés",
    "Risottos, viandes blanches, poissons",
    "Plateau de fromages"
-  ]
+  ],
+  "weight_g": null
  },
  {
   "slug": "miel-acacia-saveur-truffe-ete",
@@ -234,7 +243,8 @@
    "Foie gras",
    "Laquage de volaille ou magret",
    "Vinaigrette sucrée-salée"
-  ]
+  ],
+  "weight_g": null
  },
  {
   "slug": "moutarde-brisures-truffe-brumale-poivre-noir",
@@ -250,7 +260,8 @@
    "Viandes rôties et volaille",
    "Poisson grillé",
    "Vinaigrettes et purées"
-  ]
+  ],
+  "weight_g": null
  },
  {
   "slug": "creme-de-truffe-ete",
@@ -267,7 +278,8 @@
    "Risotto et purée",
    "Farce de volaille, œufs cocotte"
   ],
-  "bestseller": true
+  "bestseller": true,
+  "weight_g": null
  },
  {
   "slug": "creme-de-cepes-truffe-blanche",
@@ -283,7 +295,8 @@
    "Risotto et pâtes fraîches",
    "Purée et gratin",
    "Volaille et poisson"
-  ]
+  ],
+  "weight_g": null
  },
  {
   "slug": "pesto-saveur-truffe-ete",
@@ -299,7 +312,8 @@
    "Bruschettas et sandwichs",
    "Légumes grillés",
    "Pizza et focaccia"
-  ]
+  ],
+  "weight_g": null
  },
  {
   "slug": "delice-artichaut-truffes-ete",
@@ -315,7 +329,8 @@
    "Risotto, pâtes, purée",
    "Poisson grillé",
    "Volaille rôtie, gratins"
-  ]
+  ],
+  "weight_g": null
  },
  {
   "slug": "delice-aubergine-truffes-ete",
@@ -331,7 +346,8 @@
    "Dip avec bâtonnets de légumes",
    "Pâtes, risotto, purée",
    "Poisson, volaille, légumes farcis"
-  ]
+  ],
+  "weight_g": null
  },
  {
   "slug": "delice-olives-noires-truffes-ete",
@@ -347,7 +363,8 @@
    "Feuilletés et verrines",
    "Sauce pour pâtes",
    "Volaille rôtie, purée"
-  ]
+  ],
+  "weight_g": null
  },
  {
   "slug": "delice-courgettes-truffes-ete",
@@ -363,7 +380,8 @@
    "Verrines apéritives",
    "Pâtes et risotto",
    "Poisson et viandes blanches"
-  ]
+  ],
+  "weight_g": null
  },
  {
   "slug": "saucisson-truffe",
@@ -379,7 +397,8 @@
    "Entrée ou buffet festif",
    "Panier cadeau",
    "Pique-nique chic"
-  ]
+  ],
+  "weight_g": null
  },
  {
   "slug": "tagliatelle-saveur-truffe-blanche",
@@ -395,6 +414,7 @@
    "Avec la crème de truffe d'été",
    "Avec quelques lamelles de truffe",
    "Avec l'huile à la truffe blanche"
-  ]
+  ],
+  "weight_g": null
  }
 ]
