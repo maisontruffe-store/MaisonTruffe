@@ -54,7 +54,7 @@ def img(p, w=800):
 def jsonld(o): return '<script type="application/ld+json">' + json.dumps(o, ensure_ascii=False) + "</script>"
 
 ORG = {"@context": "https://schema.org", "@type": "OnlineStore", "@id": SITE + "/#org", "name": BRAND,
-       "url": SITE + "/", "logo": SITE + "/assets/logo.svg",
+       "url": SITE + "/", "logo": SITE + "/assets/logo-maison-truffe.png",
        "description": "Épicerie fine en ligne spécialisée dans les produits à la truffe : huiles, crèmes, condiments, coffrets cadeaux et truffe d'été. Livraison en France.",
        "areaServed": "FR", "email": EMAIL, "contactPoint": {"@type": "ContactPoint", "contactType": "customer service", "email": EMAIL, "availableLanguage": "French"}, "currenciesAccepted": "EUR", "paymentAccepted": "Carte bancaire, Apple Pay, Google Pay"}
 SHIPPING = {"@type": "OfferShippingDetails",
@@ -66,7 +66,7 @@ SHIPPING = {"@type": "OfferShippingDetails",
 
 def page(path, title, desc, body, schema=None, og_img=None, noindex=False, cls=""):
     url = SITE + path
-    og_img = og_img or img(BYSLUG["coffret-gourmand-autour-de-la-truffe"], 1200)
+    og_img = og_img or SITE + "/assets/og-maison-truffe.jpg"
     robots = "noindex" if noindex else "index, follow, max-image-preview:large"
     doc = f"""<!DOCTYPE html>
 <html lang="fr">
@@ -82,7 +82,8 @@ def page(path, title, desc, body, schema=None, og_img=None, noindex=False, cls="
 <meta property="og:url" content="{url}"><meta property="og:image" content="{e(og_img)}">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#16110d">
-<link rel="icon" href="/assets/logo.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="alternate" type="application/rss+xml" title="Blog Maison Truffe" href="/feed.xml">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,700;1,600&family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -93,7 +94,7 @@ def page(path, title, desc, body, schema=None, og_img=None, noindex=False, cls="
 <div class="topbar">Livraison offerte dès {FREE_SHIP} € · Expédition sous 1 à 3 jours ouvrés · Paiement sécurisé</div>
 <header class="site-header">
   <div class="wrap header-inner">
-    <a class="logo" href="/" aria-label="{BRAND} — accueil"><svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 5c5 0 8.5 2.2 11 5 3.2 3.4 4.2 7.6 3.3 12-1 5-4.3 9.2-9 11.2-4.4 1.9-9.6 1.6-13.6-.9C7.6 29.8 5 25.6 5 20.8 5 15.3 7.4 10.6 11.3 7.8 13.8 6 16.7 5 20 5z" fill="#2a1c12"/><g fill="#7a5a43"><circle cx="13" cy="13" r="1.6"/><circle cx="20" cy="10" r="1.4"/><circle cx="27" cy="13.5" r="1.6"/><circle cx="10.5" cy="20" r="1.5"/><circle cx="17" cy="17" r="1.3"/><circle cx="24" cy="19" r="1.5"/><circle cx="30" cy="21" r="1.3"/><circle cx="14" cy="25" r="1.5"/><circle cx="21" cy="25.5" r="1.4"/><circle cx="27.5" cy="27" r="1.5"/><circle cx="18" cy="31" r="1.2"/></g><path d="M12 10.5c2.5-2.2 5.5-3 8-3" stroke="#8a6a4d" stroke-width="1.4" fill="none" stroke-linecap="round"/><path d="M31 4l1.2 2.8L35 8l-2.8 1.2L31 12l-1.2-2.8L27 8l2.8-1.2z" fill="#c09a4e"/></svg>Maison <em>Truffe</em></a>
+    <a class="logo" href="/" aria-label="{BRAND} — accueil"><img class="logo-mark" src="/assets/logo-emblem.png" alt="" width="58" height="47">Maison <em>Truffe</em></a>
     <nav class="nav" aria-label="Navigation principale">
       <a href="/categorie/offres/" class="nav-hot">Coffrets malins</a>
       <a href="/boutique/">Boutique</a>
@@ -119,7 +120,7 @@ def page(path, title, desc, body, schema=None, og_img=None, noindex=False, cls="
 <footer class="site-footer">
   <div class="wrap footer-grid">
     <div>
-      <div class="logo logo-footer"><svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 5c5 0 8.5 2.2 11 5 3.2 3.4 4.2 7.6 3.3 12-1 5-4.3 9.2-9 11.2-4.4 1.9-9.6 1.6-13.6-.9C7.6 29.8 5 25.6 5 20.8 5 15.3 7.4 10.6 11.3 7.8 13.8 6 16.7 5 20 5z" fill="#2a1c12"/><g fill="#7a5a43"><circle cx="13" cy="13" r="1.6"/><circle cx="20" cy="10" r="1.4"/><circle cx="27" cy="13.5" r="1.6"/><circle cx="10.5" cy="20" r="1.5"/><circle cx="17" cy="17" r="1.3"/><circle cx="24" cy="19" r="1.5"/><circle cx="30" cy="21" r="1.3"/><circle cx="14" cy="25" r="1.5"/><circle cx="21" cy="25.5" r="1.4"/><circle cx="27.5" cy="27" r="1.5"/><circle cx="18" cy="31" r="1.2"/></g><path d="M12 10.5c2.5-2.2 5.5-3 8-3" stroke="#8a6a4d" stroke-width="1.4" fill="none" stroke-linecap="round"/><path d="M31 4l1.2 2.8L35 8l-2.8 1.2L31 12l-1.2-2.8L27 8l2.8-1.2z" fill="#c09a4e"/></svg>Maison <em>Truffe</em></div>
+      <div class="logo logo-footer"><img class="logo-mark" src="/assets/logo-emblem.png" alt="" width="58" height="47">Maison <em>Truffe</em></div>
       <p>Épicerie fine en ligne dédiée à la truffe : des plats de chef en 10 minutes, sans savoir cuisiner. Livraison partout en France.</p>
       <p>✉️ <a href="mailto:{EMAIL}">{EMAIL}</a></p>
     </div>
@@ -140,7 +141,7 @@ def page(path, title, desc, body, schema=None, og_img=None, noindex=False, cls="
       <li><a href="/confidentialite/">Confidentialité</a></li>
       <li><a href="/contact/">Contact</a></li></ul></div>
   </div>
-  <div class="wrap footer-bottom">© {datetime.date.today().year} {BRAND} · Paiement sécurisé par Stripe</div>
+  <div class="wrap footer-bottom"><span>© {datetime.date.today().year} {BRAND} · Paiement sécurisé par Stripe</span><span>Site réalisé par <a href="https://sitepropulse.fr" target="_blank" rel="noopener">Site Propulse</a></span></div>
 </footer>
 <a class="float-cart" href="/panier/" data-float-cart hidden><span>🛒 <b data-fc-n>0</b> article(s) · <b data-fc-t>0 €</b></span><span class="fc-go">Commander →</span></a>
 <div class="toast" data-toast role="status" aria-live="polite"></div>
