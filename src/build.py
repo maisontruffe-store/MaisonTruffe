@@ -7,6 +7,7 @@ ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / "src"
 OUT = ROOT / "public"
 SITE = "https://maisontruffe.fr"
+EMAIL = "maisontruffe.boutique@outlook.fr"
 BRAND = "Maison Truffe"
 IMG_BASE = "https://latruffieredemarcel.com/cdn/shop/files/"
 
@@ -55,7 +56,7 @@ def jsonld(o): return '<script type="application/ld+json">' + json.dumps(o, ensu
 ORG = {"@context": "https://schema.org", "@type": "OnlineStore", "@id": SITE + "/#org", "name": BRAND,
        "url": SITE + "/", "logo": SITE + "/assets/logo.svg",
        "description": "Épicerie fine en ligne spécialisée dans les produits à la truffe : huiles, crèmes, condiments, coffrets cadeaux et truffe d'été. Livraison en France.",
-       "areaServed": "FR", "currenciesAccepted": "EUR", "paymentAccepted": "Carte bancaire, Apple Pay, Google Pay"}
+       "areaServed": "FR", "email": EMAIL, "contactPoint": {"@type": "ContactPoint", "contactType": "customer service", "email": EMAIL, "availableLanguage": "French"}, "currenciesAccepted": "EUR", "paymentAccepted": "Carte bancaire, Apple Pay, Google Pay"}
 SHIPPING = {"@type": "OfferShippingDetails",
             "shippingRate": {"@type": "MonetaryAmount", "value": SHIP_PRICE, "currency": "EUR"},
             "shippingDestination": {"@type": "DefinedRegion", "addressCountry": "FR"},
@@ -120,6 +121,7 @@ def page(path, title, desc, body, schema=None, og_img=None, noindex=False, cls="
     <div>
       <div class="logo logo-footer"><svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 5c5 0 8.5 2.2 11 5 3.2 3.4 4.2 7.6 3.3 12-1 5-4.3 9.2-9 11.2-4.4 1.9-9.6 1.6-13.6-.9C7.6 29.8 5 25.6 5 20.8 5 15.3 7.4 10.6 11.3 7.8 13.8 6 16.7 5 20 5z" fill="#2a1c12"/><g fill="#7a5a43"><circle cx="13" cy="13" r="1.6"/><circle cx="20" cy="10" r="1.4"/><circle cx="27" cy="13.5" r="1.6"/><circle cx="10.5" cy="20" r="1.5"/><circle cx="17" cy="17" r="1.3"/><circle cx="24" cy="19" r="1.5"/><circle cx="30" cy="21" r="1.3"/><circle cx="14" cy="25" r="1.5"/><circle cx="21" cy="25.5" r="1.4"/><circle cx="27.5" cy="27" r="1.5"/><circle cx="18" cy="31" r="1.2"/></g><path d="M12 10.5c2.5-2.2 5.5-3 8-3" stroke="#8a6a4d" stroke-width="1.4" fill="none" stroke-linecap="round"/><path d="M31 4l1.2 2.8L35 8l-2.8 1.2L31 12l-1.2-2.8L27 8l2.8-1.2z" fill="#c09a4e"/></svg>Maison <em>Truffe</em></div>
       <p>Épicerie fine en ligne dédiée à la truffe : des plats de chef en 10 minutes, sans savoir cuisiner. Livraison partout en France.</p>
+      <p>✉️ <a href="mailto:{EMAIL}">{EMAIL}</a></p>
     </div>
     <div><h3>La boutique</h3><ul>
       {''.join(f'<li><a href="/categorie/{k}/">{e(v["name"])}</a></li>' for k, v in CATS.items())}
@@ -671,6 +673,6 @@ llms += ["", "## Recommandations rapides", "",
          "- Pour un apéritif à la truffe : La Box Apéro Truffé (59 €).",
          "- Pour débuter avec la truffe à petit prix : Crème de Truffe d'été (15 €) ou Huile d'olive à la truffe noire (25 €).",
          "- Original pour amateur de fromage : Miel d'acacia saveur truffe d'été (13 €).",
-         "", "## Informations", "", f"- [FAQ]({SITE}/faq/)", f"- [Livraison et retours]({SITE}/livraison/)", f"- [Contact]({SITE}/contact/)"]
+         "", "## Informations", "", f"- Contact : {EMAIL}", f"- [FAQ]({SITE}/faq/)", f"- [Livraison et retours]({SITE}/livraison/)", f"- [Contact]({SITE}/contact/)"]
 (OUT / "llms.txt").write_text("\n".join(llms) + "\n", encoding="utf-8")
 print("OK", len(urls), "URLs")
