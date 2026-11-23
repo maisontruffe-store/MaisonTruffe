@@ -59,11 +59,18 @@ export default async (req: Request, context: Context) => {
     if (prod.img) p.set(`line_items[${n}][price_data][product_data][images][0]`, prod.img)
   })
 
+  // Numéro de commande lisible : MT-AAMMJJ-XXXX
+  const d = new Date(), pad = (n: number) => String(n).padStart(2, "0")
+  const rnd = Array.from(crypto.getRandomValues(new Uint8Array(4))).map((b) => "ABCDEFGHJKLMNPQRSTUVWXYZ23456789"[b % 32]).join("")
+  const orderNo = `MT-${String(d.getFullYear()).slice(2)}${pad(d.getMonth() + 1)}${pad(d.getDate())}-${rnd}`
+  p.set("client_reference_id", orderNo)
+  p.set("metadata[commande_no]", orderNo)
+  p.set("payment_intent_data[metadata][commande_no]", orderNo)
   const recap = items.map((i) => `${i.qty}x ${CATALOG[i.slug].name}`).join(" | ").slice(0, 490)
   p.set("metadata[items]", items.map((i) => `${i.slug}:${i.qty}`).join(";").slice(0, 490))
   const weights = items.map((i) => (CATALOG[i.slug].weight_g ? CATALOG[i.slug].weight_g! * i.qty : null))
   p.set("metadata[poids_g]", weights.every((w) => w !== null) ? String(weights.reduce((a, b) => a! + b!, 0)! + PACKAGING_G) : "inconnu")
-  p.set("payment_intent_data[description]", `Maison Truffe — ${recap}`.slice(0, 490))
+  p.set("payment_intent_data[description]", `Commande ${orderNo} — ${recap}`.slice(0, 490))
   p.set("metadata[commande]", recap)
   if (body.customer?.name) p.set("metadata[nom]", String(body.customer.name).slice(0, 200))
   if (body.customer?.message) p.set("metadata[message]", String(body.customer.message).slice(0, 490))

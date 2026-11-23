@@ -54,6 +54,7 @@ export default async (req: Request, context: Context) => {
   if (s.payment_status && s.payment_status !== "paid") return Response.json({ ignored: "unpaid" })
 
   const md = s.metadata || {}
+  const no = md.commande_no || s.client_reference_id || String(s.id).slice(-8).toUpperCase()
   const lines = String(md.items || "").split(";").filter(Boolean).map((x: string) => {
     const [slug, q] = x.split(":"); const p = CATALOG[slug]
     return { name: p?.name ?? slug, qty: Number(q) || 1, price: p?.price ?? 0, w: p?.weight_g ?? null }
@@ -65,13 +66,14 @@ export default async (req: Request, context: Context) => {
   const first = String(name).split(" ")[0] || ""
   const rows = lines.map((l) => `<tr><td style="padding:6px 0;border-bottom:1px solid #e8dcc6">${l.qty} × ${esc(l.name)}</td><td align="right" style="padding:6px 0;border-bottom:1px solid #e8dcc6">${eur(Math.round(l.price * 100) * l.qty)}</td></tr>`).join("")
   const shipCost = s.total_details?.amount_shipping ?? 0
-  const addrHtml = [name, addr.line1, addr.line2, `${addr.postal_code ?? ""} ${addr.city ?? ""}`, addr.country].filter(Boolean).map(esc).join("<br>")
+  const addrHtml = [name, addr.line1, addr.line2, `${addr.postal_code ?? ""} ${addr.city ?? ""}`, ({ FR: "France", BE: "Belgique", LU: "Luxembourg", MC: "Monaco" } as Record<string, string>)[addr.country] ?? addr.country].filter(Boolean).map(esc).join("<br>")
   const relay = md.relais ? `<p><b>Point Relais choisi :</b> ${esc(md.relais)}</p>` : ""
 
   // 1) Client
   if (cust.email) {
-    await send({ email: cust.email, name }, "Merci pour votre commande — Maison Truffe", layout(`
+    await send({ email: cust.email, name }, `Merci pour votre commande n° ${no} — Maison Truffe`, layout(`
 <h1 style="font-family:Georgia,serif;font-size:26px;margin:0 0 12px">Merci ${esc(first)} !</h1>
+<p style="background:#f6efe2;border-radius:10px;padding:10px 14px;font-size:16px">Commande n° <b>${esc(no)}</b></p>
 <p>Votre commande est bien confirmée et votre paiement a été reçu. Nous la préparons avec soin : elle sera expédiée sous <b>1 à 3 jours ouvrés</b>, et vous recevrez un e-mail avec le suivi du colis dès son départ.</p>
 <h2 style="font-family:Georgia,serif;font-size:19px;margin:22px 0 6px">Votre commande</h2>
 <table width="100%" cellpadding="0" cellspacing="0" style="font-size:14px">${rows}
@@ -80,15 +82,15 @@ export default async (req: Request, context: Context) => {
 ${relay}${addrHtml ? `<p><b>Livraison :</b><br>${addrHtml}</p>` : ""}
 <h2 style="font-family:Georgia,serif;font-size:19px;margin:22px 0 6px">En attendant votre colis…</h2>
 <p>Découvrez nos <a href="https://maisontruffe.fr/recettes/" style="color:#8f6c2c;font-weight:bold">12 recettes à la truffe en 10 minutes</a> : tagliatelles crémeuses, œufs brouillés truffés, planche apéro… chaque recette indique quel produit utiliser.</p>
-<p>Un pot abîmé à la réception ? Envoyez-nous une photo sous 48 h, on le remplace.</p>
+<p>Un pot abîmé à la réception ? Envoyez-nous une photo sous 48 h en rappelant votre numéro de commande, on le remplace.</p>
 <p>À très bientôt,<br><b>L'équipe Maison Truffe</b></p>`))
   }
 
   // 2) Boutique : fiche d'expédition
   const wKnown = lines.every((l) => l.w)
   const wTotal = wKnown ? lines.reduce((a, l) => a + (l.w as number) * l.qty, 0) + PACKAGING_G : null
-  await send({ email: OWNER_EMAIL, name: "Maison Truffe" }, `🛒 Nouvelle commande à expédier — ${eur(s.amount_total ?? 0)} — ${name}`, layout(`
-<h1 style="font-family:Georgia,serif;font-size:24px;margin:0 0 12px">Nouvelle commande payée</h1>
+  await send({ email: OWNER_EMAIL, name: "Maison Truffe" }, `🛒 Commande ${no} à expédier — ${eur(s.amount_total ?? 0)} — ${name}`, layout(`
+<h1 style="font-family:Georgia,serif;font-size:24px;margin:0 0 12px">Commande n° ${esc(no)} — payée</h1>
 <p><b>Client :</b> ${esc(name)} · ${esc(cust.email)} · ${esc(cust.phone || "")}</p>
 <p><b>Mode de livraison :</b> ${esc(md.livraison || "Domicile")}</p>${relay}
 <p><b>Adresse :</b><br>${addrHtml || "—"}</p>
