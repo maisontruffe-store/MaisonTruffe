@@ -18,6 +18,7 @@ GUARANTEE_TITLE = "Colis protégé"
 GUARANTEE_TEXT = ("Un pot cassé ou un produit abîmé à la réception ? Envoyez-nous une photo sous 48 h : "
                   "on vous le remplace ou on vous le rembourse.")
 TODAY = datetime.date.today().isoformat()
+VER = datetime.datetime.now().strftime("%Y%m%d%H%M")
 
 P = json.loads((SRC / "products.json").read_text(encoding="utf-8"))
 BYSLUG = {p["slug"]: p for p in P}
@@ -87,7 +88,7 @@ def page(path, title, desc, body, schema=None, og_img=None, noindex=False, cls="
 <link rel="alternate" type="application/rss+xml" title="Blog Maison Truffe" href="/feed.xml">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,700;1,600&family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/style.css">
+<link rel="stylesheet" href="/assets/style.css?v={VER}">
 {''.join(jsonld(s) for s in [ORG] + (schema or []))}
 </head>
 <body class="{cls}">
@@ -145,8 +146,8 @@ def page(path, title, desc, body, schema=None, og_img=None, noindex=False, cls="
 </footer>
 <a class="float-cart" href="/panier/" data-float-cart hidden><span>🛒 <b data-fc-n>0</b> article(s) · <b data-fc-t>0 €</b></span><span class="fc-go">Commander →</span></a>
 <div class="toast" data-toast role="status" aria-live="polite"></div>
-<script src="/assets/catalog.js"></script>
-<script src="/assets/cart.js"></script>
+<script src="/assets/catalog.js?v={VER}"></script>
+<script src="/assets/cart.js?v={VER}"></script>
 </body>
 </html>"""
     target = OUT / path.strip("/") if path.endswith(".html") else (OUT / path.strip("/") / "index.html" if path != "/" else OUT / "index.html")
