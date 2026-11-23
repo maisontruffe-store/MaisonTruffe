@@ -89,7 +89,7 @@
    "Cadeau d'anniversaire, de Noël ou de remerciement"
   ],
   "bestseller": true,
-  "weight_g": null
+  "weight_g": 540
  },
  {
   "slug": "truffe-ete-en-lamelles",
@@ -107,7 +107,7 @@
    "Fromages affinés, volaille, purée"
   ],
   "bestseller": true,
-  "weight_g": null
+  "weight_g": 123
  },
  {
   "slug": "huile-olive-vierge-extra-truffe-noire",
@@ -244,7 +244,7 @@
    "Laquage de volaille ou magret",
    "Vinaigrette sucrée-salée"
   ],
-  "weight_g": null
+  "weight_g": 220
  },
  {
   "slug": "moutarde-brisures-truffe-brumale-poivre-noir",
@@ -279,7 +279,7 @@
    "Farce de volaille, œufs cocotte"
   ],
   "bestseller": true,
-  "weight_g": null
+  "weight_g": 314
  },
  {
   "slug": "creme-de-cepes-truffe-blanche",

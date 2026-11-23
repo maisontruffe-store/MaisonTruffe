@@ -29,7 +29,7 @@ export const CATALOG: Record<string, { name: string; price: number; img: string;
   "price": 30.0,
   "img": "https://latruffieredemarcel.com/cdn/shop/files/PACK1Shopify.png?v=1757672512&width=200",
   "cat": "coffrets-truffes",
-  "weight_g": null,
+  "weight_g": 540,
   "test": false
  },
  "truffe-ete-en-lamelles": {
@@ -37,7 +37,7 @@ export const CATALOG: Record<string, { name: string; price: number; img: string;
   "price": 30.0,
   "img": "https://latruffieredemarcel.com/cdn/shop/files/Truffed_eteenLamelle.png?v=1757935202&width=200",
   "cat": "coffrets-truffes",
-  "weight_g": null,
+  "weight_g": 123,
   "test": false
  },
  "huile-olive-vierge-extra-truffe-noire": {
@@ -101,7 +101,7 @@ export const CATALOG: Record<string, { name: string; price: number; img: string;
   "price": 13.0,
   "img": "https://latruffieredemarcel.com/cdn/shop/files/MielAcaciaSaveurTruffed_eteShopify.png?v=1757671942&width=200",
   "cat": "huiles-condiments",
-  "weight_g": null,
+  "weight_g": 220,
   "test": false
  },
  "moutarde-brisures-truffe-brumale-poivre-noir": {
@@ -117,7 +117,7 @@ export const CATALOG: Record<string, { name: string; price: number; img: string;
   "price": 15.0,
   "img": "https://latruffieredemarcel.com/cdn/shop/files/CremedeTruffed_eteShopify_f61f4901-cfb1-4e4b-9caf-378d4fc0e206.png?v=1757693189&width=200",
   "cat": "cremes-tartinables",
-  "weight_g": null,
+  "weight_g": 314,
   "test": false
  },
  "creme-de-cepes-truffe-blanche": {
