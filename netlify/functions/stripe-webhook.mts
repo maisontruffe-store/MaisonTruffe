@@ -1,6 +1,7 @@
 import type { Context } from "@netlify/functions"
 import { createHmac, timingSafeEqual } from "node:crypto"
 import { CATALOG, PACKAGING_G, OWNER_EMAIL } from "../lib/catalog.mts"
+import { ordersStore, type Order } from "../lib/orders.mts"
 
 // Reçoit l'événement Stripe « checkout.session.completed » (paiement réussi) et envoie, via Brevo :
 //  1) au client : l'e-mail « Merci pour votre commande »
@@ -8,7 +9,7 @@ import { CATALOG, PACKAGING_G, OWNER_EMAIL } from "../lib/catalog.mts"
 // Variables d'environnement : STRIPE_WEBHOOK_SECRET, BREVO_API_KEY, MAIL_SENDER (ex. commandes@maisontruffe.fr)
 
 const eur = (cents: number) => (cents / 100).toFixed(2).replace(".", ",") + " €"
-const esc = (s: unknown) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]!)
+export const esc = (s: unknown) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]!)
 
 function verify(raw: string, header: string | null, secret: string): boolean {
   if (!header) return false
@@ -20,7 +21,7 @@ function verify(raw: string, header: string | null, secret: string): boolean {
   return sig.some((s) => s.length === expected.length && timingSafeEqual(Buffer.from(s), Buffer.from(expected)))
 }
 
-async function send(to: { email: string; name?: string }, subject: string, html: string) {
+export async function send(to: { email: string; name?: string }, subject: string, html: string) {
   const key = Netlify.env.get("BREVO_API_KEY"), sender = Netlify.env.get("MAIL_SENDER")
   if (!key || !sender) { console.log("Brevo non configuré : e-mail non envoyé →", to.email, subject); return }
   const r = await fetch("https://api.brevo.com/v3/smtp/email", {
@@ -32,7 +33,7 @@ async function send(to: { email: string; name?: string }, subject: string, html:
   if (!r.ok) console.error("Brevo", r.status, await r.text())
 }
 
-function layout(inner: string) {
+export function layout(inner: string) {
   return `<!doctype html><html lang="fr"><body style="margin:0;background:#f6efe2;font-family:Arial,Helvetica,sans-serif;color:#1d1712">
 <table width="100%" cellpadding="0" cellspacing="0" style="background:#f6efe2;padding:24px 0"><tr><td align="center">
 <table width="600" cellpadding="0" cellspacing="0" style="max-width:600px;background:#fffcf6;border-radius:16px;overflow:hidden">
@@ -99,6 +100,22 @@ ${relay}${addrHtml ? `<p><b>Livraison :</b><br>${addrHtml}</p>` : ""}
 <p><b>Total payé :</b> ${eur(s.amount_total ?? 0)} (dont livraison ${eur(shipCost)})</p>
 ${md.message ? `<p><b>Message du client :</b> ${esc(md.message)}</p>` : ""}
 <p>➜ Créez l'étiquette sur <a href="https://www.boxtal.com" style="color:#8f6c2c">Boxtal</a> avec ce poids et cette adresse.</p>`))
+
+  // 3) Enregistrement dans le tableau de bord des commandes
+  try {
+    const store = ordersStore()
+    if (!(await store.get(no))) {
+      const order: Order = {
+        no, date: new Date((s.created ?? Date.now() / 1000) * 1000).toISOString(), status: "Nouvelle",
+        name, email: cust.email ?? "", phone: cust.phone ?? "", delivery: md.livraison || "Domicile", relay: md.relais || "",
+        address: [addr.line1, addr.line2, `${addr.postal_code ?? ""} ${addr.city ?? ""}`].filter(Boolean).join(", "),
+        postal: addr.postal_code ?? "", country: addr.country ?? "FR",
+        items: lines, weight_g: wTotal, total: (s.amount_total ?? 0) / 100, shipping: shipCost / 100, message: md.message || "",
+        carrier: "Mondial Relay", tracking: "", history: [{ at: new Date().toISOString(), status: "Nouvelle" }],
+      }
+      await store.setJSON(no, order)
+    }
+  } catch (e) { console.error("Enregistrement commande", e) }
 
   return Response.json({ ok: true })
 }

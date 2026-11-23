@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Commandes — Maison Truffe</title>
+<link rel="icon" href="/assets/favicon.png">
+<style>
+@font-face{font-family:Inter;src:url(/assets/inter-latin-400-normal.woff2) format("woff2");font-weight:400}
+@font-face{font-family:Inter;src:url(/assets/inter-latin-600-normal.woff2) format("woff2");font-weight:600}
+@font-face{font-family:Inter;src:url(/assets/inter-latin-700-normal.woff2) format("woff2");font-weight:700}
+:root{--ink:#16110d;--cream:#f6efe2;--paper:#fffcf6;--gold:#c09a4e;--gold-d:#8f6c2c;--line:#e8dcc6;--muted:#75695b}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,sans-serif;background:var(--cream);color:var(--ink);font-size:15px}
+header{background:var(--ink);color:#fff;padding:12px 20px;display:flex;align-items:center;gap:14px;position:sticky;top:0;z-index:5}
+header img{height:40px;background:#fffcf6;border-radius:8px;padding:3px 6px}header h1{font-size:1.15rem;margin:0;flex:1}
+button,select,input{font:inherit}
+.btn{border:0;border-radius:999px;padding:8px 14px;font-weight:600;cursor:pointer;background:#fff;color:var(--ink)}
+.btn-gold{background:linear-gradient(135deg,#d6b46c,#b88d3e);color:#1b130b}.btn-dark{background:var(--ink);color:#fff}
+.wrap{max-width:1200px;margin:0 auto;padding:20px}
+.login{max-width:380px;margin:80px auto;background:#fff;border-radius:18px;padding:28px;text-align:center}
+.login input{width:100%;padding:12px;border:1.5px solid var(--line);border-radius:10px;margin:14px 0}
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:16px}
+.stat{background:#fff;border-radius:14px;padding:12px 14px;cursor:pointer;border:2px solid transparent}
+.stat.on{border-color:var(--gold)}.stat b{display:block;font-size:1.6rem}.stat span{color:var(--muted);font-size:.85rem}
+.order{background:#fff;border-radius:16px;padding:16px 18px;margin-bottom:12px;display:grid;grid-template-columns:1.3fr 1.6fr 1.4fr;gap:18px;border-left:6px solid var(--line)}
+.order[data-s="Nouvelle"]{border-left-color:#d9534f}.order[data-s="En préparation"]{border-left-color:#f0ad4e}.order[data-s="Expédiée"]{border-left-color:#5b8def}.order[data-s="Livrée"]{border-left-color:#2f6b45}.order[data-s="Annulée"]{border-left-color:#999;opacity:.7}
+.no{font-weight:700;font-size:1.05rem}.muted{color:var(--muted);font-size:.85rem}
+.items{margin:6px 0 0;padding-left:18px}.w{font-weight:700;color:var(--gold-d);font-size:1.05rem}
+.pipe{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}
+.pipe button{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:6px 11px;font-size:.82rem;cursor:pointer}
+.pipe button.cur{background:var(--ink);color:#fff;border-color:var(--ink)}
+.trk{display:flex;gap:6px;flex-wrap:wrap}.trk input,.trk select{flex:1;min-width:120px;padding:8px 10px;border:1.5px solid var(--line);border-radius:10px}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--ink);color:#fff;padding:12px 20px;border-radius:999px;display:none}
+.empty{text-align:center;color:var(--muted);padding:60px 0}
+@media(max-width:860px){.order{grid-template-columns:1fr}.stats{grid-template-columns:repeat(3,1fr)}}
+</style>
+</head>
+<body>
+<header><img src="/assets/logo-emblem.png" alt=""><h1>Commandes Maison Truffe</h1><button class="btn" id="csv" hidden>Exporter (tableur)</button><button class="btn" id="refresh" hidden>Actualiser</button></header>
+<div id="login" class="login" hidden>
+  <h2>Accès commandes</h2><p class="muted">Saisissez le mot de passe du tableau de bord.</p>
+  <input type="password" id="pw" placeholder="Mot de passe" autocomplete="current-password"><button class="btn btn-gold" id="go">Entrer</button><p id="err" class="muted"></p>
+</div>
+<main class="wrap" id="app" hidden>
+  <div class="stats" id="stats"></div>
+  <div id="list"></div>
+</main>
+<div class="toast" id="toast"></div>
+<script>
+(function(){
+  var KEY="mt_admin", pw=localStorage.getItem(KEY)||"", data={orders:[],statuses:[]}, filter="À traiter";
+  var $=function(s){return document.querySelector(s)};
+  function esc(s){return String(s==null?"":s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+  function eur(x){return (+x).toFixed(2).replace(".",",")+" €"}
+  function toast(m){var t=$("#toast");t.textContent=m;t.style.display="block";clearTimeout(t._h);t._h=setTimeout(function(){t.style.display="none"},3000)}
+  function api(method,body){return fetch("/.netlify/functions/admin-orders",{method:method,headers:{"x-admin-key":pw,"Content-Type":"application/json"},body:body?JSON.stringify(body):undefined}).then(function(r){if(r.status===401){throw new Error("401")}return r.json()})}
+  function load(){api("GET").then(function(d){data=d;localStorage.setItem(KEY,pw);$("#login").hidden=true;$("#app").hidden=false;$("#csv").hidden=false;$("#refresh").hidden=false;render()}).catch(function(e){$("#login").hidden=false;$("#app").hidden=true;if(pw)$("#err").textContent="Mot de passe incorrect."})}
+  function render(){
+    var counts={"À traiter":0};data.statuses.forEach(function(s){counts[s]=0});
+    data.orders.forEach(function(o){counts[o.status]=(counts[o.status]||0)+1;if(o.status==="Nouvelle"||o.status==="En préparation")counts["À traiter"]++});
+    var tabs=["À traiter","Nouvelle","En préparation","Expédiée","Livrée","Tout"];
+    $("#stats").innerHTML=tabs.map(function(t){var n=t==="Tout"?data.orders.length:counts[t]||0;return '<div class="stat'+(t===filter?" on":"")+'" data-f="'+t+'"><b>'+n+'</b><span>'+t+'</span></div>'}).join("");
+    var list=data.orders.filter(function(o){return filter==="Tout"||(filter==="À traiter"?(o.status==="Nouvelle"||o.status==="En préparation"):o.status===filter)});
+    $("#list").innerHTML=list.length?list.map(function(o){
+      var d=new Date(o.date);
+      return '<div class="order" data-s="'+esc(o.status)+'" data-no="'+esc(o.no)+'">'+
+      '<div><div class="no">'+esc(o.no)+'</div><div class="muted">'+d.toLocaleDateString("fr-FR")+' '+d.toLocaleTimeString("fr-FR",{hour:"2-digit",minute:"2-digit"})+'</div>'+
+      '<p><b>'+esc(o.name)+'</b><br>'+esc(o.phone)+'<br><a href="mailto:'+esc(o.email)+'">'+esc(o.email)+'</a></p>'+
+      '<p class="muted"><b>'+esc(o.delivery)+'</b><br>'+(o.relay?"Point Relais : "+esc(o.relay)+"<br>":"")+esc(o.address)+'</p></div>'+
+      '<div><ul class="items">'+o.items.map(function(i){return '<li>'+i.qty+' × '+esc(i.name)+'</li>'}).join("")+'</ul>'+
+      '<p class="w">⚖️ '+(o.weight_g?(o.weight_g/1000).toFixed(2).replace(".",",")+" kg":"Poids à peser")+'</p>'+
+      '<p>Total : <b>'+eur(o.total)+'</b> <span class="muted">(livraison '+(o.shipping?eur(o.shipping):"offerte")+')</span></p>'+
+      (o.message?'<p class="muted">💬 '+esc(o.message)+'</p>':"")+'</div>'+
+      '<div><div class="pipe">'+data.statuses.map(function(s){return '<button data-set="'+s+'" class="'+(s===o.status?"cur":"")+'">'+s+'</button>'}).join("")+'</div>'+
+      '<div class="trk"><select data-carrier><option'+(o.carrier==="Mondial Relay"?" selected":"")+'>Mondial Relay</option><option'+(o.carrier==="Colissimo"?" selected":"")+'>Colissimo</option></select>'+
+      '<input data-tracking placeholder="N° de suivi" value="'+esc(o.tracking)+'"></div>'+
+      '<p class="muted">Cliquez sur « Expédiée » après avoir saisi le n° de suivi : le client reçoit automatiquement l’e-mail avec le lien de suivi.</p></div></div>'
+    }).join(""):'<div class="empty">Aucune commande ici pour l’instant.</div>';
+  }
+  document.addEventListener("click",function(e){
+    var f=e.target.closest("[data-f]");if(f){filter=f.dataset.f;render();return}
+    var b=e.target.closest("[data-set]");if(!b)return;
+    var card=b.closest(".order"),no=card.dataset.no,status=b.dataset.set;
+    var tracking=card.querySelector("[data-tracking]").value,carrier=card.querySelector("[data-carrier]").value;
+    if(status==="Expédiée"&&!tracking&&!confirm("Aucun numéro de suivi saisi. Marquer quand même comme expédiée ?"))return;
+    if(status==="Annulée"&&!confirm("Marquer cette commande comme annulée ? (Pensez à rembourser le client dans Stripe.)"))return;
+    b.disabled=true;
+    api("POST",{no:no,status:status,tracking:tracking,carrier:carrier}).then(function(r){
+      if(r.error){toast(r.error);return}
+      data.orders=data.orders.map(function(o){return o.no===no?r.order:o});render();
+      toast(r.mailed?"✓ Statut mis à jour — e-mail d’expédition envoyé au client":"✓ Statut mis à jour");
+    }).catch(function(){toast("Erreur, réessayez")});
+  });
+  document.addEventListener("change",function(e){
+    var card=e.target.closest(".order");if(!card||!e.target.matches("[data-tracking],[data-carrier]"))return;
+    api("POST",{no:card.dataset.no,tracking:card.querySelector("[data-tracking]").value,carrier:card.querySelector("[data-carrier]").value}).then(function(r){if(r.order){data.orders=data.orders.map(function(o){return o.no===r.order.no?r.order:o});toast("✓ Enregistré")}});
+  });
+  $("#go").onclick=function(){pw=$("#pw").value;load()};$("#pw").onkeydown=function(e){if(e.key==="Enter")$("#go").click()};
+  $("#refresh").onclick=load;
+  $("#csv").onclick=function(){
+    var rows=[["N° commande","Date","Statut","Client","E-mail","Téléphone","Livraison","Point Relais","Adresse","Produits","Poids (kg)","Total (€)","Livraison (€)","Transporteur","N° suivi","Message"]];
+    data.orders.forEach(function(o){rows.push([o.no,new Date(o.date).toLocaleString("fr-FR"),o.status,o.name,o.email,o.phone,o.delivery,o.relay,o.address,o.items.map(function(i){return i.qty+" x "+i.name}).join(" | "),o.weight_g?(o.weight_g/1000).toFixed(2).replace(".",","):"",String(o.total).replace(".",","),String(o.shipping).replace(".",","),o.carrier,o.tracking,o.message])});
+    var csv="﻿"+rows.map(function(r){return r.map(function(c){return '"'+String(c==null?"":c).replace(/"/g,'""')+'"'}).join(";")}).join("\n");
+    var a=document.createElement("a");a.href=URL.createObjectURL(new Blob([csv],{type:"text/csv"}));a.download="commandes-maison-truffe.csv";a.click();
+  };
+  setInterval(function(){if(!$("#app").hidden)api("GET").then(function(d){data=d;render()}).catch(function(){})},60000);
+  if(pw)load();else $("#login").hidden=false;
+})();
+</script>
+</body>
+</html>

@@ -276,6 +276,8 @@ if OUT.exists():
 (OUT / "assets").mkdir(parents=True)
 for f in (SRC / "assets").iterdir():
     shutil.copy(f, OUT / "assets" / f.name)
+(OUT / "admin").mkdir(parents=True, exist_ok=True)
+shutil.copy(SRC / "admin.html", OUT / "admin" / "index.html")   # tableau de bord des commandes
 for f in (SRC / "static").glob("*"):
     shutil.copy(f, OUT / f.name)   # fichiers à la racine (vérifications Google, Bing…)
 
@@ -662,7 +664,7 @@ urls += ["/blog/"] + [f"/blog/{m['slug']}/" for m in POSTS]
 urls += [f"/categorie/{k}/" for k in CATS] + [f"/produit/{p['slug']}/" for p in P] + [f"/guides/{k}/" for k in GUIDES]
 (OUT / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
     "".join(f"  <url><loc>{SITE}{u}</loc><lastmod>{TODAY}</lastmod></url>\n" for u in urls) + "</urlset>\n", encoding="utf-8")
-(OUT / "robots.txt").write_text("User-agent: *\nAllow: /\nDisallow: /panier/\nDisallow: /merci/\n\n# Moteurs de réponse IA : bienvenus\n" +
+(OUT / "robots.txt").write_text("User-agent: *\nAllow: /\nDisallow: /panier/\nDisallow: /merci/\nDisallow: /admin/\n\n# Moteurs de réponse IA : bienvenus\n" +
     "".join(f"User-agent: {b}\nAllow: /\n" for b in ["GPTBot", "OAI-SearchBot", "ChatGPT-User", "ClaudeBot", "Claude-SearchBot", "PerplexityBot", "Google-Extended", "Applebot-Extended", "Bingbot"]) +
     f"\nSitemap: {SITE}/sitemap.xml\n", encoding="utf-8")
 
