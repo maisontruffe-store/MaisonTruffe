@@ -86,8 +86,7 @@ def page(path, title, desc, body, schema=None, og_img=None, noindex=False, cls="
 <link rel="icon" href="/assets/favicon.png" type="image/png">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="alternate" type="application/rss+xml" title="Blog Maison Truffe" href="/feed.xml">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,700;1,600&family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preload" href="/assets/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/style.css?v={VER}">
 {''.join(jsonld(s) for s in [ORG] + (schema or []))}
 </head>
@@ -140,11 +139,16 @@ def page(path, title, desc, body, schema=None, og_img=None, noindex=False, cls="
       <li><a href="/cgv/">Conditions générales de vente</a></li>
       <li><a href="/mentions-legales/">Mentions légales</a></li>
       <li><a href="/confidentialite/">Confidentialité</a></li>
+      <li><a href="/cookies/">Cookies</a></li>
       <li><a href="/contact/">Contact</a></li></ul></div>
   </div>
   <div class="wrap footer-bottom"><span>© {datetime.date.today().year} {BRAND} · Paiement sécurisé par Stripe</span><span>Site réalisé par <a href="https://sitepropulse.fr" target="_blank" rel="noopener">Site Propulse</a></span></div>
 </footer>
 <a class="float-cart" href="/panier/" data-float-cart hidden><span>🛒 <b data-fc-n>0</b> article(s) · <b data-fc-t>0 €</b></span><span class="fc-go">Commander →</span></a>
+<div class="cookie-bar" data-cookie hidden role="dialog" aria-label="Cookies">
+  <p>🍪 Ce site utilise uniquement des cookies et traceurs <b>nécessaires</b> à son fonctionnement (panier, paiement sécurisé). Aucun cookie publicitaire ni de mesure d'audience. <a href="/cookies/">Politique cookies</a> · <a href="/cgv/">CGV</a> · <a href="/confidentialite/">Confidentialité</a></p>
+  <div class="cookie-btns"><button class="btn btn-sm btn-outline" data-cookie-ok="refuse">Refuser</button><button class="btn btn-sm btn-gold" data-cookie-ok="accept">Accepter</button></div>
+</div>
 <div class="toast" data-toast role="status" aria-live="polite"></div>
 <script src="/assets/catalog.js?v={VER}"></script>
 <script src="/assets/cart.js?v={VER}"></script>
@@ -645,7 +649,7 @@ rss = "".join(f"<item><title>{e(m['title'])}</title><link>{SITE}/blog/{m['slug']
 (OUT / "feed.xml").write_text(f'<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>Blog Maison Truffe</title><link>{SITE}/blog/</link><description>Recettes, guides et idées cadeaux à la truffe</description><language>fr-fr</language>{rss}</channel></rss>', encoding="utf-8")
 
 # ---- sitemap / robots / llms.txt
-urls = ["/", "/boutique/", "/recettes/", "/guides/", "/faq/", "/livraison/", "/contact/", "/cgv/", "/mentions-legales/", "/confidentialite/"]
+urls = ["/cookies/", "/", "/boutique/", "/recettes/", "/guides/", "/faq/", "/livraison/", "/contact/", "/cgv/", "/mentions-legales/", "/confidentialite/"]
 urls += ["/blog/"] + [f"/blog/{m['slug']}/" for m in POSTS]
 urls += [f"/categorie/{k}/" for k in CATS] + [f"/produit/{p['slug']}/" for p in P] + [f"/guides/{k}/" for k in GUIDES]
 (OUT / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +

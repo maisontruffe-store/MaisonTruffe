@@ -197,3 +197,15 @@
 
   render();
 })();
+
+(function () {
+  var K = "mt_cookie", bar = document.querySelector("[data-cookie]");
+  function get() { try { var v = JSON.parse(localStorage.getItem(K) || "null"); return v && v.t > Date.now() - 1000 * 60 * 60 * 24 * 182 ? v : null; } catch (e) { return null; } }
+  if (bar && !get()) bar.hidden = false;
+  document.addEventListener("click", function (ev) {
+    var b = ev.target.closest("[data-cookie-ok],[data-cookie-reset]"); if (!b) return;
+    if (b.hasAttribute("data-cookie-reset")) { try { localStorage.removeItem(K); } catch (e) {} if (bar) bar.hidden = false; return; }
+    try { localStorage.setItem(K, JSON.stringify({ choice: b.getAttribute("data-cookie-ok"), t: Date.now() })); } catch (e) {}
+    if (bar) bar.hidden = true;
+  });
+})();

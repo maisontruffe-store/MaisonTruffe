@@ -1,3 +1,12 @@
+@font-face{font-family:"Inter";src:url(/assets/inter-latin-400-normal.woff2) format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Inter";src:url(/assets/inter-latin-500-normal.woff2) format("woff2");font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:"Inter";src:url(/assets/inter-latin-600-normal.woff2) format("woff2");font-weight:600;font-style:normal;font-display:swap}
+@font-face{font-family:"Inter";src:url(/assets/inter-latin-700-normal.woff2) format("woff2");font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:"Plus Jakarta Sans";src:url(/assets/plus-jakarta-sans-latin-600-normal.woff2) format("woff2");font-weight:600;font-style:normal;font-display:swap}
+@font-face{font-family:"Plus Jakarta Sans";src:url(/assets/plus-jakarta-sans-latin-700-normal.woff2) format("woff2");font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:"Plus Jakarta Sans";src:url(/assets/plus-jakarta-sans-latin-800-normal.woff2) format("woff2");font-weight:800;font-style:normal;font-display:swap}
+@font-face{font-family:"Cormorant Garamond";src:url(/assets/cormorant-garamond-latin-700-normal.woff2) format("woff2");font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:"Cormorant Garamond";src:url(/assets/cormorant-garamond-latin-600-italic.woff2) format("woff2");font-weight:600;font-style:italic;font-display:swap}
 :root{--ink:#16110d;--truffle:#2b211a;--bark:#4a3a2c;--cream:#f6efe2;--paper:#fffcf6;--gold:#c09a4e;--gold-l:#e2c88f;--gold-d:#8f6c2c;--line:#e8dcc6;--muted:#75695b;--serif:"Cormorant Garamond",Georgia,serif;--sans:Inter,system-ui,-apple-system,sans-serif;--r:18px;--shadow:0 18px 50px -20px rgba(22,17,13,.35)}
 *{box-sizing:border-box}html{scroll-behavior:smooth}
 body{margin:0;font-family:var(--sans);color:var(--ink);background:var(--paper);line-height:1.6;font-size:16px;-webkit-font-smoothing:antialiased}
@@ -331,3 +340,9 @@ h1 em,h2 em{font-style:normal;color:var(--gold-d)}
 @media(max-width:520px){.logo-mark{height:40px}}
 .logo{font-family:"Cormorant Garamond",Georgia,serif;font-weight:700;letter-spacing:.01em}
 .logo em{font-style:normal;color:inherit;font-weight:700}
+
+/* bandeau cookies */
+.cookie-bar{position:fixed;left:16px;right:16px;bottom:16px;z-index:70;background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:0 18px 50px -10px rgba(22,17,13,.35);padding:16px 18px;display:flex;gap:16px;align-items:center;max-width:980px;margin:0 auto;font-size:.9rem}
+.cookie-bar[hidden]{display:none}.cookie-bar p{margin:0;flex:1}.cookie-bar a{color:var(--gold-d);font-weight:600}
+.cookie-btns{display:flex;gap:8px;flex:none}
+@media(max-width:700px){.cookie-bar{flex-direction:column;align-items:stretch}.cookie-btns .btn{flex:1}}

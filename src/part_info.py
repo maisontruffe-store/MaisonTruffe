@@ -40,3 +40,20 @@ info("/confidentialite/", "Politique de confidentialité", "Comment Maison Truff
 <p>Le site n'utilise pas de cookies publicitaires. Le panier est enregistré uniquement dans votre navigateur.</p>
 <p>Vous pouvez demander l'accès, la rectification ou la suppression de vos données via la <a href="/contact/">page contact</a> ou à {EMAIL}. Responsable du traitement : {LEGAL_TODO}.</p>""")
 
+
+info("/cookies/", "Politique cookies", "Les cookies et traceurs utilisés sur maisontruffe.fr et comment les gérer.",
+     f"""<p>Dernière mise à jour : {TODAY}.</p>
+<h2>Ce que nous utilisons</h2>
+<p>Le site maisontruffe.fr n'utilise <strong>aucun cookie publicitaire, aucun outil de mesure d'audience et aucun traceur de réseaux sociaux</strong>. Seuls des traceurs strictement nécessaires au fonctionnement du site sont utilisés :</p>
+<table class="tbl"><thead><tr><th>Nom</th><th>Rôle</th><th>Durée</th></tr></thead><tbody>
+<tr><td>mt_cart (stockage local du navigateur)</td><td>Mémoriser le contenu de votre panier</td><td>Jusqu'à la commande ou au vidage du panier</td></tr>
+<tr><td>mt_cookie (stockage local du navigateur)</td><td>Mémoriser votre choix concernant ce bandeau</td><td>6 mois</td></tr>
+<tr><td>Cookies Stripe (checkout.stripe.com)</td><td>Sécuriser le paiement et prévenir la fraude, uniquement sur la page de paiement</td><td>Selon la <a href="https://stripe.com/fr/legal/cookies-policy" target="_blank" rel="noopener">politique de Stripe</a></td></tr>
+</tbody></table>
+<p>Ces traceurs étant indispensables au service que vous demandez (panier, paiement), ils ne nécessitent pas votre consentement préalable, conformément aux recommandations de la CNIL. Les polices de caractères sont hébergées directement sur notre site : aucune donnée n'est envoyée à Google pour les afficher.</p>
+<h2>Gérer vos choix</h2>
+<p>Vous pouvez supprimer à tout moment les données stockées par le site depuis les réglages de votre navigateur (rubrique « Cookies et données de site »). Le panier sera alors vidé.</p>
+<p><button class="btn btn-sm btn-outline" data-cookie-reset>Revoir le bandeau cookies</button></p>
+<h2>Évolutions</h2>
+<p>Si nous ajoutons un jour un outil de mesure d'audience ou de publicité, il ne sera activé qu'après votre accord explicite, et cette page sera mise à jour.</p>
+<p>Pour toute question : <a href="mailto:{EMAIL}">{EMAIL}</a>. Voir aussi notre <a href="/confidentialite/">politique de confidentialité</a> et nos <a href="/cgv/">conditions générales de vente</a>.</p>""")
