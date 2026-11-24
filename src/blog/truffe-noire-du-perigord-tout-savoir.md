@@ -41,6 +41,6 @@ Intense, **terreux, profond**, avec des notes de sous-bois et parfois de cacao. 
 ## Profiter du parfum de la truffe noire sans truffe fraîche
 La truffe fraîche est rare et chère. Pour cuisiner son parfum toute l'année :
 - l'[huile d'olive à la truffe noire](/produit/huile-olive-vierge-extra-truffe-noire/), en filet sur vos plats ;
-- le [sel de Guérande saveur truffe noire](/produit/sel-de-guerande-saveur-truffe-noire/), en finition ;
+- le [sel truffé](/produit/sel-de-guerande-saveur-truffe-noire/), en finition ;
 - le [condiment saveur truffe noire](/produit/condiment-saveur-truffe-noire/), pour assaisonner ;
 - le [saucisson truffé](/produit/saucisson-truffe/), pour l'apéritif.

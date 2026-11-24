@@ -21,7 +21,7 @@ faq:
 Œufs et truffe forment l'un des accords les plus connus de la cuisine française : le gras du jaune capte le parfum de la truffe et le diffuse. Trois recettes faciles.
 
 ## 1. Œufs brouillés à la truffe (5 minutes)
-Pour 2 personnes : 5 œufs, 20 g de beurre, [sel de Guérande saveur truffe noire](/produit/sel-de-guerande-saveur-truffe-noire/), [huile à la truffe noire](/produit/huile-olive-vierge-extra-truffe-noire/).
+Pour 2 personnes : 5 œufs, 20 g de beurre, [sel gris de Guérande à la truffe d'été](/produit/sel-de-guerande-saveur-truffe-noire/), [huile à la truffe noire](/produit/huile-olive-vierge-extra-truffe-noire/).
 1. Battez les œufs sans saler.
 2. Faites fondre le beurre à feu très doux, ajoutez les œufs.
 3. Remuez sans arrêt avec une spatule. Retirez du feu quand ils sont encore crémeux.
