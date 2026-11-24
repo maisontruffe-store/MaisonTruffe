@@ -15,7 +15,7 @@ faq:
   a: Pour la finition, oui ; pour l'eau des pâtes ou la cuisson, gardez du sel ordinaire.
 ---
 
-Le sel truffé est l'un des produits les plus simples pour cuisiner la truffe : une pincée au moment de servir suffit. Le [sel gris de Guérande à la truffe d'été](/produit/sel-de-guerande-saveur-truffe-noire/) associe un sel de Guérande IGP et l'arôme de truffe noire.
+Le sel truffé est l'un des produits les plus simples pour cuisiner la truffe : une pincée au moment de servir suffit. Le [sel gris de Guérande à la truffe d'été](/produit/sel-de-guerande-saveur-truffe-noire/) associe du sel gris de Guérande et des brisures de truffe d'été.
 
 ## La règle : en finition
 Le sel truffé s'utilise **à la fin**, sur un plat chaud ou froid, jamais dans l'eau de cuisson. Gardez votre sel ordinaire pour cuisiner.
