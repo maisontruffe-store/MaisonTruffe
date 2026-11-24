@@ -14,6 +14,6 @@ FAQ = [
     ("Quels moyens de paiement acceptez-vous ?",
      "Le paiement se fait en ligne, de façon sécurisée, par carte bancaire (CB, Visa, Mastercard), Apple Pay ou Google Pay."),
     ("Livrez-vous en dehors de la France ?",
-     "Nous livrons la France métropolitaine, la Belgique, le Luxembourg et Monaco. Pour une autre destination, contactez-nous avant de commander."),
+     "Nous livrons la France métropolitaine et Monaco. Pour une autre destination, contactez-nous avant de commander."),
 ]
 

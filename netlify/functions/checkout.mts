@@ -57,7 +57,7 @@ export default async (req: Request, context: Context) => {
   p.set("cancel_url", `${origin}/panier/`)
   p.set("billing_address_collection", "auto")
   p.set("phone_number_collection[enabled]", "true")
-  ;["FR", "BE", "LU", "MC"].forEach((c, n) => p.set(`shipping_address_collection[allowed_countries][${n}]`, c))
+  ;["FR", "MC"].forEach((c, n) => p.set(`shipping_address_collection[allowed_countries][${n}]`, c))
   p.set("shipping_options[0][shipping_rate_data][type]", "fixed_amount")
   p.set("shipping_options[0][shipping_rate_data][display_name]", shipCents ? "Livraison Colissimo" : "Livraison offerte")
   p.set("shipping_options[0][shipping_rate_data][fixed_amount][amount]", String(shipCents))

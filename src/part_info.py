@@ -4,7 +4,7 @@ def info(path, title, desc, body):
     page(path, f"{title} — {BRAND}", desc, f'{cr}<section class="section wrap narrow prose"><h1>{e(title)}</h1>{body}</section>', [crs])
 
 info("/livraison/", "Livraison et retours", "Délais, frais de livraison et conditions de retour de Maison Truffe.",
-     f"""<h2>Livraison</h2><ul class="ticks"><li>Préparation sous 1 à 3 jours ouvrés.</li><li>Livraison en 2 à 4 jours ouvrés en France métropolitaine.</li><li>Frais de port : {eur(SHIP_PRICE)} — <strong>offerts dès {FREE_SHIP} € d'achat</strong>.</li><li>Zones desservies : France métropolitaine, Belgique, Luxembourg, Monaco.</li></ul>
+     f"""<h2>Livraison</h2><ul class="ticks"><li>Préparation sous 1 à 3 jours ouvrés.</li><li>Livraison en 2 à 4 jours ouvrés en France métropolitaine.</li><li>Frais de port : {eur(SHIP_PRICE)} — <strong>offerts dès {FREE_SHIP} € d'achat</strong>.</li><li>Zones desservies : France métropolitaine et Monaco.</li></ul>
 <h2>Droit de rétractation</h2><p>Vous disposez de 14 jours à compter de la réception pour nous retourner un produit non ouvert, dans son emballage d'origine. Le remboursement intervient sous 14 jours après réception du retour.</p><h2>Colis abîmé</h2><p>Si un produit arrive endommagé, envoyez-nous une photo dans les 48 h via la <a href="/contact/">page contact</a> : nous le remplaçons ou le remboursons.</p>""")
 
 info("/contact/", "Contact", "Contactez Maison Truffe pour une question, une commande ou un cadeau d'entreprise.",
@@ -29,7 +29,7 @@ info("/cgv/", "Conditions générales de vente", "Conditions générales de vent
 <h2>1. Objet</h2><p>Les présentes conditions régissent les ventes de produits d'épicerie fine conclues sur le site maisontruffe.fr entre {BRAND} (SIRET 980 592 836 00038, Sorgues, 84700) et tout client consommateur.</p>
 <h2>2. Prix</h2><p>Les prix sont indiqués en euros toutes taxes comprises, hors frais de livraison. Les frais de livraison ({eur(SHIP_PRICE)}, offerts dès {FREE_SHIP} €) sont indiqués avant la validation de la commande.</p>
 <h2>3. Commande et paiement</h2><p>La commande est validée après paiement en ligne sécurisé (Stripe : carte bancaire, Apple Pay, Google Pay). Un e-mail de confirmation est envoyé au client.</p>
-<h2>4. Livraison</h2><p>Les produits sont expédiés sous 1 à 3 jours ouvrés vers la France métropolitaine, la Belgique, le Luxembourg et Monaco. Voir la page <a href="/livraison/">Livraison et retours</a>.</p>
+<h2>4. Livraison</h2><p>Les produits sont expédiés sous 1 à 3 jours ouvrés vers la France métropolitaine et Monaco. Voir la page <a href="/livraison/">Livraison et retours</a>.</p>
 <h2>5. Droit de rétractation</h2><p>Le client dispose de 14 jours à compter de la réception pour exercer son droit de rétractation, pour les produits non ouverts et non descellés. Conformément à l'article L221-28 du Code de la consommation, le droit de rétractation ne s'applique pas aux biens susceptibles de se détériorer rapidement ni aux biens descellés ne pouvant être renvoyés pour des raisons d'hygiène.</p>
 <h2>6. Garanties</h2><p>Les produits bénéficient de la garantie légale de conformité et de la garantie des vices cachés.</p>
 <h2>7. Médiation</h2><p>En cas de litige, le client peut recourir gratuitement au médiateur de la consommation : {LEGAL_TODO}.</p>""")

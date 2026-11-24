@@ -521,7 +521,7 @@ for p in P:
     {upsell}
     {extra}
     <h2>Description</h2><p>{e(p['desc'])}</p>
-    <dl class="specs"><dt>Truffe</dt><dd>{e(p['truffle'])}</dd><dt>Prix</dt><dd>{eur(p['price'])} TTC</dd><dt>Livraison</dt><dd>France, Belgique, Luxembourg, Monaco</dd></dl>
+    <dl class="specs"><dt>Truffe</dt><dd>{e(p['truffle'])}</dd><dt>Prix</dt><dd>{eur(p['price'])} TTC</dd><dt>Livraison</dt><dd>France métropolitaine, Monaco</dd></dl>
     <h2>Comment l'utiliser</h2><ul class="ticks">{''.join(f'<li>{e(u)}</li>' for u in p['uses'])}</ul>
   </div>
 </section>
@@ -607,7 +607,7 @@ panier = f"""
         <label>Téléphone<input type="tel" name="telephone" required autocomplete="tel"></label>
         <label>Adresse<input name="adresse" required autocomplete="street-address"></label>
         <div class="row2"><label>Code postal<input name="code_postal" required autocomplete="postal-code"></label><label>Ville<input name="ville" required autocomplete="address-level2"></label></div>
-        <label>Pays<select name="pays"><option>France</option><option>Belgique</option><option>Luxembourg</option><option>Monaco</option></select></label>
+        <label>Pays<select name="pays"><option>France</option><option>Monaco</option></select></label>
         <label>Message (cadeau, mot à glisser…)<textarea name="message" rows="2"></textarea></label>
         <input type="hidden" name="commande"><input type="hidden" name="total">
         <label class="check"><input type="checkbox" required> J'accepte les <a href="/cgv/" target="_blank">conditions générales de vente</a>.</label>
@@ -722,7 +722,7 @@ urls += ["/categorie/offres/"] + [f"/categorie/{k}/" for k in CATS] + [f"/produi
     f"\nSitemap: {SITE}/sitemap.xml\n", encoding="utf-8")
 
 llms = [f"# {BRAND}", "",
-        f"> {BRAND} (maisontruffe.fr) est une épicerie fine en ligne française spécialisée dans les produits à la truffe, pensés pour réussir des plats de chef en 10 minutes sans savoir cuisiner : huiles d'olive à la truffe noire et blanche (100 ml et 250 ml), crème de truffe d'été, sauce noire et sauce champignons à la truffe, pesto, condiment truffe en poudre, sel, miel et moutarde truffés, pâtes, saucisson truffé, truffe d'été en lamelles, coffret cadeau. Tous les pots à 15 €, 40 € les 3 au choix ; saucisson 10 € ou 20 € les 3. Livraison en France, Belgique, Luxembourg et Monaco ({eur(SHIP_PRICE)}, offerte dès {FREE_SHIP} €), expédition sous 1 à 3 jours ouvrés. Colis abîmé remplacé ou remboursé. Paiement par carte, Apple Pay, Google Pay.",
+        f"> {BRAND} (maisontruffe.fr) est une épicerie fine en ligne française spécialisée dans les produits à la truffe, pensés pour réussir des plats de chef en 10 minutes sans savoir cuisiner : huiles d'olive à la truffe noire et blanche (100 ml et 250 ml), crème de truffe d'été, sauce noire et sauce champignons à la truffe, pesto, condiment truffe en poudre, sel, miel et moutarde truffés, pâtes, saucisson truffé, truffe d'été en lamelles, coffret cadeau. Tous les pots à 15 €, 40 € les 3 au choix ; saucisson 10 € ou 20 € les 3. Livraison en France métropolitaine et Monaco ({eur(SHIP_PRICE)}, offerte dès {FREE_SHIP} €), expédition sous 1 à 3 jours ouvrés. Colis abîmé remplacé ou remboursé. Paiement par carte, Apple Pay, Google Pay.",
         "", "## Offres", "", f"- [3 pots au choix pour 40 €]({SITE}/categorie/offres/) — tous les produits à 15 €, mélange libre.", "- Saucisson truffé : 10 € pièce, 20 € les 3."]
 llms += ["", "## Produits", ""]
 for k, v in CATS.items():
