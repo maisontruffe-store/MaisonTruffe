@@ -40,10 +40,10 @@
   "name": "Truffe d'été entière — 40 g",
   "cat": "coffrets-truffes",
   "price": 30.0,
-  "img": "",
+  "img": "/assets/p/truffe-ete-entiere.webp",
   "truffle": "Truffe d'été",
   "short": "Une truffe d'été entière, à râper ou à trancher finement sur vos plats de fête.",
-  "desc": "Une truffe d'été (Tuber aestivum) entière. Râpée ou tranchée très finement au dernier moment, elle parfume pâtes fraîches, œufs, risotto, purée ou carpaccio pour un vrai repas de fête.",
+  "desc": "Une truffe d'été (Tuber aestivum) entière, conservée en bocal. Râpée ou tranchée très finement au dernier moment, elle parfume pâtes fraîches, œufs, risotto, purée ou carpaccio pour un vrai repas de fête. Le jus du bocal se garde pour parfumer une sauce ou un risotto.",
   "uses": [
    "Râpée sur des pâtes fraîches au beurre",
    "Œufs brouillés ou omelette",
