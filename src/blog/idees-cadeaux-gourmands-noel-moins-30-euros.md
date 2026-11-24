@@ -40,4 +40,4 @@ Un cadeau gourmand fait toujours plaisir, et la truffe ajoute une touche de luxe
 - Miel truffé + moutarde truffée = 26 € : le duo du plateau de fromages et de charcuterie.
 
 ## Vous voulez gâter davantage ?
-Astuce : nos pots (crèmes, sauces, pesto, lamelles, miel, moutarde) sont à 15 €, et [40 € les 3 au choix](/categorie/offres/). Voir aussi notre guide [Idées cadeaux à la truffe](/guides/idees-cadeaux-truffe/).
+Astuce : nos pots (crèmes, sauces, miel, moutarde, sel, petites huiles…) sont à 15 €, et [40 € les 3 au choix](/categorie/offres/). Voir aussi notre guide [Idées cadeaux à la truffe](/guides/idees-cadeaux-truffe/).

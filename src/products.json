@@ -93,7 +93,8 @@
   "weight_g": 195,
   "formats": "huile-noire",
   "format_label": "100 ml",
-  "bestseller": true
+  "bestseller": true,
+  "promo": "pot3"
  },
  {
   "slug": "condiment-truffe-blanche-lamelles-bianchetto",
@@ -112,7 +113,8 @@
   ],
   "weight_g": 195,
   "formats": "huile-blanche",
-  "format_label": "100 ml"
+  "format_label": "100 ml",
+  "promo": "pot3"
  },
  {
   "slug": "condiment-saveur-truffe-ete-poudre",
@@ -131,7 +133,8 @@
   ],
   "weight_g": null,
   "formats": "poudre",
-  "format_label": "Petit 30 g"
+  "format_label": "Petit 30 g",
+  "promo": "pot3"
  },
  {
   "slug": "sel-de-guerande-saveur-truffe-noire",
@@ -148,7 +151,8 @@
    "Légumes rôtis",
    "Foie gras et toasts apéritifs"
   ],
-  "weight_g": null
+  "weight_g": null,
+  "promo": "pot3"
  },
  {
   "slug": "creme-vinaigre-balsamique-modene-truffe",
@@ -165,7 +169,8 @@
    "Risottos, viandes blanches, poissons",
    "Plateau de fromages"
   ],
-  "weight_g": null
+  "weight_g": null,
+  "promo": "pot3"
  },
  {
   "slug": "miel-acacia-saveur-truffe-ete",
