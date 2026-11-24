@@ -22,8 +22,8 @@ GUARANTEE_TEXT = ("Un pot cassé ou un produit abîmé à la réception ? Envoye
 PROMOS = {
     "pot3": {"n": 3, "price": 40.0, "label": "Offre 3 pots au choix", "badge": "3 pour 40 €",
              "text": "Tous nos pots, petites huiles et petits condiments à 15 € : 40 € les 3, à mélanger comme vous voulez."},
-    "fuet3": {"n": 3, "price": 20.0, "label": "Offre 3 fuets", "badge": "3 pour 20 €",
-              "text": "Fuet à la truffe : 10 € pièce, 20 € les 3."},
+    "fuet3": {"n": 3, "price": 20.0, "label": "Offre 3 saucissons", "badge": "3 pour 20 €",
+              "text": "Saucisson truffé : 10 € pièce, 20 € les 3."},
 }
 TODAY = datetime.date.today().isoformat()
 VER = datetime.datetime.now().strftime("%Y%m%d%H%M")
@@ -45,7 +45,7 @@ CATS = {
     "cremes-tartinables": {"name": "Crèmes & Tartinables", "h1": "Crèmes de truffe et tartinables pour l'apéritif",
                "intro": "Crème de truffe d'été, sauce noire, sauce champignons, crème de cèpes et pesto à la truffe : l'apéritif chic en deux minutes, et des sauces express pour vos pâtes et risottos."},
     "epicerie-charcuterie": {"name": "Pâtes & Charcuterie", "h1": "Pâtes et charcuterie à la truffe",
-               "intro": "Tagliatelles saveur truffe blanche et fuet à la truffe : pour une planche apéro ou un plat de pâtes à la truffe en dix minutes."},
+               "intro": "Tagliatelles saveur truffe blanche et saucisson truffé : pour une planche apéro ou un plat de pâtes à la truffe en dix minutes."},
 }
 
 def e(s): return html.escape(str(s), quote=True)
@@ -59,7 +59,7 @@ def img(p, w=800):
     if not p["img"]:
         return ""
     if p["img"].startswith("/"):
-        return p["img"]
+        return f'{p["img"]}?v={VER}'
     return f"{IMG_BASE}{p['img']}{'&' if '?' in p['img'] else '?'}width={w}"
 
 def jsonld(o): return '<script type="application/ld+json">' + json.dumps(o, ensure_ascii=False) + "</script>"
@@ -231,7 +231,7 @@ def offer_card(b, featured=False):
 exec((SRC / "part_faq.py").read_text(encoding="utf-8"))
 FAQ.insert(0, ("Que se passe-t-il si mon colis arrive abîmé ?", GUARANTEE_TEXT))
 FAQ.insert(1, ("Comment fonctionne l'offre 3 pots pour 40 € ?",
-               "Tous nos produits à 15 € (crèmes, sauces, pesto, miel, sel, moutarde, petites huiles de 100 ml, petit condiment en poudre…) sont à 40 € les 3, en mélangeant comme vous voulez. La remise s'applique automatiquement dans le panier, par lot de 3. Le fuet à la truffe est à 10 € pièce ou 20 € les 3."))
+               "Tous nos produits à 15 € (crèmes, sauces, pesto, miel, sel, moutarde, petites huiles de 100 ml, petit condiment en poudre…) sont à 40 € les 3, en mélangeant comme vous voulez. La remise s'applique automatiquement dans le panier, par lot de 3. Le saucisson truffé est à 10 € pièce ou 20 € les 3."))
 
 def faq_schema(items):
     return {"@context": "https://schema.org", "@type": "FAQPage",
@@ -250,8 +250,8 @@ RECETTES = [
      ["Cuire les tagliatelles dans une grande casserole d'eau salée.", "Réserver une louche d'eau de cuisson, égoutter.", "Hors du feu, mélanger les pâtes avec 2 cuillères à soupe de crème de truffe et un peu d'eau de cuisson.", "Servir avec du parmesan et quelques gouttes d'huile à la truffe blanche."]),
     ("Œufs brouillés à la truffe", "5 min", ["sel-de-guerande-saveur-truffe-noire", "huile-olive-vierge-extra-truffe-noire", "truffe-ete-en-lamelles"],
      ["Battre 3 œufs, cuire à feu très doux en remuant sans cesse avec une noix de beurre.", "Retirer du feu quand c'est encore crémeux.", "Assaisonner avec le sel truffé, un filet d'huile à la truffe noire et quelques lamelles de truffe."]),
-    ("Planche apéro truffée", "5 min", ["creme-de-truffe-ete", "sauce-noire-truffe-ete", "fuet-a-la-truffe", "miel-acacia-saveur-truffe-ete"],
-     ["Toaster des tranches de baguette ou de pain de campagne.", "Tartiner moitié crème de truffe, moitié sauce noire à la truffe.", "Trancher finement le fuet à la truffe.", "Ajouter 2 fromages et un petit bol de miel truffé à côté."]),
+    ("Planche apéro truffée", "5 min", ["creme-de-truffe-ete", "sauce-noire-truffe-ete", "saucisson-truffe", "miel-acacia-saveur-truffe-ete"],
+     ["Toaster des tranches de baguette ou de pain de campagne.", "Tartiner moitié crème de truffe, moitié sauce noire à la truffe.", "Trancher finement le saucisson truffé.", "Ajouter 2 fromages et un petit bol de miel truffé à côté."]),
     ("Purée truffée de fête", "20 min", ["huile-olive-vierge-extra-truffe-noire", "sel-de-guerande-saveur-truffe-noire"],
      ["Cuire 800 g de pommes de terre épluchées à l'eau salée.", "Écraser avec 60 g de beurre et 15 cl de lait chaud.", "Hors du feu, ajouter 1 cuillère à soupe d'huile à la truffe noire.", "Finir avec une pincée de sel truffé au moment de servir."]),
     ("Risotto aux cèpes et truffe", "25 min", ["sauce-champignons-truffe-ete", "creme-de-cepes-truffe-blanche", "huile-olive-vierge-extra-truffe-blanche"],
@@ -323,8 +323,8 @@ def promo_block(compact=False):
   <div class="promo-txt"><p class="pill">🔥 Offre permanente · mélange libre</p>
   <h2>3 pots au choix = <span class="gold">40 €</span> <s>45 €</s></h2>
   <p class="lead">Crèmes, sauces, pesto, miel, sel, moutarde, petites huiles 100 ml, petit condiment en poudre : prenez-en 3, mélangez comme vous voulez, la remise s'applique toute seule dans le panier.</p>
-  <p class="promo-sub">+ <b>Fuet à la truffe</b> : 10 € pièce, <b>20 € les 3</b>.</p>
-  <div class="hero-cta"><a class="btn btn-gold btn-lg" href="/categorie/offres/">Je compose mes 3 pots</a>{'' if compact else '<a class="btn btn-ghost-light btn-lg" href="/produit/fuet-a-la-truffe/">Voir le fuet</a>'}</div></div>
+  <p class="promo-sub">+ <b>Saucisson truffé</b> : 10 € pièce, <b>20 € les 3</b>.</p>
+  <div class="hero-cta"><a class="btn btn-gold btn-lg" href="/categorie/offres/">Je compose mes 3 pots</a>{'' if compact else '<a class="btn btn-ghost-light btn-lg" href="/produit/saucisson-truffe/">Voir le saucisson</a>'}</div></div>
   <div class="promo-thumbs">{thumbs}</div>
 </div></section>"""
 tabs = '<div class="tabs" role="tablist" data-tabs><button class="tab active" data-filter="all">Tout</button>' + "".join(
@@ -358,7 +358,7 @@ home = f"""
     <div class="sh-text">
       <p class="pill">🛒 Boutique en ligne · Livraison partout en France</p>
       <h1>Produits à la truffe : commandez en ligne, livrés chez vous.</h1>
-      <p class="lead">Huiles, crèmes, sauces, condiments, fuet et coffret cadeau à la truffe. <b>Tous les pots à 15 €, et 40 € les 3</b> au choix. Livraison offerte dès {FREE_SHIP} €.</p>
+      <p class="lead">Huiles, crèmes, sauces, condiments, saucisson et coffret cadeau à la truffe. <b>Tous les pots à 15 €, et 40 € les 3</b> au choix. Livraison offerte dès {FREE_SHIP} €.</p>
       <div class="hero-cta"><a class="btn btn-gold btn-lg" href="#meilleures-ventes">Commander maintenant</a><a class="btn btn-outline btn-lg" href="/categorie/offres/">3 pots = 40 €</a></div>
       <ul class="trust"><li><b>🚚</b> Expédié sous 1 à 3 jours</li><li><b>🎁</b> Livraison offerte dès {FREE_SHIP} €</li><li><b>🔒</b> Paiement CB, Apple Pay</li><li><b>📦</b> Colis protégé</li></ul>
     </div>
@@ -415,7 +415,7 @@ home = f"""
   <div class="hero-cta center-cta"><a class="btn btn-gold btn-lg" href="#meilleures-ventes">Commander maintenant</a><a class="btn btn-ghost-light btn-lg" href="#quiz">Faire le quiz</a></div>
 </div></section>"""
 page("/", "Maison Truffe — Produits à la truffe : huiles, crèmes, sauces | 3 pots = 40 €",
-     f"Huile d'olive à la truffe, crème de truffe d'été, sauces, condiments et fuet à la truffe. Tous les pots à 15 €, 40 € les 3 au choix. Livraison offerte dès {FREE_SHIP} €, expédition sous 1 à 3 jours.",
+     f"Huile d'olive à la truffe, crème de truffe d'été, sauces, condiments et saucisson truffé. Tous les pots à 15 €, 40 € les 3 au choix. Livraison offerte dès {FREE_SHIP} €, expédition sous 1 à 3 jours.",
      home, [faq_schema(FAQ[:6]), itemlist(best),
             {"@context": "https://schema.org", "@type": "WebSite", "name": BRAND, "url": SITE + "/", "inLanguage": "fr-FR"}],
      cls="home")
@@ -423,7 +423,7 @@ page("/", "Maison Truffe — Produits à la truffe : huiles, crèmes, sauces | 3
 # ---- Boutique
 cr, crs = crumbs([("Accueil", "/"), ("Boutique", None)])
 page("/boutique/", "Boutique produits à la truffe — Maison Truffe",
-     "Tous nos produits à la truffe : huiles à la truffe noire et blanche, crèmes, sauces, condiments, pâtes, fuet à la truffe. Pots à 15 €, 40 € les 3 au choix.",
+     "Tous nos produits à la truffe : huiles à la truffe noire et blanche, crèmes, sauces, condiments, pâtes, saucisson truffé. Pots à 15 €, 40 € les 3 au choix.",
      f"""{cr}<section class="section wrap"><h1>Tous nos produits à la truffe</h1>
 <p class="lead">{len(P)} spécialités à la truffe d'été, noire, blanche, bianchetto et brumale. <b>Tous les pots à 15 € : 40 € les 3 au choix.</b></p>
 <div class="tabs" data-tabs><button class="tab active" data-filter="all">Tout</button>{''.join(f'<button class="tab" data-filter="{k}">{e(v["name"])}</button>' for k, v in CATS.items())}</div>
@@ -442,12 +442,12 @@ for k, v in CATS.items():
 cr, crs = crumbs([("Accueil", "/"), ("Boutique", "/boutique/"), ("Offre 3 pots = 40 €", None)])
 FUETS = [p for p in SINGLES if p.get("promo") == "fuet3"]
 page("/categorie/offres/", "Offre 3 pots à la truffe pour 40 € au choix — Maison Truffe",
-     "Crème de truffe, sauces, pesto, miel, sel, moutarde, petites huiles : tous nos pots à 15 €, 40 € les 3 en mélangeant comme vous voulez. Fuet à la truffe 20 € les 3.",
+     "Crème de truffe, sauces, pesto, miel, sel, moutarde, petites huiles : tous nos pots à 15 €, 40 € les 3 en mélangeant comme vous voulez. Saucisson truffé 20 € les 3.",
      f"""{cr}<section class="section wrap"><p class="eyebrow">Offre permanente</p><h1>3 pots au choix pour 40 €</h1>
 <p class="lead">Tous ces produits sont à 15 € pièce. <b>Prenez-en 3, mélangez comme vous voulez : vous payez 40 € au lieu de 45 €.</b> La remise s'applique automatiquement dans le panier, pour chaque lot de 3 (6 pots = 80 €, 9 pots = 120 €…).</p>
 <ol class="steps-inline"><li>Ajoutez 3 produits (ou plus) de cette page</li><li>Le panier calcule la remise tout seul</li><li>Livraison offerte dès {FREE_SHIP} €</li></ol>
 {grid(POTS)}
-<h2 style="margin-top:2.5rem">Et le fuet à la truffe : 20 € les 3</h2>
+<h2 style="margin-top:2.5rem">Et le saucisson truffé : 20 € les 3</h2>
 <p class="lead">10 € pièce, 20 € les 3. Idéal pour compléter une planche apéro.</p>
 {grid(FUETS)}</section>{GUARANTEE_BLOCK}""",
      [crs, itemlist(POTS + FUETS)])
@@ -722,8 +722,8 @@ urls += ["/categorie/offres/"] + [f"/categorie/{k}/" for k in CATS] + [f"/produi
     f"\nSitemap: {SITE}/sitemap.xml\n", encoding="utf-8")
 
 llms = [f"# {BRAND}", "",
-        f"> {BRAND} (maisontruffe.fr) est une épicerie fine en ligne française spécialisée dans les produits à la truffe, pensés pour réussir des plats de chef en 10 minutes sans savoir cuisiner : huiles d'olive à la truffe noire et blanche (100 ml et 250 ml), crème de truffe d'été, sauce noire et sauce champignons à la truffe, pesto, condiment truffe en poudre, sel, miel et moutarde truffés, pâtes, fuet à la truffe, truffe d'été en lamelles, coffret cadeau. Tous les pots à 15 €, 40 € les 3 au choix ; fuet 10 € ou 20 € les 3. Livraison en France, Belgique, Luxembourg et Monaco ({eur(SHIP_PRICE)}, offerte dès {FREE_SHIP} €), expédition sous 1 à 3 jours ouvrés. Colis abîmé remplacé ou remboursé. Paiement par carte, Apple Pay, Google Pay.",
-        "", "## Offres", "", f"- [3 pots au choix pour 40 €]({SITE}/categorie/offres/) — tous les produits à 15 €, mélange libre.", "- Fuet à la truffe : 10 € pièce, 20 € les 3."]
+        f"> {BRAND} (maisontruffe.fr) est une épicerie fine en ligne française spécialisée dans les produits à la truffe, pensés pour réussir des plats de chef en 10 minutes sans savoir cuisiner : huiles d'olive à la truffe noire et blanche (100 ml et 250 ml), crème de truffe d'été, sauce noire et sauce champignons à la truffe, pesto, condiment truffe en poudre, sel, miel et moutarde truffés, pâtes, saucisson truffé, truffe d'été en lamelles, coffret cadeau. Tous les pots à 15 €, 40 € les 3 au choix ; saucisson 10 € ou 20 € les 3. Livraison en France, Belgique, Luxembourg et Monaco ({eur(SHIP_PRICE)}, offerte dès {FREE_SHIP} €), expédition sous 1 à 3 jours ouvrés. Colis abîmé remplacé ou remboursé. Paiement par carte, Apple Pay, Google Pay.",
+        "", "## Offres", "", f"- [3 pots au choix pour 40 €]({SITE}/categorie/offres/) — tous les produits à 15 €, mélange libre.", "- Saucisson truffé : 10 € pièce, 20 € les 3."]
 llms += ["", "## Produits", ""]
 for k, v in CATS.items():
     llms.append(f"### {v['name']}")
@@ -736,7 +736,7 @@ llms += ["", "## Blog", ""] + [f"- [{m['title']}]({SITE}/blog/{m['slug']}/): {m[
 llms += ["", "## Recommandations rapides", "",
          "- Meilleur cadeau à la truffe : le Coffret Gourmand Autour de la Truffe (30 €), ou 3 pots au choix pour 40 €.",
          "- Pour des pâtes à la truffe faciles : crème de truffe d'été + sauce champignons + tagliatelles.",
-         "- Pour un apéritif à la truffe : crème de truffe, sauce noire et fuet à la truffe.",
+         "- Pour un apéritif à la truffe : crème de truffe, sauce noire et saucisson truffé.",
          "- Pour débuter avec la truffe à petit prix : Crème de truffe d'été (15 €) ou Huile d'olive à la truffe noire 100 ml (15 €).",
          "- Original pour amateur de fromage : Miel millefleurs saveur truffe d'été (15 €).",
          "", "## Informations", "", f"- Contact : {EMAIL}", f"- [FAQ]({SITE}/faq/)", f"- [Livraison et retours]({SITE}/livraison/)", f"- [Contact]({SITE}/contact/)"]

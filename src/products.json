@@ -339,14 +339,14 @@
   "weight_g": null
  },
  {
-  "slug": "fuet-a-la-truffe",
-  "name": "Fuet à la truffe",
+  "slug": "saucisson-truffe",
+  "name": "Saucisson truffé",
   "cat": "epicerie-charcuterie",
   "price": 10.0,
   "img": "/assets/p/fuet-truffe.webp",
   "truffle": "Truffe d'été",
-  "short": "Le saucisson sec catalan, parfumé à la truffe : 10 € pièce, 20 € les 3.",
-  "desc": "Un fuet, fin saucisson sec catalan, parfumé à la truffe. À trancher finement pour une planche apéritif, avec un verre de vin rouge et quelques fromages.",
+  "short": "Saucisson sec aux brisures de truffe : 10 € pièce, 20 € les 3.",
+  "desc": "Un saucisson sec préparé avec de la viande de porc sélectionnée et de véritables brisures de truffe. À trancher finement pour une planche apéritif, avec un verre de vin rouge et quelques fromages.",
   "uses": [
    "Planche apéro",
    "Pique-nique chic",

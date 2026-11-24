@@ -22,7 +22,7 @@ Un repas de Noël à la truffe n'a pas besoin d'être compliqué ni hors de prix
 
 ## L'apéritif
 - Toasts à la [crème de truffe d'été](/produit/creme-de-truffe-ete/) et à la [crème de cèpes & truffe blanche](/produit/creme-de-cepes-truffe-blanche/)
-- Fines tranches de [fuet à la truffe](/produit/fuet-a-la-truffe/)
+- Fines tranches de [saucisson truffé](/produit/saucisson-truffe/)
 - Chèvre et [miel truffé](/produit/miel-acacia-saveur-truffe-ete/)
 
 Composez-le avec [3 pots au choix pour 40 €](/categorie/offres/).

@@ -49,11 +49,11 @@ GUIDES = {
     },
     "idees-cadeaux-truffe": {
         "title": "Idées cadeaux à la truffe : quoi offrir à un gourmand (de 8 € à 40 €)",
-        "desc": "Idées cadeaux gourmands à la truffe par budget : coffret, huile, crème, miel, fuet. Pour Noël, un anniversaire ou un cadeau d'entreprise.",
+        "desc": "Idées cadeaux gourmands à la truffe par budget : coffret, huile, crème, miel, saucisson. Pour Noël, un anniversaire ou un cadeau d'entreprise.",
         "body": """
 <p class="lead">La truffe est un cadeau qui fait toujours son effet : chic, gourmand, et utile. Voici nos idées par budget.</p>
 <h2>Moins de 15 €</h2>
-<ul class="ticks"><li><a href="/produit/tagliatelle-saveur-truffe-blanche/">Tagliatelles saveur truffe blanche</a> (8 €) — petit cadeau ou complément de panier.</li><li><a href="/produit/fuet-a-la-truffe/">Fuet à la truffe</a> (10 €, 20 € les 3) — pour les amateurs d'apéro.</li><li><a href="/produit/miel-acacia-saveur-truffe-ete/">Miel millefleurs saveur truffe</a> (15 €) — l'original, pour les fans de fromage.</li><li><a href="/produit/moutarde-brisures-truffe-brumale-poivre-noir/">Moutarde à la truffe brumale</a> (15 €).</li></ul>
+<ul class="ticks"><li><a href="/produit/tagliatelle-saveur-truffe-blanche/">Tagliatelles saveur truffe blanche</a> (8 €) — petit cadeau ou complément de panier.</li><li><a href="/produit/saucisson-truffe/">Saucisson truffé</a> (10 €, 20 € les 3) — pour les amateurs d'apéro.</li><li><a href="/produit/miel-acacia-saveur-truffe-ete/">Miel millefleurs saveur truffe</a> (15 €) — l'original, pour les fans de fromage.</li><li><a href="/produit/moutarde-brisures-truffe-brumale-poivre-noir/">Moutarde à la truffe brumale</a> (15 €).</li></ul>
 <h2>De 15 € à 30 €</h2>
 <ul class="ticks"><li><a href="/produit/creme-de-truffe-ete/">Crème de truffe d'été</a> (15 €) — le best-seller.</li><li><a href="/produit/huile-olive-vierge-extra-truffe-noire/">Huile d'olive à la truffe noire 250 ml</a> (25 €) — le cadeau utile par excellence.</li><li><a href="/categorie/offres/">3 pots au choix</a> (40 €) — crème, sauce, miel… à composer soi-même.</li><li><a href="/produit/coffret-gourmand-autour-de-la-truffe/">Coffret Gourmand Autour de la Truffe</a> (30 €) — quatre spécialités prêtes à offrir.</li><li><a href="/produit/truffe-ete-en-lamelles/">Truffe d'été en lamelles</a> (15 €) — de la vraie truffe, pour un repas de fête.</li></ul>
 <h2>Composer un panier à 60 € (livraison offerte)</h2>

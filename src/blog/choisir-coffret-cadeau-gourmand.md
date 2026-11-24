@@ -21,7 +21,7 @@ Un coffret gourmand est l'un des cadeaux les plus appréciés : il se partage, s
 
 ## 1. Pensez à la personne
 - **Elle aime cuisiner** : des produits à utiliser en cuisine, comme la [crème de truffe d'été](/produit/creme-de-truffe-ete/) et la [sauce champignons à la truffe](/produit/sauce-champignons-truffe-ete/).
-- **Elle aime recevoir** : un assortiment apéritif, comme [3 pots au choix pour 40 €](/categorie/offres/) avec un [fuet à la truffe](/produit/fuet-a-la-truffe/).
+- **Elle aime recevoir** : un assortiment apéritif, comme [3 pots au choix pour 40 €](/categorie/offres/) avec un [saucisson truffé](/produit/saucisson-truffe/).
 - **Elle aime les belles choses** : un coffret prestigieux, comme le [Coffret Gourmand Autour de la Truffe](/produit/coffret-gourmand-autour-de-la-truffe/).
 - **Vous ne la connaissez pas bien** : un coffret varié et prêt à offrir, comme le [Coffret Gourmand Autour de la Truffe](/produit/coffret-gourmand-autour-de-la-truffe/).
 

@@ -22,7 +22,7 @@ Un cadeau gourmand fait toujours plaisir, et la truffe ajoute une touche de luxe
 
 ## Moins de 15 €
 - **[Tagliatelles saveur truffe blanche](/produit/tagliatelle-saveur-truffe-blanche/)** (8 €) : le petit cadeau ou le complément idéal.
-- **[Fuet à la truffe](/produit/fuet-a-la-truffe/)** (10 €, 20 € les 3) : pour les amateurs d'apéritif.
+- **[Saucisson truffé](/produit/saucisson-truffe/)** (10 €, 20 € les 3) : pour les amateurs d'apéritif.
 - **[Miel millefleurs saveur truffe d'été](/produit/miel-acacia-saveur-truffe-ete/)** (15 €) : l'original, pour les amateurs de fromage.
 - **[Moutarde à la truffe brumale](/produit/moutarde-brisures-truffe-brumale-poivre-noir/)** (15 €) : utile tous les jours.
 

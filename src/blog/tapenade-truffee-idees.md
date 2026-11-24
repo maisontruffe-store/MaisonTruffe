@@ -39,4 +39,4 @@ Une fine couche sur un filet de cabillaud avant cuisson, avec un filet d'huile d
 Pain ciabatta, tapenade, mozzarella, roquette et jambon cru.
 
 ## Pour un apéritif complet
-Pour un apéritif complet : sauce noire, crème de truffe et crème de cèpes, soit [3 pots au choix pour 40 €](/categorie/offres/), avec un [fuet à la truffe](/produit/fuet-a-la-truffe/).
+Pour un apéritif complet : sauce noire, crème de truffe et crème de cèpes, soit [3 pots au choix pour 40 €](/categorie/offres/), avec un [saucisson truffé](/produit/saucisson-truffe/).

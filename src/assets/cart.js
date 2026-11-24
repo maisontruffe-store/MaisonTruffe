@@ -129,7 +129,7 @@
     var R = {
       offrir: { l: "condiment-saveur-truffe-ete-poudre-100g", m: "coffret-gourmand-autour-de-la-truffe", s: "creme-de-truffe-ete" },
       pates: { l: "huile-olive-vierge-extra-truffe-blanche", m: "sauce-champignons-truffe-ete", s: "creme-de-truffe-ete" },
-      apero: { l: "coffret-gourmand-autour-de-la-truffe", m: "sauce-noire-truffe-ete", s: "fuet-a-la-truffe" },
+      apero: { l: "coffret-gourmand-autour-de-la-truffe", m: "sauce-noire-truffe-ete", s: "saucisson-truffe" },
       quotidien: { l: "condiment-saveur-truffe-ete-poudre-100g", m: "huile-olive-vierge-extra-truffe-noire", s: "condiment-saveur-truffe-noire" },
       fromage: { l: "coffret-gourmand-autour-de-la-truffe", m: "miel-acacia-saveur-truffe-ete", s: "miel-acacia-saveur-truffe-ete" }
     };

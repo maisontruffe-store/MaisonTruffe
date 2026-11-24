@@ -36,9 +36,9 @@ Un apéritif à la truffe impressionne toujours, et il demande très peu de trav
 9. **Blinis à la truffe** : blinis tièdes, crème fraîche, quelques [lamelles de truffe d'été](/produit/truffe-ete-en-lamelles/).
 10. **Œuf de caille truffé** : œuf de caille au plat sur toast, pincée de [sel truffé](/produit/sel-de-guerande-saveur-truffe-noire/).
 11. **Foie gras et balsamique truffé** : un trait de [crème de balsamique à la truffe](/produit/creme-vinaigre-balsamique-modene-truffe/).
-12. **Fuet truffé et beurre** : la tartine à la française, avec du [fuet à la truffe](/produit/fuet-a-la-truffe/).
+12. **Saucisson truffé et beurre** : la tartine à la française, avec du [saucisson truffé](/produit/saucisson-truffe/).
 
 ## Composer un plateau
-Prévoyez trois tartinables différents, un fuet, deux fromages et un pot de miel truffé. Variez les pains : baguette, pain de campagne, crackers.
+Prévoyez trois tartinables différents, un saucisson, deux fromages et un pot de miel truffé. Variez les pains : baguette, pain de campagne, crackers.
 
-Les essentiels pour 6 à 8 personnes : [3 pots au choix pour 40 €](/categorie/offres/) et [3 fuets pour 20 €](/produit/fuet-a-la-truffe/).
+Les essentiels pour 6 à 8 personnes : [3 pots au choix pour 40 €](/categorie/offres/) et [3 saucissons pour 20 €](/produit/saucisson-truffe/).

@@ -45,8 +45,8 @@
   status = 301
 
 [[redirects]]
-  from = "/produit/saucisson-truffe/*"
-  to = "/produit/fuet-a-la-truffe/"
+  from = "/produit/fuet-a-la-truffe/*"
+  to = "/produit/saucisson-truffe/"
   status = 301
 
 [[redirects]]
