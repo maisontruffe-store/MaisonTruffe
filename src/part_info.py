@@ -19,7 +19,7 @@ page("/merci-contact/", "Message envoyé — Maison Truffe", "Message envoyé.",
 
 LEGAL_TODO = '<span class="todo">[à compléter]</span>'
 info("/mentions-legales/", "Mentions légales", "Mentions légales du site maisontruffe.fr.",
-     f"""<h2>Éditeur du site</h2><p>{BRAND}<br>Siège : Sorgues (84700), Vaucluse, France<br>SIRET : 980 592 836 00038<br>Directrice de la publication : {LEGAL_TODO}<br>Contact : <a href="mailto:{EMAIL}">{EMAIL}</a></p>
+     f"""<h2>Éditeur du site</h2><p>{BRAND}<br>Siège : Sorgues (84700), Vaucluse, France<br>SIRET : 980 592 836 00038<br>Directeur de la publication : Florent G.<br>Contact : <a href="mailto:{EMAIL}">{EMAIL}</a></p>
 <h2>Hébergement</h2><p>Le site est hébergé et maintenu par Sitepropulse.</p>
 <h2>Paiement</h2><p>Les paiements sont traités par Stripe. Aucune donnée bancaire n'est stockée sur ce site.</p>
 <h2>Propriété intellectuelle</h2><p>Les textes du site sont la propriété de {BRAND}. Les visuels produits sont utilisés avec l'accord de leurs fabricants.</p>""")
