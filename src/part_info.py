@@ -20,7 +20,7 @@ page("/merci-contact/", "Message envoyé — Maison Truffe", "Message envoyé.",
 LEGAL_TODO = '<span class="todo">[à compléter]</span>'
 info("/mentions-legales/", "Mentions légales", "Mentions légales du site maisontruffe.fr.",
      f"""<h2>Éditeur du site</h2><p>{BRAND}<br>Siège : Sorgues (84700), Vaucluse, France<br>SIRET : 980 592 836 00038<br>Directeur de la publication : Florent G.<br>Contact : <a href="mailto:{EMAIL}">{EMAIL}</a></p>
-<h2>Hébergement</h2><p>Le site est hébergé et maintenu par Sitepropulse.</p>
+<h2>Hébergement</h2><p>Hébergeur : Netlify, Inc. — 512 2nd Street, Suite 200, San Francisco, CA 94107, États-Unis — <a href="https://www.netlify.com" rel="noopener">netlify.com</a><br>Site réalisé et maintenu par <a href="https://sitepropulse.fr" rel="noopener">Sitepropulse</a>.</p>
 <h2>Paiement</h2><p>Les paiements sont traités par Stripe. Aucune donnée bancaire n'est stockée sur ce site.</p>
 <h2>Propriété intellectuelle</h2><p>Les textes du site sont la propriété de {BRAND}. Les visuels produits sont utilisés avec l'accord de leurs fabricants.</p>""")
 
@@ -36,7 +36,7 @@ info("/cgv/", "Conditions générales de vente", "Conditions générales de vent
 
 info("/confidentialite/", "Politique de confidentialité", "Comment Maison Truffe traite vos données personnelles.",
      f"""<p>Les données collectées lors d'une commande (nom, e-mail, téléphone, adresse) servent uniquement à traiter et livrer votre commande et à vous contacter à son sujet. Elles sont conservées pendant la durée nécessaire à la relation commerciale et aux obligations comptables.</p>
-<p>Les paiements sont traités par Stripe ; le site n'a jamais accès à vos données bancaires. Les formulaires du site sont gérés par notre prestataire technique, Sitepropulse.</p>
+<p>Les paiements sont traités par Stripe ; le site n'a jamais accès à vos données bancaires. Les formulaires du site sont hébergés par Netlify et gérés par notre prestataire technique, Sitepropulse.</p>
 <p>Le site n'utilise pas de cookies publicitaires. Le panier est enregistré uniquement dans votre navigateur.</p>
 <p>Vous pouvez demander l'accès, la rectification ou la suppression de vos données via la <a href="/contact/">page contact</a> ou à {EMAIL}. Responsable du traitement : {BRAND}, Sorgues (84700).</p>""")
 
