@@ -48,7 +48,7 @@ export const CATALOG: Record<string, { name: string; price: number; img: string;
  "condiment-truffe-blanche-lamelles-bianchetto": {
   "name": "Huile d'olive à la truffe blanche — 100 ml",
   "price": 15.0,
-  "img": "https://latruffieredemarcel.com/cdn/shop/files/CondimentTruffeBlancheShopify.png?v=1757668030&width=200",
+  "img": "https://maisontruffe.fr/assets/p/huile-truffe-blanche-100.webp",
   "cat": "huiles-condiments",
   "weight_g": 195,
   "promo": "pot3",
@@ -93,7 +93,7 @@ export const CATALOG: Record<string, { name: string; price: number; img: string;
  "moutarde-brisures-truffe-brumale-poivre-noir": {
   "name": "Moutarde aux Brisures de Truffe Brumale 1,2 % & Poivre Noir",
   "price": 15.0,
-  "img": "https://latruffieredemarcel.com/cdn/shop/files/10_3e05eeea-75c2-4082-800b-43af087dcf56.png?v=1757935452&width=200",
+  "img": "https://maisontruffe.fr/assets/p/moutarde-truffe-brumale.webp",
   "cat": "huiles-condiments",
   "weight_g": null,
   "promo": "pot3",
@@ -154,9 +154,9 @@ export const CATALOG: Record<string, { name: string; price: number; img: string;
   "test": false
  },
  "tagliatelle-saveur-truffe-blanche": {
-  "name": "Tagliatelle Saveur Truffe Blanche",
+  "name": "Tagliatelle Saveur Truffe Blanche — 250 g",
   "price": 8.0,
-  "img": "https://latruffieredemarcel.com/cdn/shop/files/Pates.png?v=1757935325&width=200",
+  "img": "https://maisontruffe.fr/assets/p/tagliatelle-truffe-blanche.webp",
   "cat": "epicerie-charcuterie",
   "weight_g": null,
   "promo": null,
