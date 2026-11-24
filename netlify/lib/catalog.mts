@@ -75,7 +75,7 @@ export const CATALOG: Record<string, { name: string; price: number; img: string;
  "creme-vinaigre-balsamique-modene-truffe": {
   "name": "Crème au Vinaigre Balsamique de Modène aromatisée à la Truffe",
   "price": 15.0,
-  "img": "https://latruffieredemarcel.com/cdn/shop/files/CremeVinaigreBalsamiquedeModenearomatisealaTruffeShopify.png?v=1757669227&width=200",
+  "img": "https://maisontruffe.fr/assets/p/balsamique-truffe.webp",
   "cat": "huiles-condiments",
   "weight_g": null,
   "promo": "pot3",
@@ -165,7 +165,7 @@ export const CATALOG: Record<string, { name: string; price: number; img: string;
  "fuet-a-la-truffe": {
   "name": "Fuet à la truffe",
   "price": 10.0,
-  "img": "https://latruffieredemarcel.com/cdn/shop/files/4_a53bdb74-9b10-48c1-9d4b-0fd202e46430.png?v=1757935713&width=200",
+  "img": "https://maisontruffe.fr/assets/p/fuet-truffe.webp",
   "cat": "epicerie-charcuterie",
   "weight_g": null,
   "promo": "fuet3",
