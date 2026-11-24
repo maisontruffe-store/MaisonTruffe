@@ -41,4 +41,4 @@ Pour un apéritif : environ **50 g de fromage et 50 g de charcuterie par personn
 Sortez les fromages 30 minutes avant de servir.
 
 ## La solution clé en main
-Avec [3 pots au choix pour 40 €](/categorie/offres/) (tartinables, miel truffé) et un [saucisson truffé](/produit/saucisson-truffe/), il ne reste qu'à ajouter les fromages et le pain. Voir aussi nos [12 idées de toasts à la truffe](/blog/idees-toasts-apero-truffe/).
+Avec [3 pots au choix pour 40 €](/categorie/offres/) (crème de truffe, sauce noire, crème de cèpes), le [miel truffé](/produit/miel-acacia-saveur-truffe-ete/) et un [saucisson truffé](/produit/saucisson-truffe/), il ne reste qu'à ajouter les fromages et le pain. Voir aussi nos [12 idées de toasts à la truffe](/blog/idees-toasts-apero-truffe/).

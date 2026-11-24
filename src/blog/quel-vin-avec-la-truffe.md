@@ -41,4 +41,4 @@ Les **blancs ronds** sont parfaits :
 - **Apéritif truffé** : champagne, crémant ou blanc sec et fruité.
 
 ## L'apéritif idéal
-Pour un apéritif à la truffe, composez [3 pots au choix pour 40 €](/categorie/offres/) (crème de truffe, sauce noire, miel truffé pour les fromages) avec un saucisson truffé. Il ne reste qu'à déboucher la bouteille.
+Pour un apéritif à la truffe, composez [3 pots au choix pour 40 €](/categorie/offres/) (crème de truffe, sauce noire, crème de cèpes) avec un saucisson truffé, et du miel truffé pour les fromages. Il ne reste qu'à déboucher la bouteille.

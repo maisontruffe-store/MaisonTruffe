@@ -36,4 +36,4 @@ Beurre mou mélangé à un peu de [condiment truffe noire](/produit/condiment-sa
 Une boule de glace vanille, un filet de [miel d'acacia saveur truffe](/produit/miel-acacia-saveur-truffe-ete/) et quelques noisettes torréfiées. Surprenant et délicieux.
 
 ## Tout en un
-Pour tout ce menu : [truffe d'été en lamelles](/produit/truffe-ete-en-lamelles/), [huile à la truffe noire](/produit/condiment-saveur-truffe-noire/) et [sel truffé](/produit/sel-de-guerande-saveur-truffe-noire/), soit 3 pots pour 40 €.
+Pour tout ce menu : [truffe d'été en lamelles](/produit/truffe-ete-en-lamelles/), [huile à la truffe noire](/produit/condiment-saveur-truffe-noire/) et [sel truffé](/produit/sel-de-guerande-saveur-truffe-noire/).

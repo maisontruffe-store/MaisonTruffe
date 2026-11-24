@@ -31,4 +31,4 @@ Le sel truffé s'utilise **à la fin**, sur un plat chaud ou froid, jamais dans 
 8. **Purée et pommes de terre vapeur** : avec une noisette de beurre.
 
 ## Le cadeau malin
-Le sel truffé fait un excellent petit cadeau. Il fait partie de notre [offre 3 pots au choix pour 40 €](/categorie/offres/).
+Le sel truffé fait un excellent petit cadeau. À compléter avec nos [pots à la truffe, 40 € les 3](/categorie/offres/).

@@ -45,4 +45,4 @@ Les pâtes à la truffe sont le plat parfait pour découvrir la truffe : peu d'i
 - **Version jambon** : quelques lamelles de jambon cru ajoutées dans l'assiette.
 
 ## Le kit tout prêt
-Avec la [crème de truffe](/produit/creme-de-truffe-ete/), l'[huile à la truffe blanche](/produit/condiment-truffe-blanche-lamelles-bianchetto/) et le [condiment en poudre](/produit/condiment-saveur-truffe-ete-poudre/) (3 pots pour 40 €), plus deux paquets de [tagliatelles](/produit/tagliatelle-saveur-truffe-blanche/), vous avez de quoi faire cette recette au moins quatre fois.
+Avec la [crème de truffe](/produit/creme-de-truffe-ete/), la [sauce champignons](/produit/sauce-champignons-truffe-ete/) et le [condiment en poudre](/produit/condiment-saveur-truffe-ete-poudre/) (3 pour 40 €), l'[huile à la truffe blanche](/produit/condiment-truffe-blanche-lamelles-bianchetto/) et deux paquets de [tagliatelles](/produit/tagliatelle-saveur-truffe-blanche/), vous avez de quoi faire cette recette au moins quatre fois.

@@ -91,7 +91,6 @@
    "Foie gras, gratins, purées"
   ],
   "weight_g": 195,
-  "promo": "pot3",
   "formats": "huile-noire",
   "format_label": "100 ml",
   "bestseller": true
@@ -112,7 +111,6 @@
    "Foie gras, volaille, légumes"
   ],
   "weight_g": 195,
-  "promo": "pot3",
   "formats": "huile-blanche",
   "format_label": "100 ml"
  },
@@ -151,8 +149,7 @@
    "Légumes rôtis",
    "Foie gras et toasts apéritifs"
   ],
-  "weight_g": null,
-  "promo": "pot3"
+  "weight_g": null
  },
  {
   "slug": "creme-vinaigre-balsamique-modene-truffe",
@@ -169,8 +166,7 @@
    "Risottos, viandes blanches, poissons",
    "Plateau de fromages"
   ],
-  "weight_g": null,
-  "promo": "pot3"
+  "weight_g": null
  },
  {
   "slug": "miel-acacia-saveur-truffe-ete",
@@ -187,8 +183,7 @@
    "Laquage de volaille ou magret",
    "Vinaigrette sucrée-salée"
   ],
-  "weight_g": 220,
-  "promo": "pot3"
+  "weight_g": 220
  },
  {
   "slug": "moutarde-brisures-truffe-brumale-poivre-noir",
@@ -205,8 +200,7 @@
    "Poisson grillé",
    "Vinaigrettes et purées"
   ],
-  "weight_g": null,
-  "promo": "pot3"
+  "weight_g": null
  },
  {
   "slug": "condiment-saveur-truffe-ete-poudre-100g",

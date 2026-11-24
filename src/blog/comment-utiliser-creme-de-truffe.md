@@ -53,4 +53,4 @@ Blinis tièdes, crème de truffe, une pointe de crème fraîche : simple et él�
 La règle : commencer petit. La crème de truffe est puissante, et trop en mettre écrase les autres saveurs. Goûtez, puis ajustez.
 
 ## Pour tout avoir d'un coup
-Pour un dîner de pâtes complet : [crème de truffe](/produit/creme-de-truffe-ete/), [sauce champignons](/produit/sauce-champignons-truffe-ete/) et [huile à la truffe blanche 100 ml](/produit/condiment-truffe-blanche-lamelles-bianchetto/), soit 3 pots pour 40 €, plus les [tagliatelles](/produit/tagliatelle-saveur-truffe-blanche/).
+Pour un dîner de pâtes complet : [crème de truffe](/produit/creme-de-truffe-ete/), [sauce champignons](/produit/sauce-champignons-truffe-ete/) et [crème de cèpes](/produit/creme-de-cepes-truffe-blanche/), soit 3 pots pour 40 €, plus l'[huile à la truffe blanche](/produit/condiment-truffe-blanche-lamelles-bianchetto/) et les [tagliatelles](/produit/tagliatelle-saveur-truffe-blanche/).
