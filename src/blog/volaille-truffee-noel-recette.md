@@ -68,4 +68,4 @@ Pour le vin, une volaille truffée appelle plutôt un blanc ample ou un rouge so
 Cette recette s'intègre parfaitement à un [menu de Noël à la truffe](/blog/menu-de-noel-a-la-truffe-facile/).
 
 ## Tout pour truffer votre repas de fête
-Si vous voulez de quoi cuisiner la truffe tout au long des fêtes, composez [3 pots au choix pour 40 €](/categorie/offres/) , par exemple truffe d'été en lamelles, crème de truffe et sauce champignons, et ajoutez l'huile d'olive à la truffe noire et le sel truffé. Expédition sous 1 à 3 jours ouvrés.
+Si vous voulez de quoi cuisiner la truffe tout au long des fêtes, composez [3 pots au choix pour 40 €](/categorie/offres/), par exemple crème de truffe, sauce champignons et sel truffé, et ajoutez la [truffe d'été en lamelles](/produit/truffe-ete-en-lamelles/) et l'huile d'olive à la truffe noire. Expédition sous 1 à 3 jours ouvrés.

@@ -21,7 +21,7 @@
   "slug": "truffe-ete-en-lamelles",
   "name": "Truffe d'été en Lamelles",
   "cat": "coffrets-truffes",
-  "price": 15.0,
+  "price": 30.0,
   "img": "/assets/p/truffe-ete-lamelles.webp",
   "truffle": "Truffe d'été (Tuber aestivum)",
   "short": "De la vraie truffe d'été, déjà tranchée, prête à parsemer.",
@@ -33,8 +33,25 @@
    "Fromages affinés, volaille, purée"
   ],
   "bestseller": false,
-  "weight_g": 123,
-  "promo": "pot3"
+  "weight_g": 123
+ },
+ {
+  "slug": "truffe-ete-entiere",
+  "name": "Truffe d'été entière — 40 g",
+  "cat": "coffrets-truffes",
+  "price": 30.0,
+  "img": "",
+  "truffle": "Truffe d'été",
+  "short": "Une truffe d'été entière, à râper ou à trancher finement sur vos plats de fête.",
+  "desc": "Une truffe d'été (Tuber aestivum) entière. Râpée ou tranchée très finement au dernier moment, elle parfume pâtes fraîches, œufs, risotto, purée ou carpaccio pour un vrai repas de fête.",
+  "uses": [
+   "Râpée sur des pâtes fraîches au beurre",
+   "Œufs brouillés ou omelette",
+   "Risotto, purée, polenta",
+   "Carpaccio et burrata"
+  ],
+  "weight_g": null,
+  "bestseller": false
  },
  {
   "slug": "huile-olive-vierge-extra-truffe-noire",

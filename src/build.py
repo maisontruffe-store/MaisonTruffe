@@ -39,7 +39,7 @@ for b in BUNDLES:
 
 CATS = {
     "coffrets-truffes": {"name": "Coffrets & Truffes", "h1": "Coffrets cadeaux et truffes d'été",
-               "intro": "Des coffrets prêts à offrir et de la truffe d'été en lamelles, pour faire plaisir ou se faire plaisir. Le cadeau gourmand qui marque les esprits, à Noël comme toute l'année."},
+               "intro": "Des coffrets prêts à offrir et de la truffe d'été, entière ou en lamelles, pour faire plaisir ou se faire plaisir. Le cadeau gourmand qui marque les esprits, à Noël comme toute l'année."},
     "huiles-condiments": {"name": "Huiles & Condiments", "h1": "Huiles à la truffe, sels, miel et condiments",
                "intro": "Huile d'olive à la truffe noire ou blanche, sel de Guérande truffé, miel, moutarde et balsamique : les essentiels pour mettre de la truffe dans la cuisine de tous les jours, en un geste."},
     "cremes-tartinables": {"name": "Crèmes & Tartinables", "h1": "Crèmes de truffe et tartinables pour l'apéritif",
@@ -231,7 +231,7 @@ def offer_card(b, featured=False):
 exec((SRC / "part_faq.py").read_text(encoding="utf-8"))
 FAQ.insert(0, ("Que se passe-t-il si mon colis arrive abîmé ?", GUARANTEE_TEXT))
 FAQ.insert(1, ("Comment fonctionne l'offre 3 pots pour 40 € ?",
-               "Tous nos produits à 15 € (crèmes, sauces, pesto, truffe en lamelles, miel, moutarde, sel, crème balsamique, petites huiles 100 ml, petit condiment en poudre 30 g) sont à 40 € les 3, en mélangeant comme vous voulez. La remise s'applique automatiquement dans le panier, par lot de 3. Le saucisson truffé est à 10 € pièce ou 20 € les 3."))
+               "Tous nos produits à 15 € (crèmes, sauces, pesto, miel, moutarde, sel, crème balsamique, petites huiles 100 ml, petit condiment en poudre 30 g) sont à 40 € les 3, en mélangeant comme vous voulez. La remise s'applique automatiquement dans le panier, par lot de 3. Le saucisson truffé est à 10 € pièce ou 20 € les 3."))
 
 def faq_schema(items):
     return {"@context": "https://schema.org", "@type": "FAQPage",
@@ -322,7 +322,7 @@ def promo_block(compact=False):
     return f"""<section class="promo-band reveal"><div class="wrap promo-inner">
   <div class="promo-txt"><p class="pill">🔥 Offre permanente · mélange libre</p>
   <h2>3 pots au choix = <span class="gold">40 €</span> <s>45 €</s></h2>
-  <p class="lead">Crèmes, sauces, pesto, lamelles, miel, moutarde, sel, balsamique, petites huiles 100 ml, petit condiment : tout ce qui est à 15 €. Prenez-en 3, mélangez comme vous voulez, la remise s'applique toute seule dans le panier.</p>
+  <p class="lead">Crèmes, sauces, pesto, miel, moutarde, sel, balsamique, petites huiles 100 ml, petit condiment : tout ce qui est à 15 €. Prenez-en 3, mélangez comme vous voulez, la remise s'applique toute seule dans le panier.</p>
   <p class="promo-sub">+ <b>Saucisson truffé</b> : 10 € pièce, <b>20 € les 3</b>.</p>
   <div class="hero-cta"><a class="btn btn-gold btn-lg" href="/categorie/offres/">Je compose mes 3 pots</a>{'' if compact else '<a class="btn btn-ghost-light btn-lg" href="/produit/saucisson-truffe/">Voir le saucisson</a>'}</div></div>
   <div class="promo-thumbs">{thumbs}</div>
