@@ -19,14 +19,14 @@ page("/merci-contact/", "Message envoyé — Maison Truffe", "Message envoyé.",
 
 LEGAL_TODO = '<span class="todo">[à compléter]</span>'
 info("/mentions-legales/", "Mentions légales", "Mentions légales du site maisontruffe.fr.",
-     f"""<h2>Éditeur du site</h2><p>{BRAND} — {LEGAL_TODO} (raison sociale, forme juridique, capital)<br>Siège social : {LEGAL_TODO}<br>SIRET : {LEGAL_TODO} — TVA intracommunautaire : {LEGAL_TODO}<br>Directrice de la publication : {LEGAL_TODO}<br>Contact : {EMAIL}</p>
-<h2>Hébergement</h2><p>Netlify, Inc. — 512 2nd Street, Suite 200, San Francisco, CA 94107, États-Unis — netlify.com</p>
+     f"""<h2>Éditeur du site</h2><p>{BRAND}<br>Siège : Sorgues (84700), Vaucluse, France<br>SIRET : 980 592 836 00038<br>Directrice de la publication : {LEGAL_TODO}<br>Contact : <a href="mailto:{EMAIL}">{EMAIL}</a></p>
+<h2>Hébergement</h2><p>Le site est hébergé et maintenu par Sitepropulse.</p>
 <h2>Paiement</h2><p>Les paiements sont traités par Stripe. Aucune donnée bancaire n'est stockée sur ce site.</p>
 <h2>Propriété intellectuelle</h2><p>Les textes du site sont la propriété de {BRAND}. Les visuels produits sont utilisés avec l'accord de leurs fabricants.</p>""")
 
 info("/cgv/", "Conditions générales de vente", "Conditions générales de vente de Maison Truffe.",
      f"""<p class="todo-box">Modèle à faire valider avant la mise en ligne définitive.</p>
-<h2>1. Objet</h2><p>Les présentes conditions régissent les ventes de produits d'épicerie fine conclues sur le site maisontruffe.fr entre {BRAND} ({LEGAL_TODO}) et tout client consommateur.</p>
+<h2>1. Objet</h2><p>Les présentes conditions régissent les ventes de produits d'épicerie fine conclues sur le site maisontruffe.fr entre {BRAND} (SIRET 980 592 836 00038, Sorgues, 84700) et tout client consommateur.</p>
 <h2>2. Prix</h2><p>Les prix sont indiqués en euros toutes taxes comprises, hors frais de livraison. Les frais de livraison ({eur(SHIP_PRICE)}, offerts dès {FREE_SHIP} €) sont indiqués avant la validation de la commande.</p>
 <h2>3. Commande et paiement</h2><p>La commande est validée après paiement en ligne sécurisé (Stripe : carte bancaire, Apple Pay, Google Pay). Un e-mail de confirmation est envoyé au client.</p>
 <h2>4. Livraison</h2><p>Les produits sont expédiés sous 1 à 3 jours ouvrés vers la France métropolitaine, la Belgique, le Luxembourg et Monaco. Voir la page <a href="/livraison/">Livraison et retours</a>.</p>
@@ -36,9 +36,9 @@ info("/cgv/", "Conditions générales de vente", "Conditions générales de vent
 
 info("/confidentialite/", "Politique de confidentialité", "Comment Maison Truffe traite vos données personnelles.",
      f"""<p>Les données collectées lors d'une commande (nom, e-mail, téléphone, adresse) servent uniquement à traiter et livrer votre commande et à vous contacter à son sujet. Elles sont conservées pendant la durée nécessaire à la relation commerciale et aux obligations comptables.</p>
-<p>Les paiements sont traités par Stripe ; le site n'a jamais accès à vos données bancaires. Les formulaires sont hébergés par Netlify.</p>
+<p>Les paiements sont traités par Stripe ; le site n'a jamais accès à vos données bancaires. Les formulaires du site sont gérés par notre prestataire technique, Sitepropulse.</p>
 <p>Le site n'utilise pas de cookies publicitaires. Le panier est enregistré uniquement dans votre navigateur.</p>
-<p>Vous pouvez demander l'accès, la rectification ou la suppression de vos données via la <a href="/contact/">page contact</a> ou à {EMAIL}. Responsable du traitement : {LEGAL_TODO}.</p>""")
+<p>Vous pouvez demander l'accès, la rectification ou la suppression de vos données via la <a href="/contact/">page contact</a> ou à {EMAIL}. Responsable du traitement : {BRAND}, Sorgues (84700).</p>""")
 
 
 info("/cookies/", "Politique cookies", "Les cookies et traceurs utilisés sur maisontruffe.fr et comment les gérer.",
