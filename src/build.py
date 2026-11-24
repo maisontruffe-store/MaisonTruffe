@@ -231,7 +231,7 @@ def offer_card(b, featured=False):
 exec((SRC / "part_faq.py").read_text(encoding="utf-8"))
 FAQ.insert(0, ("Que se passe-t-il si mon colis arrive abîmé ?", GUARANTEE_TEXT))
 FAQ.insert(1, ("Comment fonctionne l'offre 3 pots pour 40 € ?",
-               "Nos pots à 15 € (crème de truffe, crème de cèpes, pesto, sauce noire, sauce champignons, truffe en lamelles, petit condiment en poudre) sont à 40 € les 3, en mélangeant comme vous voulez. La remise s'applique automatiquement dans le panier, par lot de 3. Le saucisson truffé est à 10 € pièce ou 20 € les 3."))
+               "Nos pots à 15 € (crème de truffe, crème de cèpes, pesto, sauce noire, sauce champignons, truffe en lamelles) sont à 40 € les 3, en mélangeant comme vous voulez. La remise s'applique automatiquement dans le panier, par lot de 3. Le saucisson truffé est à 10 € pièce ou 20 € les 3."))
 
 def faq_schema(items):
     return {"@context": "https://schema.org", "@type": "FAQPage",
@@ -322,7 +322,7 @@ def promo_block(compact=False):
     return f"""<section class="promo-band reveal"><div class="wrap promo-inner">
   <div class="promo-txt"><p class="pill">🔥 Offre permanente · mélange libre</p>
   <h2>3 pots au choix = <span class="gold">40 €</span> <s>45 €</s></h2>
-  <p class="lead">Crème de truffe, crème de cèpes, pesto, sauce noire, sauce champignons, truffe en lamelles, petit condiment en poudre : prenez-en 3, mélangez comme vous voulez, la remise s'applique toute seule dans le panier.</p>
+  <p class="lead">Crème de truffe, crème de cèpes, pesto, sauce noire, sauce champignons, truffe en lamelles : prenez-en 3, mélangez comme vous voulez, la remise s'applique toute seule dans le panier.</p>
   <p class="promo-sub">+ <b>Saucisson truffé</b> : 10 € pièce, <b>20 € les 3</b>.</p>
   <div class="hero-cta"><a class="btn btn-gold btn-lg" href="/categorie/offres/">Je compose mes 3 pots</a>{'' if compact else '<a class="btn btn-ghost-light btn-lg" href="/produit/saucisson-truffe/">Voir le saucisson</a>'}</div></div>
   <div class="promo-thumbs">{thumbs}</div>
