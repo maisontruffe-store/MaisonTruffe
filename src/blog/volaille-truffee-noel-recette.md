@@ -68,4 +68,4 @@ Pour le vin, une volaille truffée appelle plutôt un blanc ample ou un rouge so
 Cette recette s'intègre parfaitement à un [menu de Noël à la truffe](/blog/menu-de-noel-a-la-truffe-facile/).
 
 ## Tout pour truffer votre repas de fête
-Si vous voulez de quoi cuisiner la truffe tout au long des fêtes, composez [3 pots au choix pour 40 €](/categorie/offres/) : l'huile d'olive à la truffe noire, la truffe d'été en lamelles, le sel de Guérande saveur truffe noire et quatre spécialités truffées. La livraison est offerte dès 59 € d'achat, avec une expédition sous 1 à 3 jours ouvrés.
+Si vous voulez de quoi cuisiner la truffe tout au long des fêtes, composez [3 pots au choix pour 40 €](/categorie/offres/) : l'huile d'olive à la truffe noire, la truffe d'été en lamelles, le sel de Guérande à la truffe d'été et quatre spécialités truffées. Expédition sous 1 à 3 jours ouvrés.

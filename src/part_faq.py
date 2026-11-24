@@ -6,7 +6,7 @@ FAQ = [
     ("Quel produit à la truffe offrir en cadeau ?",
      "Le Coffret Gourmand Autour de la Truffe (30 €) est le choix le plus simple : quatre spécialités prêtes à offrir. Pour un budget plus serré, 3 pots au choix pour 40 €, l'huile d'olive à la truffe noire (15 € en 100 ml) ou la crème de truffe d'été (15 €) font toujours plaisir. Pour un amateur de fromage, le miel millefleurs saveur truffe est un cadeau original."),
     ("Quels sont les délais et frais de livraison ?",
-     f"Les commandes sont préparées sous 1 à 3 jours ouvrés puis livrées en 2 à 4 jours en France métropolitaine. La livraison coûte {eur(SHIP_PRICE)} et elle est offerte dès {FREE_SHIP} € d'achat."),
+     f"Les commandes sont préparées sous 1 à 3 jours ouvrés puis livrées en 2 à 4 jours en France métropolitaine. La livraison coûte {eur(SHIP_PRICE)} par commande."),
     ("Comment conserver les produits à la truffe après ouverture ?",
      "Refermez bien le pot ou la bouteille et conservez les crèmes, tartinables et condiments au réfrigérateur après ouverture, en les consommant rapidement pour profiter de tout l'arôme. Les huiles se gardent à l'abri de la lumière et de la chaleur. Référez-vous toujours à la mention de l'étiquette."),
     ("Les produits contiennent-ils de la vraie truffe ?",

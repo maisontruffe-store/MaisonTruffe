@@ -48,7 +48,7 @@ export default async (req: Request, context: Context) => {
   Object.entries(rest).forEach(([sl, q]) => { if (q > 0) lineItems.push({ name: CATALOG[sl].name, cents: Math.round(CATALOG[sl].price * 100), qty: q, img: CATALOG[sl].img }) })
   const subtotal = lineItems.reduce((s, l) => s + l.cents * l.qty, 0) / 100
   const onlyTest = items.every((i) => CATALOG[i.slug].test)
-  const shipCents = subtotal >= SHIP.free || onlyTest ? 0 : Math.round(SHIP.price * 100)
+  const shipCents = onlyTest ? 0 : Math.round(SHIP.price * 100)
 
   const p = new URLSearchParams()
   p.set("mode", "payment")
@@ -59,7 +59,7 @@ export default async (req: Request, context: Context) => {
   p.set("phone_number_collection[enabled]", "true")
   ;["FR", "MC"].forEach((c, n) => p.set(`shipping_address_collection[allowed_countries][${n}]`, c))
   p.set("shipping_options[0][shipping_rate_data][type]", "fixed_amount")
-  p.set("shipping_options[0][shipping_rate_data][display_name]", shipCents ? "Livraison Colissimo" : "Livraison offerte")
+  p.set("shipping_options[0][shipping_rate_data][display_name]", shipCents ? "Livraison" : "Livraison offerte")
   p.set("shipping_options[0][shipping_rate_data][fixed_amount][amount]", String(shipCents))
   p.set("shipping_options[0][shipping_rate_data][fixed_amount][currency]", "eur")
   p.set("shipping_options[0][shipping_rate_data][delivery_estimate][minimum][unit]", "business_day")

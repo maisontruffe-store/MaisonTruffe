@@ -29,7 +29,7 @@
     var off = promos(c).reduce(function (s, x) { return s + x.off; }, 0);
     var sub = Math.round((gross - off) * 100) / 100;
     var onlyTest = lines(c).length > 0 && lines(c).every(function (l) { return l.p.test; });
-    var ship = sub === 0 || onlyTest ? 0 : (sub >= S.free ? 0 : S.price);
+    var ship = sub === 0 || onlyTest ? 0 : S.price;
     return { gross: gross, off: off, sub: sub, ship: ship, total: sub + ship };
   }
   function toast(msg) {
@@ -62,7 +62,6 @@
     var empty = ls.length === 0;
     $("[data-cart-empty]").hidden = !empty;
     $("[data-cart-summary]").style.display = empty ? "none" : "";
-    $("[data-meter]").style.display = empty ? "none" : "";
     $("[data-subtotal]").textContent = eur(t.gross);
     var pdt = $("[data-promo-dt]"), pdd = $("[data-promo]");
     if (pdt) { pdt.hidden = pdd.hidden = !t.off; pdd.textContent = "− " + eur(t.off); }
@@ -76,17 +75,14 @@
     }
     $("[data-shipping]").textContent = t.ship === 0 ? "Offerte" : eur(t.ship);
     $("[data-total]").textContent = eur(t.total);
-    $("[data-meter-bar]").style.width = Math.min(100, t.sub / S.free * 100) + "%";
-    $("[data-free-hint]").textContent = t.sub >= S.free ? "🎉 Bravo, la livraison est offerte !" : "Plus que " + eur(S.free - t.sub) + " pour la livraison offerte";
-    // suggestions pour atteindre la livraison offerte
-    var bump = $("[data-bump]"), gap = S.free - t.sub;
-    if (!empty && gap > 0) {
-      var picks = Object.keys(C).filter(function (k) { return !c[k] && !C[k].test; })
-        .sort(function (a, b) { return Math.abs(C[a].price - gap) - Math.abs(C[b].price - gap); }).slice(0, 3);
+    // suggestions pour compléter un lot « 3 pots = 40 € »
+    var bump = $("[data-bump]"), pot = promos(c).filter(function (x) { return x.key === "pot3" && x.missing; })[0];
+    if (!empty && pot) {
+      var picks = Object.keys(C).filter(function (k) { return !c[k] && C[k].promo === "pot3"; }).slice(0, 3);
       $("[data-bump-items]").innerHTML = picks.map(function (k) {
         return '<div class="bump-item">' + (C[k].img ? '<img src="' + C[k].img + '" alt="">' : "") + '<span><a href="/produit/' + k + '/">' + esc(C[k].name) + '</a></span><b>' + eur(C[k].price) + '</b><button class="btn btn-sm" data-add="' + k + '">+ Ajouter</button></div>';
       }).join("");
-      bump.hidden = false;
+      bump.hidden = !picks.length;
     } else bump.hidden = true;
   }
 
@@ -99,8 +95,8 @@
       c[d.add] = (c[d.add] || 0) + q; save(c);
       var txt = b.textContent; b.classList.add("added"); b.textContent = "✓ Ajouté";
       setTimeout(function () { b.classList.remove("added"); b.textContent = txt; }, 1400);
-      var t = totals(load()), gap = S.free - t.sub;
-      toast("Ajouté au panier ✓ " + (gap > 0 ? "· plus que " + eur(gap) + " pour la livraison offerte" : "· livraison offerte !") + ' <a href="/panier/">Panier →</a>');
+      var pm = promos(load()).filter(function (x) { return x.count > 0 && x.missing; })[0];
+      toast("Ajouté au panier ✓ " + (pm ? "· encore " + pm.missing + " pour « " + esc(pm.label) + " »" : "") + ' <a href="/panier/">Panier →</a>');
     } else if (d.inc) { c[d.inc] = (c[d.inc] || 0) + 1; save(c); }
     else if (d.dec) { c[d.dec] = Math.max(1, (c[d.dec] || 1) - 1); save(c); }
     else if (d.rm) { delete c[d.rm]; save(c); }

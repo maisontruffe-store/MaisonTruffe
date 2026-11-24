@@ -101,7 +101,7 @@ def page(path, title, desc, body, schema=None, og_img=None, noindex=False, cls="
 {''.join(jsonld(s) for s in [ORG] + (schema or []))}
 </head>
 <body class="{cls}">
-<div class="topbar">Livraison offerte dès {FREE_SHIP} € · Expédition sous 1 à 3 jours ouvrés · Paiement sécurisé</div>
+<div class="topbar">3 pots au choix = 40 € · Expédition sous 1 à 3 jours ouvrés · Paiement sécurisé</div>
 <header class="site-header">
   <div class="wrap header-inner">
     <a class="logo" href="/" aria-label="{BRAND} — accueil"><img class="logo-mark" src="/assets/logo-emblem.png" alt="" width="58" height="47"><span class="logo-txt">Maison Truffe<small>Spécialités à la truffe</small></span></a>
@@ -358,9 +358,9 @@ home = f"""
     <div class="sh-text">
       <p class="pill">🛒 Boutique en ligne · Livraison partout en France</p>
       <h1>Produits à la truffe : commandez en ligne, livrés chez vous.</h1>
-      <p class="lead">Huiles, crèmes, sauces, condiments, saucisson et coffret cadeau à la truffe. <b>Tous les pots à 15 €, et 40 € les 3</b> au choix. Livraison offerte dès {FREE_SHIP} €.</p>
+      <p class="lead">Huiles, crèmes, sauces, condiments, saucisson et coffret cadeau à la truffe. <b>Tous les pots à 15 €, et 40 € les 3</b> au choix. Livraison en France : {eur(SHIP_PRICE)}.</p>
       <div class="hero-cta"><a class="btn btn-gold btn-lg" href="#meilleures-ventes">Commander maintenant</a><a class="btn btn-outline btn-lg" href="/categorie/offres/">3 pots = 40 €</a></div>
-      <ul class="trust"><li><b>🚚</b> Expédié sous 1 à 3 jours</li><li><b>🎁</b> Livraison offerte dès {FREE_SHIP} €</li><li><b>🔒</b> Paiement CB, Apple Pay</li><li><b>📦</b> Colis protégé</li></ul>
+      <ul class="trust"><li><b>🚚</b> Expédié sous 1 à 3 jours</li><li><b>🎁</b> 3 pots au choix = 40 €</li><li><b>🔒</b> Paiement CB, Apple Pay</li><li><b>📦</b> Colis protégé</li></ul>
     </div>
     <div class="sh-feature">
       <a href="/produit/creme-de-truffe-ete/" class="feat-img">{pic(BYSLUG['creme-de-truffe-ete'])}<span class="badge">Le plus vendu</span></a>
@@ -411,11 +411,11 @@ home = f"""
 
 <section class="final-cta"><div class="wrap center">
   <h2>Prêt à commander ?</h2>
-  <p class="lead">Livraison offerte dès {FREE_SHIP} €, expédition sous 1 à 3 jours ouvrés.</p>
+  <p class="lead">Expédition sous 1 à 3 jours ouvrés, livraison en France : {eur(SHIP_PRICE)}.</p>
   <div class="hero-cta center-cta"><a class="btn btn-gold btn-lg" href="#meilleures-ventes">Commander maintenant</a><a class="btn btn-ghost-light btn-lg" href="#quiz">Faire le quiz</a></div>
 </div></section>"""
 page("/", "Maison Truffe — Produits à la truffe : huiles, crèmes, sauces | 3 pots = 40 €",
-     f"Huile d'olive à la truffe, crème de truffe d'été, sauces, condiments et saucisson truffé. Tous les pots à 15 €, 40 € les 3 au choix. Livraison offerte dès {FREE_SHIP} €, expédition sous 1 à 3 jours.",
+     f"Huile d'olive à la truffe, crème de truffe d'été, sauces, condiments et saucisson truffé. Tous les pots à 15 €, 40 € les 3 au choix. Expédition sous 1 à 3 jours partout en France.",
      home, [faq_schema(FAQ[:6]), itemlist(best),
             {"@context": "https://schema.org", "@type": "WebSite", "name": BRAND, "url": SITE + "/", "inLanguage": "fr-FR"}],
      cls="home")
@@ -445,7 +445,7 @@ page("/categorie/offres/", "Offre 3 pots à la truffe pour 40 € au choix — M
      "Crème de truffe, sauces, pesto, miel, sel, moutarde, petites huiles : tous nos pots à 15 €, 40 € les 3 en mélangeant comme vous voulez. Saucisson truffé 20 € les 3.",
      f"""{cr}<section class="section wrap"><p class="eyebrow">Offre permanente</p><h1>3 pots au choix pour 40 €</h1>
 <p class="lead">Tous ces produits sont à 15 € pièce. <b>Prenez-en 3, mélangez comme vous voulez : vous payez 40 € au lieu de 45 €.</b> La remise s'applique automatiquement dans le panier, pour chaque lot de 3 (6 pots = 80 €, 9 pots = 120 €…).</p>
-<ol class="steps-inline"><li>Ajoutez 3 produits (ou plus) de cette page</li><li>Le panier calcule la remise tout seul</li><li>Livraison offerte dès {FREE_SHIP} €</li></ol>
+<ol class="steps-inline"><li>Ajoutez 3 produits (ou plus) de cette page</li><li>Le panier calcule la remise tout seul</li><li>Expédition sous 1 à 3 jours</li></ol>
 {grid(POTS)}
 <h2 style="margin-top:2.5rem">Et le saucisson truffé : 20 € les 3</h2>
 <p class="lead">10 € pièce, 20 € les 3. Idéal pour compléter une planche apéro.</p>
@@ -463,7 +463,7 @@ for p in P:
     pfaq = [
         (f"Comment utiliser : {p['name']} ?", "Idées d'utilisation : " + " ; ".join(p["uses"]) + "."),
         ("Et si le colis arrive abîmé ?", GUARANTEE_TEXT),
-        ("Quel est le délai de livraison ?", f"Expédition sous 1 à 3 jours ouvrés, livraison en 2 à 4 jours en France. Frais de port {eur(SHIP_PRICE)}, offerts dès {FREE_SHIP} €."),
+        ("Quel est le délai de livraison ?", f"Expédition sous 1 à 3 jours ouvrés, livraison en 2 à 4 jours en France. Frais de port : {eur(SHIP_PRICE)} par commande."),
         ("Comment le conserver ?", "Avant ouverture, à l'abri de la chaleur et de la lumière. Après ouverture, bien refermer et suivre la mention de conservation de l'étiquette."),
     ]
     schema = {"@context": "https://schema.org", "@type": "Product", "name": p["name"], "description": p["desc"],
@@ -517,7 +517,7 @@ for p in P:
       <label class="qty"><button type="button" data-qminus aria-label="Moins">−</button><input type="number" min="1" max="20" value="1" data-qty aria-label="Quantité"><button type="button" data-qplus aria-label="Plus">+</button></label>
       <button class="btn btn-gold btn-lg" data-add="{p['slug']}" data-with-qty>Ajouter au panier</button>
     </div>
-    <ul class="mini-reassure"><li>Livraison offerte dès {FREE_SHIP} €</li><li>Expédié sous 1 à 3 jours</li><li>Colis protégé</li><li>Paiement sécurisé</li></ul>
+    <ul class="mini-reassure"><li>Livraison {eur(SHIP_PRICE)}</li><li>Expédié sous 1 à 3 jours</li><li>Colis protégé</li><li>Paiement sécurisé</li></ul>
     {upsell}
     {extra}
     <h2>Description</h2><p>{e(p['desc'])}</p>
@@ -530,7 +530,7 @@ for p in P:
 <section class="section wrap"><h2>Vous aimerez aussi</h2>{grid(related)}</section>
 <div class="sticky-buy" data-sticky><span><b>{e(p['name'])}</b> · {eur(p['price'])}</span><button class="btn btn-gold btn-sm" data-add="{p['slug']}">Ajouter</button></div>"""
     page(f"/produit/{p['slug']}/", f"{p['name']} — {eur(p['price'])} | {BRAND}",
-         f"{p['short']} {p['name']} à {eur(p['price'])}. Livraison offerte dès {FREE_SHIP} €.",
+         f"{p['short']} {p['name']} à {eur(p['price'])}. Expédition sous 1 à 3 jours.",
          body, [crs, schema, faq_schema(pfaq)], og_img=absimg(p, 1200) or None)
 
 # ---- Page de test (non référencée)
@@ -572,7 +572,7 @@ for k, g in GUIDES.items():
            "publisher": {"@id": SITE + "/#org"}, "mainEntityOfPage": f"{SITE}/guides/{k}/"}
     page(f"/guides/{k}/", f"{g['title']} | {BRAND}", g["desc"],
          f'{cr}<article class="section wrap narrow prose"><h1>{e(g["title"])}</h1>{g["body"]}'
-         f'<div class="inline-offer"><b>Envie d\'essayer sans vous tromper ?</b><span>Tous nos pots sont à 15 €, et 40 € les 3 au choix. Livraison offerte dès {FREE_SHIP} €.</span><a class="btn btn-gold" href="/categorie/offres/">Je compose mes 3 pots</a></div></article>',
+         f'<div class="inline-offer"><b>Envie d\'essayer sans vous tromper ?</b><span>Tous nos pots sont à 15 €, et 40 € les 3 au choix.</span><a class="btn btn-gold" href="/categorie/offres/">Je compose mes 3 pots</a></div></article>',
          [crs, art])
 
 # ---- FAQ
@@ -585,13 +585,13 @@ page("/faq/", "Questions fréquentes sur la truffe et nos produits — Maison Tr
 panier = f"""
 <section class="section wrap">
   <h1>Votre panier</h1>
-  <div class="ship-meter" data-meter><div class="ship-bar"><span data-meter-bar></span></div><p data-free-hint></p></div>
+  
   <div class="cart-layout">
     <div>
       <div data-cart-lines></div>
       <div data-promo-hint></div>
       <div class="empty" data-cart-empty hidden><p class="lead">Votre panier est vide.</p><a class="btn btn-gold" href="/categorie/offres/">Voir l'offre 3 pots = 40 €</a></div>
-      <div class="bump" data-bump hidden><h3>Pour atteindre la livraison offerte</h3><div data-bump-items></div></div>
+      <div class="bump" data-bump hidden><h3>Complétez votre lot de 3 pots</h3><div data-bump-items></div></div>
     </div>
     <aside class="summary" data-cart-summary>
       <h2>Récapitulatif</h2>
@@ -698,7 +698,7 @@ for m in POSTS:
     {m['html']}
     {('<h2>Questions fréquentes</h2>' + faq_html(faq)) if faq else ''}
     <div class="post-products"><h2>Les produits de cet article</h2>{grid(prods)}</div>
-    <div class="inline-offer"><b>Commandez vos produits à la truffe</b><span>Livraison offerte dès {FREE_SHIP} €, expédition sous 1 à 3 jours ouvrés.</span><a class="btn btn-gold" href="/boutique/">Voir la boutique</a></div>
+    <div class="inline-offer"><b>Commandez vos produits à la truffe</b><span>Tous les pots à 15 €, 40 € les 3 au choix. Expédition sous 1 à 3 jours ouvrés.</span><a class="btn btn-gold" href="/boutique/">Voir la boutique</a></div>
   </article>
   <aside class="post-side"><div class="side-box"><h3>À commander</h3>{side}<a class="link" href="/boutique/">Toute la boutique →</a></div></aside>
 </div>
@@ -722,7 +722,7 @@ urls += ["/categorie/offres/"] + [f"/categorie/{k}/" for k in CATS] + [f"/produi
     f"\nSitemap: {SITE}/sitemap.xml\n", encoding="utf-8")
 
 llms = [f"# {BRAND}", "",
-        f"> {BRAND} (maisontruffe.fr) est une épicerie fine en ligne française spécialisée dans les produits à la truffe, pensés pour réussir des plats de chef en 10 minutes sans savoir cuisiner : huiles d'olive à la truffe noire et blanche (100 ml et 250 ml), crème de truffe d'été, sauce noire et sauce champignons à la truffe, pesto, condiment truffe en poudre, sel, miel et moutarde truffés, pâtes, saucisson truffé, truffe d'été en lamelles, coffret cadeau. Tous les pots à 15 €, 40 € les 3 au choix ; saucisson 10 € ou 20 € les 3. Livraison en France métropolitaine et Monaco ({eur(SHIP_PRICE)}, offerte dès {FREE_SHIP} €), expédition sous 1 à 3 jours ouvrés. Colis abîmé remplacé ou remboursé. Paiement par carte, Apple Pay, Google Pay.",
+        f"> {BRAND} (maisontruffe.fr) est une épicerie fine en ligne française spécialisée dans les produits à la truffe, pensés pour réussir des plats de chef en 10 minutes sans savoir cuisiner : huiles d'olive à la truffe noire et blanche (100 ml et 250 ml), crème de truffe d'été, sauce noire et sauce champignons à la truffe, pesto, condiment truffe en poudre, sel, miel et moutarde truffés, pâtes, saucisson truffé, truffe d'été en lamelles, coffret cadeau. Tous les pots à 15 €, 40 € les 3 au choix ; saucisson 10 € ou 20 € les 3. Livraison en France métropolitaine et Monaco ({eur(SHIP_PRICE)}), expédition sous 1 à 3 jours ouvrés. Colis abîmé remplacé ou remboursé. Paiement par carte, Apple Pay, Google Pay.",
         "", "## Offres", "", f"- [3 pots au choix pour 40 €]({SITE}/categorie/offres/) — tous les produits à 15 €, mélange libre.", "- Saucisson truffé : 10 € pièce, 20 € les 3."]
 llms += ["", "## Produits", ""]
 for k, v in CATS.items():
