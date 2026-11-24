@@ -21,7 +21,7 @@ GUARANTEE_TEXT = ("Un pot cassé ou un produit abîmé à la réception ? Envoye
 # Offres « lot » : n articles du même groupe (mélange possible) pour un prix fixe
 PROMOS = {
     "pot3": {"n": 3, "price": 40.0, "label": "Offre 3 pots au choix", "badge": "3 pour 40 €",
-             "text": "Tous nos pots (crèmes, sauces, pesto, lamelles…) : 40 € les 3, à mélanger comme vous voulez."},
+             "text": "Tous nos pots (crèmes, sauces, pesto, lamelles, miel, moutarde…) : 40 € les 3, à mélanger comme vous voulez."},
     "fuet3": {"n": 3, "price": 20.0, "label": "Offre 3 saucissons", "badge": "3 pour 20 €",
               "text": "Saucisson truffé : 10 € pièce, 20 € les 3."},
 }
@@ -231,7 +231,7 @@ def offer_card(b, featured=False):
 exec((SRC / "part_faq.py").read_text(encoding="utf-8"))
 FAQ.insert(0, ("Que se passe-t-il si mon colis arrive abîmé ?", GUARANTEE_TEXT))
 FAQ.insert(1, ("Comment fonctionne l'offre 3 pots pour 40 € ?",
-               "Nos pots à 15 € (crème de truffe, crème de cèpes, pesto, sauce noire, sauce champignons, truffe en lamelles) sont à 40 € les 3, en mélangeant comme vous voulez. La remise s'applique automatiquement dans le panier, par lot de 3. Le saucisson truffé est à 10 € pièce ou 20 € les 3."))
+               "Nos pots à 15 € (crème de truffe, crème de cèpes, pesto, sauce noire, sauce champignons, truffe en lamelles, miel, moutarde) sont à 40 € les 3, en mélangeant comme vous voulez. La remise s'applique automatiquement dans le panier, par lot de 3. Le saucisson truffé est à 10 € pièce ou 20 € les 3."))
 
 def faq_schema(items):
     return {"@context": "https://schema.org", "@type": "FAQPage",
@@ -322,7 +322,7 @@ def promo_block(compact=False):
     return f"""<section class="promo-band reveal"><div class="wrap promo-inner">
   <div class="promo-txt"><p class="pill">🔥 Offre permanente · mélange libre</p>
   <h2>3 pots au choix = <span class="gold">40 €</span> <s>45 €</s></h2>
-  <p class="lead">Crème de truffe, crème de cèpes, pesto, sauce noire, sauce champignons, truffe en lamelles : prenez-en 3, mélangez comme vous voulez, la remise s'applique toute seule dans le panier.</p>
+  <p class="lead">Crème de truffe, crème de cèpes, pesto, sauce noire, sauce champignons, truffe en lamelles, miel, moutarde : prenez-en 3, mélangez comme vous voulez, la remise s'applique toute seule dans le panier.</p>
   <p class="promo-sub">+ <b>Saucisson truffé</b> : 10 € pièce, <b>20 € les 3</b>.</p>
   <div class="hero-cta"><a class="btn btn-gold btn-lg" href="/categorie/offres/">Je compose mes 3 pots</a>{'' if compact else '<a class="btn btn-ghost-light btn-lg" href="/produit/saucisson-truffe/">Voir le saucisson</a>'}</div></div>
   <div class="promo-thumbs">{thumbs}</div>
@@ -442,7 +442,7 @@ for k, v in CATS.items():
 cr, crs = crumbs([("Accueil", "/"), ("Boutique", "/boutique/"), ("Offre 3 pots = 40 €", None)])
 FUETS = [p for p in SINGLES if p.get("promo") == "fuet3"]
 page("/categorie/offres/", "Offre 3 pots à la truffe pour 40 € au choix — Maison Truffe",
-     "Crème de truffe, sauces noire et champignons, crème de cèpes, pesto, lamelles : nos pots à 15 €, 40 € les 3 en mélangeant comme vous voulez. Saucisson truffé 20 € les 3.",
+     "Crème de truffe, sauces noire et champignons, crème de cèpes, pesto, lamelles, miel, moutarde : nos pots à 15 €, 40 € les 3 en mélangeant comme vous voulez. Saucisson truffé 20 € les 3.",
      f"""{cr}<section class="section wrap"><p class="eyebrow">Offre permanente</p><h1>3 pots au choix pour 40 €</h1>
 <p class="lead">Tous ces pots sont à 15 € pièce. <b>Prenez-en 3, mélangez comme vous voulez : vous payez 40 € au lieu de 45 €.</b> La remise s'applique automatiquement dans le panier, pour chaque lot de 3 (6 pots = 80 €, 9 pots = 120 €…).</p>
 <ol class="steps-inline"><li>Ajoutez 3 produits (ou plus) de cette page</li><li>Le panier calcule la remise tout seul</li><li>Expédition sous 1 à 3 jours</li></ol>

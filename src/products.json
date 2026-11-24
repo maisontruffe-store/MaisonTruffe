@@ -182,7 +182,8 @@
    "Laquage de volaille ou magret",
    "Vinaigrette sucrée-salée"
   ],
-  "weight_g": 220
+  "weight_g": 220,
+  "promo": "pot3"
  },
  {
   "slug": "moutarde-brisures-truffe-brumale-poivre-noir",
@@ -199,7 +200,8 @@
    "Poisson grillé",
    "Vinaigrettes et purées"
   ],
-  "weight_g": null
+  "weight_g": null,
+  "promo": "pot3"
  },
  {
   "slug": "condiment-saveur-truffe-ete-poudre-100g",

@@ -38,4 +38,4 @@ Le sucré-salé du miel et le parfum de sous-bois de la truffe se marient parfai
 - **Salade** : mâche, poire, bleu, noix, vinaigrette au miel truffé.
 
 ## Pour l'apéritif complet
-Pour un plateau complet, associez le miel truffé à nos pots salés : [3 pots au choix pour 40 €](/categorie/offres/) (crème de truffe, sauce noire…).
+Le miel truffé fait partie de notre [offre 3 pots au choix pour 40 €](/categorie/offres/) : à associer par exemple à la crème de truffe et à la sauce noire.
