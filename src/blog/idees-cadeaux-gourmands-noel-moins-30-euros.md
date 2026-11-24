@@ -22,9 +22,9 @@ Un cadeau gourmand fait toujours plaisir, et la truffe ajoute une touche de luxe
 
 ## Moins de 15 €
 - **[Tagliatelles saveur truffe blanche](/produit/tagliatelle-saveur-truffe-blanche/)** (8 €) : le petit cadeau ou le complément idéal.
-- **[Saucisson truffé](/produit/saucisson-truffe/)** (10 €) : pour les amateurs d'apéritif.
-- **[Miel d'acacia saveur truffe d'été](/produit/miel-acacia-saveur-truffe-ete/)** (13 €) : l'original, pour les amateurs de fromage.
-- **[Moutarde à la truffe brumale](/produit/moutarde-brisures-truffe-brumale-poivre-noir/)** (13 €) : utile tous les jours.
+- **[Fuet à la truffe](/produit/fuet-a-la-truffe/)** (10 €, 20 € les 3) : pour les amateurs d'apéritif.
+- **[Miel millefleurs saveur truffe d'été](/produit/miel-acacia-saveur-truffe-ete/)** (15 €) : l'original, pour les amateurs de fromage.
+- **[Moutarde à la truffe brumale](/produit/moutarde-brisures-truffe-brumale-poivre-noir/)** (15 €) : utile tous les jours.
 
 ## De 15 à 25 €
 - **[Crème de truffe d'été](/produit/creme-de-truffe-ete/)** (15 €) : le produit le plus polyvalent.
@@ -40,4 +40,4 @@ Un cadeau gourmand fait toujours plaisir, et la truffe ajoute une touche de luxe
 - Miel truffé + moutarde truffée = 26 € : le duo du plateau de fromages et de charcuterie.
 
 ## Vous voulez gâter davantage ?
-Le [Grand Coffret Truffe](/produit/grand-coffret-truffe/) réunit sept spécialités avec la livraison offerte. Voir aussi notre guide [Idées cadeaux à la truffe](/guides/idees-cadeaux-truffe/).
+Astuce : tous nos pots sont à 15 €, et [40 € les 3 au choix](/categorie/offres/). Voir aussi notre guide [Idées cadeaux à la truffe](/guides/idees-cadeaux-truffe/).

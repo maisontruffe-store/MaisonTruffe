@@ -6,8 +6,8 @@ date: '2026-11-23'
 order: 30
 category: Menus
 products:
-- grand-coffret-truffe
-- box-apero-truffe
+- coffret-gourmand-autour-de-la-truffe
+- sauce-noire-truffe-ete
 - truffe-ete-en-lamelles
 faq:
 - q: Comment recevoir à la truffe sans passer la soirée en cuisine ?
@@ -36,4 +36,4 @@ Beurre mou mélangé à un peu de [condiment truffe noire](/produit/condiment-sa
 Une boule de glace vanille, un filet de [miel d'acacia saveur truffe](/produit/miel-acacia-saveur-truffe-ete/) et quelques noisettes torréfiées. Surprenant et délicieux.
 
 ## Tout en un
-Le [Grand Coffret Truffe](/produit/grand-coffret-truffe/) contient la truffe en lamelles, l'huile à la truffe noire, le sel truffé et quatre autres spécialités : de quoi préparer tout ce menu.
+Pour tout ce menu : [truffe d'été en lamelles](/produit/truffe-ete-en-lamelles/), [huile à la truffe noire](/produit/condiment-saveur-truffe-noire/) et [sel truffé](/produit/sel-de-guerande-saveur-truffe-noire/), soit 3 pots pour 40 €.

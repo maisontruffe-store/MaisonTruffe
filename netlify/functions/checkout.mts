@@ -1,5 +1,5 @@
 import type { Context } from "@netlify/functions"
-import { CATALOG, SHIP, PACKAGING_G } from "../lib/catalog.mts"
+import { CATALOG, SHIP, PACKAGING_G, PROMOS } from "../lib/catalog.mts"
 
 // Crée une session de paiement Stripe Checkout à partir du panier.
 // Les prix viennent du catalogue côté serveur (jamais du navigateur).
@@ -27,7 +27,26 @@ export default async (req: Request, context: Context) => {
   if (!key) return Response.json({ mode: "manual" })
 
   const origin = new URL(req.url).origin
-  const subtotal = items.reduce((s, i) => s + CATALOG[i.slug].price * i.qty, 0)
+  // Offres lot (ex. 3 pots au choix pour 40 €) : on regroupe les articles concernés en lots
+  type Line = { name: string; cents: number; qty: number; img?: string; desc?: string }
+  const lineItems: Line[] = []
+  const rest: Record<string, number> = {}
+  items.forEach((i) => { rest[i.slug] = (rest[i.slug] || 0) + i.qty })
+  for (const [key, pr] of Object.entries(PROMOS)) {
+    const units: string[] = []
+    items.forEach((i) => { if (CATALOG[i.slug].promo === key) for (let k = 0; k < i.qty; k++) units.push(i.slug) })
+    units.sort((a, b) => CATALOG[b].price - CATALOG[a].price)
+    const lots = Math.floor(units.length / pr.n)
+    if (!lots) continue
+    const inLots = units.slice(0, lots * pr.n)
+    inLots.forEach((sl) => { rest[sl] -= 1 })
+    const count: Record<string, number> = {}
+    inLots.forEach((sl) => { count[sl] = (count[sl] || 0) + 1 })
+    lineItems.push({ name: `${pr.label} (${pr.n} pour ${String(pr.price).replace(".", ",")} €)`, cents: Math.round(pr.price * 100), qty: lots,
+      desc: Object.entries(count).map(([sl, n]) => `${n} × ${CATALOG[sl].name}`).join(", ").slice(0, 490) })
+  }
+  Object.entries(rest).forEach(([sl, q]) => { if (q > 0) lineItems.push({ name: CATALOG[sl].name, cents: Math.round(CATALOG[sl].price * 100), qty: q, img: CATALOG[sl].img }) })
+  const subtotal = lineItems.reduce((s, l) => s + l.cents * l.qty, 0) / 100
   const onlyTest = items.every((i) => CATALOG[i.slug].test)
   const shipCents = subtotal >= SHIP.free || onlyTest ? 0 : Math.round(SHIP.price * 100)
 
@@ -51,13 +70,13 @@ export default async (req: Request, context: Context) => {
   const email = body.customer?.email?.trim()
   if (email && /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) p.set("customer_email", email)
 
-  items.forEach((i, n) => {
-    const prod = CATALOG[i.slug]
-    p.set(`line_items[${n}][quantity]`, String(i.qty))
+  lineItems.forEach((l, n) => {
+    p.set(`line_items[${n}][quantity]`, String(l.qty))
     p.set(`line_items[${n}][price_data][currency]`, "eur")
-    p.set(`line_items[${n}][price_data][unit_amount]`, String(Math.round(prod.price * 100)))
-    p.set(`line_items[${n}][price_data][product_data][name]`, prod.name)
-    if (prod.img) p.set(`line_items[${n}][price_data][product_data][images][0]`, prod.img)
+    p.set(`line_items[${n}][price_data][unit_amount]`, String(l.cents))
+    p.set(`line_items[${n}][price_data][product_data][name]`, l.name)
+    if (l.desc) p.set(`line_items[${n}][price_data][product_data][description]`, l.desc)
+    if (l.img && l.img.startsWith("https://")) p.set(`line_items[${n}][price_data][product_data][images][0]`, l.img)
   })
 
   // Numéro de commande lisible : MT-AAMMJJ-XXXX

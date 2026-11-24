@@ -6,8 +6,7 @@ date: '2026-11-23'
 order: 23
 category: Apéritif
 products:
-- delice-olives-noires-truffes-ete
-- box-apero-truffe
+- sauce-noire-truffe-ete
 faq:
 - q: La tapenade truffée se mange-t-elle chaude ?
   a: Oui, elle peut être réchauffée doucement, mais ajoutez-la de préférence en fin
@@ -16,7 +15,7 @@ faq:
   a: Pain de campagne grillé, baguette, gressins ou crackers.
 ---
 
-La tapenade est un classique provençal. Associée à la truffe d'été, elle devient une base très polyvalente. Le [délice d'olives noires aux truffes d'été](/produit/delice-olives-noires-truffes-ete/) s'utilise bien au-delà du toast.
+La tapenade est un classique provençal. Associée à la truffe d'été, elle devient une base très polyvalente. La [sauce noire saveur truffe d'été](/produit/sauce-noire-truffe-ete/) s'utilise bien au-delà du toast.
 
 ## 1. Le toast, version améliorée
 Pain grillé frotté à l'ail, tapenade truffée, une tomate cerise confite.
@@ -40,4 +39,4 @@ Une fine couche sur un filet de cabillaud avant cuisson, avec un filet d'huile d
 Pain ciabatta, tapenade, mozzarella, roquette et jambon cru.
 
 ## Pour un apéritif complet
-La tapenade truffée fait partie de la [Box Apéro Truffé](/produit/box-apero-truffe/), avec le délice d'artichaut, la crème de cèpes et truffe blanche, le saucisson truffé et le miel truffé.
+Pour un apéritif complet : sauce noire, crème de truffe et crème de cèpes, soit [3 pots au choix pour 40 €](/categorie/offres/), avec un [fuet à la truffe](/produit/fuet-a-la-truffe/).

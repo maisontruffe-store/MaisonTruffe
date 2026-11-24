@@ -7,7 +7,7 @@ order: 15
 category: Accords
 products:
 - miel-acacia-saveur-truffe-ete
-- box-apero-truffe
+- sauce-noire-truffe-ete
 faq:
 - q: Quel fromage avec du miel truffé ?
   a: Les fromages de chèvre et de brebis, les bleus et les pâtes pressées affinées
@@ -38,4 +38,4 @@ Le sucré-salé du miel et le parfum de sous-bois de la truffe se marient parfai
 - **Salade** : mâche, poire, bleu, noix, vinaigrette au miel truffé.
 
 ## Pour l'apéritif complet
-La [Box Apéro Truffé](/produit/box-apero-truffe/) contient le miel truffé, deux tartinables, la crème de cèpes et le saucisson truffé.
+Le miel truffé fait partie de notre [offre 3 pots au choix pour 40 €](/categorie/offres/) : à associer par exemple à la crème de truffe et à la sauce noire.

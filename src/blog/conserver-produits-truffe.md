@@ -26,7 +26,7 @@ Le parfum de la truffe est volatil : bien conserver vos produits, c'est garder t
 ## Après ouverture
 
 ### Les crèmes et tartinables
-[Crème de truffe](/produit/creme-de-truffe-ete/), délices de légumes, pesto : **au réfrigérateur**, pot bien refermé, et à consommer rapidement. Utilisez toujours une cuillère propre et sèche.
+[Crème de truffe](/produit/creme-de-truffe-ete/), sauces, pesto : **au réfrigérateur**, pot bien refermé, et à consommer rapidement. Utilisez toujours une cuillère propre et sèche.
 
 ### Les huiles
 [Huile à la truffe noire](/produit/huile-olive-vierge-extra-truffe-noire/) ou blanche : **bouchon bien fermé, à l'abri de la lumière**. Pas besoin de réfrigérateur, mais le parfum diminue avec le temps : consommez-la dans les mois qui suivent.

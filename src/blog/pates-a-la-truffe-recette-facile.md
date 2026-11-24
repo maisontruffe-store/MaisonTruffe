@@ -9,7 +9,6 @@ products:
 - tagliatelle-saveur-truffe-blanche
 - creme-de-truffe-ete
 - huile-olive-vierge-extra-truffe-blanche
-- kit-pates-truffees
 faq:
 - q: Quelles pâtes choisir pour une recette à la truffe ?
   a: Des pâtes longues et plates comme les tagliatelles ou les fettuccine, qui retiennent
@@ -46,4 +45,4 @@ Les pâtes à la truffe sont le plat parfait pour découvrir la truffe : peu d'i
 - **Version jambon** : quelques lamelles de jambon cru ajoutées dans l'assiette.
 
 ## Le kit tout prêt
-Le [Kit Pâtes Truffées](/produit/kit-pates-truffees/) contient deux paquets de tagliatelles, la crème de truffe, l'huile à la truffe blanche et la poudre truffée : de quoi faire cette recette au moins quatre fois.
+Avec la [crème de truffe](/produit/creme-de-truffe-ete/), l'[huile à la truffe blanche](/produit/condiment-truffe-blanche-lamelles-bianchetto/) et le [condiment en poudre](/produit/condiment-saveur-truffe-ete-poudre/) (3 pots pour 40 €), plus deux paquets de [tagliatelles](/produit/tagliatelle-saveur-truffe-blanche/), vous avez de quoi faire cette recette au moins quatre fois.

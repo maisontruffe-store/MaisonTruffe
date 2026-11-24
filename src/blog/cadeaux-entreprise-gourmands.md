@@ -6,9 +6,8 @@ date: '2026-11-23'
 order: 26
 category: Cadeaux
 products:
-- grand-coffret-truffe
 - coffret-gourmand-autour-de-la-truffe
-- box-apero-truffe
+- sauce-noire-truffe-ete
 faq:
 - q: Quel budget pour un cadeau client ?
   a: Souvent entre 30 et 100 € selon l'importance de la relation.
@@ -32,8 +31,8 @@ Les cadeaux gourmands sont parmi les cadeaux d'entreprise les plus appréciés :
 ## Quels produits
 Des produits qui se conservent bien et s'utilisent facilement :
 - le [Coffret Gourmand Autour de la Truffe](/produit/coffret-gourmand-autour-de-la-truffe/) (30 €) ;
-- la [Box Apéro Truffé](/produit/box-apero-truffe/) (59 €), idéale pour une équipe ;
-- le [Grand Coffret Truffe](/produit/grand-coffret-truffe/) (89 €), pour les relations importantes.
+- l'[offre 3 pots au choix](/categorie/offres/) (40 €), idéale pour composer des colis personnalisés ;
+- le [Coffret Gourmand Autour de la Truffe](/produit/coffret-gourmand-autour-de-la-truffe/) (30 €), prêt à offrir.
 
 ## L'organisation
 1. **Anticipez** : en fin d'année, commandez tôt.

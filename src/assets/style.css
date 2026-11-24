@@ -350,3 +350,26 @@ h1 em,h2 em{font-style:normal;color:var(--gold-d)}
 .logo-txt small{font-family:"Cormorant Garamond",Georgia,serif;font-weight:700;font-size:.42em;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-d);margin-top:5px}
 .logo-footer .logo-txt small{color:var(--gold-l)}
 @media(max-width:520px){.logo-txt small{font-size:.4em;letter-spacing:.14em}}
+
+/* v4 — offre 3 pots = 40 €, formats */
+.badge.badge-promo{background:#b3261e;color:#fff}
+.promo-band{background:radial-gradient(700px 320px at 85% 50%,#3d2d1f,transparent 70%),#16110d;color:var(--cream);padding:56px 0;margin:30px 0}
+.promo-inner{display:grid;grid-template-columns:1.1fr 1fr;gap:36px;align-items:center}
+.promo-inner>*{min-width:0}
+.promo-txt h2{color:#fff8ea;font-size:clamp(1.9rem,3.6vw,2.8rem)}.promo-txt h2 .gold{color:var(--gold-l)}.promo-txt h2 s{color:#9c8f7c;font-size:.55em;font-weight:600;margin-left:.3em}
+.promo-txt .lead{color:#e3d7c0}.promo-sub{color:#e3d7c0;margin:0 0 20px}.promo-band .pill{background:rgba(255,255,255,.08);color:var(--gold-l)}
+.promo-thumbs{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.pm-thumb{background:#fff;border-radius:14px;overflow:hidden;display:block;transition:transform .2s}.pm-thumb:hover{transform:translateY(-3px)}
+.pm-thumb img{aspect-ratio:1;object-fit:cover;width:100%}
+.formats{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:4px 0 14px;font-weight:600}
+.fmt{border:2px solid var(--line);border-radius:999px;padding:7px 14px;text-decoration:none;color:var(--ink);font-size:.95rem;background:#fff}
+.fmt.on{border-color:var(--ink);background:var(--ink);color:#fff}a.fmt:hover{border-color:var(--gold)}
+.promo-pill{display:block;background:#fdecea;border:1px solid #f3c4bf;color:#7a1c15;border-radius:12px;padding:10px 14px;margin:0 0 16px;text-decoration:none;font-size:.95rem}
+.promo-pill:hover{color:#7a1c15;border-color:#b3261e}
+.promo-hint{background:#fdecea;border-radius:12px;padding:10px 14px;margin:10px 0;color:#7a1c15}.promo-hint.ok{background:#e9f5ea;color:#215a2b}
+.promo-off{color:#2f7a3b;font-weight:700}
+.steps-inline{display:flex;flex-wrap:wrap;gap:10px;padding:0;margin:0 0 26px;list-style:none;counter-reset:s}
+.steps-inline li{counter-increment:s;background:var(--cream);border-radius:999px;padding:8px 16px;font-weight:600}
+.steps-inline li::before{content:counter(s) ". ";color:var(--gold-d)}
+.product-img img+img{margin-top:12px}
+@media(max-width:860px){.promo-inner{grid-template-columns:1fr}.promo-thumbs{grid-template-columns:repeat(4,1fr)}}

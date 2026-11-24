@@ -2,6 +2,7 @@
   var KEY = "mt_cart";
   var C = window.MT_CATALOG || {};
   var S = window.MT_SHIP || { price: 6.9, free: 59 };
+  var PR = window.MT_PROMOS || {};
   var $ = function (s, r) { return (r || document).querySelector(s); };
   var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
 
@@ -10,11 +11,26 @@
   function eur(x) { var s = x.toFixed(2).replace(".", ","); return (s.slice(-3) === ",00" ? s.slice(0, -3) : s) + " €"; }
   function esc(s) { return String(s).replace(/[&<>"]/g, function (m) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[m]; }); }
   function lines(c) { return Object.keys(c).filter(function (k) { return C[k] && c[k] > 0; }).map(function (k) { return { slug: k, qty: c[k], p: C[k] }; }); }
+  // Offres lot : n articles du même groupe (mélange libre) pour un prix fixe
+  function promos(c) {
+    var out = [];
+    Object.keys(PR).forEach(function (k) {
+      var pr = PR[k], units = [];
+      lines(c).forEach(function (l) { if (l.p.promo === k) for (var i = 0; i < l.qty; i++) units.push(l.p.price); });
+      units.sort(function (a, b) { return b - a; });
+      var lots = Math.floor(units.length / pr.n), full = 0;
+      for (var i = 0; i < lots * pr.n; i++) full += units[i];
+      out.push({ key: k, label: pr.label, n: pr.n, count: units.length, lots: lots, off: Math.round((full - lots * pr.price) * 100) / 100, missing: units.length % pr.n ? pr.n - units.length % pr.n : 0, price: pr.price });
+    });
+    return out;
+  }
   function totals(c) {
-    var sub = lines(c).reduce(function (s, l) { return s + l.p.price * l.qty; }, 0);
+    var gross = lines(c).reduce(function (s, l) { return s + l.p.price * l.qty; }, 0);
+    var off = promos(c).reduce(function (s, x) { return s + x.off; }, 0);
+    var sub = Math.round((gross - off) * 100) / 100;
     var onlyTest = lines(c).length > 0 && lines(c).every(function (l) { return l.p.test; });
     var ship = sub === 0 || onlyTest ? 0 : (sub >= S.free ? 0 : S.price);
-    return { sub: sub, ship: ship, total: sub + ship };
+    return { gross: gross, off: off, sub: sub, ship: ship, total: sub + ship };
   }
   function toast(msg) {
     var t = $("[data-toast]"); if (!t) return;
@@ -47,7 +63,17 @@
     $("[data-cart-empty]").hidden = !empty;
     $("[data-cart-summary]").style.display = empty ? "none" : "";
     $("[data-meter]").style.display = empty ? "none" : "";
-    $("[data-subtotal]").textContent = eur(t.sub);
+    $("[data-subtotal]").textContent = eur(t.gross);
+    var pdt = $("[data-promo-dt]"), pdd = $("[data-promo]");
+    if (pdt) { pdt.hidden = pdd.hidden = !t.off; pdd.textContent = "− " + eur(t.off); }
+    var hint = $("[data-promo-hint]");
+    if (hint) {
+      hint.innerHTML = promos(c).filter(function (x) { return x.count > 0; }).map(function (x) {
+        return x.missing
+          ? '<p class="promo-hint">🔥 Ajoutez encore <b>' + x.missing + ' article' + (x.missing > 1 ? "s" : "") + '</b> pour profiter de « ' + esc(x.label) + ' » (' + x.n + ' pour ' + eur(x.price) + '). <a href="/categorie/offres/">Choisir →</a></p>'
+          : '<p class="promo-hint ok">✓ ' + esc(x.label) + ' appliquée : ' + x.lots + ' lot' + (x.lots > 1 ? "s" : "") + ', vous économisez ' + eur(x.off) + '.</p>';
+      }).join("");
+    }
     $("[data-shipping]").textContent = t.ship === 0 ? "Offerte" : eur(t.ship);
     $("[data-total]").textContent = eur(t.total);
     $("[data-meter-bar]").style.width = Math.min(100, t.sub / S.free * 100) + "%";
@@ -55,7 +81,7 @@
     // suggestions pour atteindre la livraison offerte
     var bump = $("[data-bump]"), gap = S.free - t.sub;
     if (!empty && gap > 0) {
-      var picks = Object.keys(C).filter(function (k) { return !c[k] && C[k].cat !== "offres"; })
+      var picks = Object.keys(C).filter(function (k) { return !c[k] && !C[k].test; })
         .sort(function (a, b) { return Math.abs(C[a].price - gap) - Math.abs(C[b].price - gap); }).slice(0, 3);
       $("[data-bump-items]").innerHTML = picks.map(function (k) {
         return '<div class="bump-item">' + (C[k].img ? '<img src="' + C[k].img + '" alt="">' : "") + '<span><a href="/produit/' + k + '/">' + esc(C[k].name) + '</a></span><b>' + eur(C[k].price) + '</b><button class="btn btn-sm" data-add="' + k + '">+ Ajouter</button></div>';
@@ -101,11 +127,11 @@
   if (quiz) {
     var ans = [], steps = $$(".q-step", quiz), bar = $("[data-q-bar]", quiz);
     var R = {
-      offrir: { l: "grand-coffret-truffe", m: "coffret-gourmand-autour-de-la-truffe", s: "creme-de-truffe-ete" },
-      pates: { l: "kit-pates-truffees", m: "huile-olive-vierge-extra-truffe-blanche", s: "creme-de-truffe-ete" },
-      apero: { l: "box-apero-truffe", m: "coffret-gourmand-autour-de-la-truffe", s: "delice-artichaut-truffes-ete" },
-      quotidien: { l: "grand-coffret-truffe", m: "huile-olive-vierge-extra-truffe-noire", s: "condiment-saveur-truffe-ete-poudre" },
-      fromage: { l: "box-apero-truffe", m: "miel-acacia-saveur-truffe-ete", s: "miel-acacia-saveur-truffe-ete" }
+      offrir: { l: "condiment-saveur-truffe-ete-poudre-100g", m: "coffret-gourmand-autour-de-la-truffe", s: "creme-de-truffe-ete" },
+      pates: { l: "huile-olive-vierge-extra-truffe-blanche", m: "sauce-champignons-truffe-ete", s: "creme-de-truffe-ete" },
+      apero: { l: "coffret-gourmand-autour-de-la-truffe", m: "sauce-noire-truffe-ete", s: "fuet-a-la-truffe" },
+      quotidien: { l: "condiment-saveur-truffe-ete-poudre-100g", m: "huile-olive-vierge-extra-truffe-noire", s: "condiment-saveur-truffe-noire" },
+      fromage: { l: "coffret-gourmand-autour-de-la-truffe", m: "miel-acacia-saveur-truffe-ete", s: "miel-acacia-saveur-truffe-ete" }
     };
     var WHY = {
       pates: "Pour des pâtes à la truffe dignes d'un restaurant, en 10 minutes.",
@@ -169,7 +195,7 @@
     var c = load(), ls = lines(c), t = totals(c);
     if (!ls.length) return;
     form.elements.commande.value = ls.map(function (l) { return l.qty + " × " + l.p.name + " (" + eur(l.p.price * l.qty) + ")"; }).join("\n") +
-      "\nLivraison : " + (t.ship ? eur(t.ship) : "offerte");
+      (t.off ? "\nRemise offres : −" + eur(t.off) : "") + "\nLivraison : " + (t.ship ? eur(t.ship) : "offerte");
     form.elements.total.value = eur(t.total);
     var btn = $("[data-pay]", form); btn.disabled = true; btn.textContent = "Redirection vers le paiement…";
     var fd = new FormData(form);

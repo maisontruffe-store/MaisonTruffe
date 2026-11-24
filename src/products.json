@@ -1,87 +1,13 @@
 [
  {
-  "slug": "kit-pates-truffees",
-  "name": "Le Kit Pâtes Truffées",
-  "cat": "offres",
-  "price": 64.0,
-  "img": "",
-  "bundle": [
-   "tagliatelle-saveur-truffe-blanche",
-   "tagliatelle-saveur-truffe-blanche",
-   "creme-de-truffe-ete",
-   "huile-olive-vierge-extra-truffe-blanche",
-   "condiment-saveur-truffe-ete-poudre"
-  ],
-  "truffle": "Truffe d'été et truffe blanche",
-  "short": "4 dîners de pâtes à la truffe dignes d'un restaurant italien, en 10 minutes chacun.",
-  "desc": "Tout ce qu'il faut pour réussir des pâtes à la truffe sans savoir cuisiner : deux paquets de tagliatelles saveur truffe blanche, la crème de truffe d'été pour la sauce express, l'huile d'olive à la truffe blanche pour la touche finale et la poudre saveur truffe d'été pour assaisonner. Avec le carnet de recettes, vous savez exactement quoi faire.",
-  "uses": [
-   "Tagliatelles crémeuses à la truffe d'été",
-   "Pâtes au beurre, parmesan et huile de truffe blanche",
-   "Risotto ou purée truffés avec les restes",
-   "Pop-corn ou frites truffés à la poudre"
-  ],
-  "bestseller": true,
-  "tag": "Le plus simple"
- },
- {
-  "slug": "box-apero-truffe",
-  "name": "La Box Apéro Truffé",
-  "cat": "offres",
-  "price": 59.0,
-  "img": "",
-  "bundle": [
-   "delice-artichaut-truffes-ete",
-   "delice-olives-noires-truffes-ete",
-   "creme-de-cepes-truffe-blanche",
-   "saucisson-truffe",
-   "miel-acacia-saveur-truffe-ete"
-  ],
-  "truffle": "Truffe d'été, noire et blanche",
-  "short": "Un apéritif de chef pour 6 à 8 personnes, prêt en 5 minutes, sans rien cuisiner.",
-  "desc": "Recevez sans stress : deux tartinables aux truffes d'été (artichaut et olives noires), la crème de cèpes et truffe blanche, un saucisson truffé et le miel d'acacia saveur truffe pour le plateau de fromages. Ouvrez, tartinez, servez : vos invités croiront que vous avez passé l'après-midi en cuisine.",
-  "uses": [
-   "Toasts et bruschettas variés",
-   "Planche charcuterie-fromages avec miel truffé",
-   "Verrines et feuilletés",
-   "Dip avec bâtonnets de légumes"
-  ],
-  "bestseller": true,
-  "tag": "Le plus populaire"
- },
- {
-  "slug": "grand-coffret-truffe",
-  "name": "Le Grand Coffret Truffe",
-  "cat": "offres",
-  "price": 89.0,
-  "img": "",
-  "bundle": [
-   "coffret-gourmand-autour-de-la-truffe",
-   "huile-olive-vierge-extra-truffe-noire",
-   "truffe-ete-en-lamelles",
-   "sel-de-guerande-saveur-truffe-noire"
-  ],
-  "truffle": "Truffe d'été et truffe noire",
-  "short": "Le cadeau qui marque : 7 spécialités dont de la vraie truffe d'été en lamelles.",
-  "desc": "Le cadeau gourmand le plus complet : le Coffret Gourmand Autour de la Truffe (4 spécialités), l'huile d'olive vierge extra à la truffe noire, la truffe d'été en lamelles et le sel de Guérande saveur truffe noire. De quoi cuisiner la truffe pendant des semaines.",
-  "uses": [
-   "Cadeau de Noël, d'anniversaire ou de remerciement",
-   "Repas de fête : œufs, pâtes, viandes à la truffe",
-   "Cadeau d'entreprise haut de gamme",
-   "Se faire plaisir toute l'année"
-  ],
-  "bestseller": true,
-  "tag": "Le cadeau parfait"
- },
- {
   "slug": "coffret-gourmand-autour-de-la-truffe",
   "name": "Coffret Gourmand Autour de la Truffe",
   "cat": "coffrets-truffes",
   "price": 30.0,
-  "img": "PACK1Shopify.png?v=1757672512",
+  "img": "/assets/p/coffret-gourmand.webp",
   "truffle": "Truffe d'été (Tuber aestivum)",
-  "short": "Quatre spécialités à la truffe réunies dans un coffret prêt à offrir.",
-  "desc": "Le cadeau gourmand idéal pour faire découvrir la truffe. Ce coffret réunit une huile saveur truffe d'été (55 ml), une sauce champignons saveur truffe d'été, une crème de truffe et une sauce noire à la truffe. De quoi composer un apéritif complet ou sublimer un plat de fête en quelques minutes.",
+  "short": "Le cadeau prêt à offrir : crème de truffe, sauce noire, sauce champignons et huile à la truffe blanche.",
+  "desc": "Un coffret kraft prêt à offrir qui réunit quatre spécialités à la truffe d'été : une crème de truffe, une sauce noire, une sauce champignons et une petite bouteille d'huile d'olive à la truffe blanche (55 ml). De quoi réussir pâtes, toasts et risottos à la truffe, sans rien préparer.",
   "uses": [
    "Toasts et bruschettas à l'apéritif",
    "Pâtes fraîches et risottos",
@@ -95,8 +21,8 @@
   "slug": "truffe-ete-en-lamelles",
   "name": "Truffe d'été en Lamelles",
   "cat": "coffrets-truffes",
-  "price": 30.0,
-  "img": "Truffed_eteenLamelle.png?v=1757935202",
+  "price": 15.0,
+  "img": "/assets/p/truffe-ete-lamelles.webp",
   "truffle": "Truffe d'été (Tuber aestivum)",
   "short": "De la vraie truffe d'été, déjà tranchée, prête à parsemer.",
   "desc": "Des lamelles de truffe d'été prêtes à l'emploi : pas de mandoline, pas de perte. Il suffit de les déposer sur un plat chaud au dernier moment pour profiter de leur parfum de sous-bois et de leur jolie présentation à l'assiette.",
@@ -106,15 +32,16 @@
    "Salades et carpaccios de poisson",
    "Fromages affinés, volaille, purée"
   ],
-  "bestseller": true,
-  "weight_g": 123
+  "bestseller": false,
+  "weight_g": 123,
+  "promo": "pot3"
  },
  {
   "slug": "huile-olive-vierge-extra-truffe-noire",
-  "name": "Huile d'Olive Vierge Extra à la Truffe Noire",
+  "name": "Huile d'olive à la truffe noire — 250 ml",
   "cat": "huiles-condiments",
   "price": 25.0,
-  "img": "Huiled_OliveViergeExtraalaTruffeNoireShopify.png?v=1757671762",
+  "img": "/assets/p/huile-truffe-noire-250.webp",
   "truffle": "Truffe noire",
   "short": "L'indispensable : quelques gouttes suffisent à parfumer un plat.",
   "desc": "Une huile d'olive vierge extra parfumée à la truffe noire, aux notes profondes et terreuses. C'est le produit le plus simple pour mettre de la truffe dans la cuisine de tous les jours : un filet en fin de cuisson, jamais en friture, pour garder tout l'arôme.",
@@ -124,17 +51,19 @@
    "Pizza blanche, carpaccio de bœuf",
    "Vinaigrette de fête"
   ],
-  "bestseller": true,
-  "weight_g": null
+  "bestseller": false,
+  "weight_g": 490,
+  "formats": "huile-noire",
+  "format_label": "250 ml"
  },
  {
   "slug": "huile-olive-vierge-extra-truffe-blanche",
-  "name": "Huile d'Olive Vierge Extra à la Truffe Blanche",
+  "name": "Huile d'olive à la truffe blanche — 250 ml",
   "cat": "huiles-condiments",
   "price": 25.0,
-  "img": "Huiled_OlivealaTruffeBlancheShopify.png?v=1757670722",
+  "img": "/assets/p/huile-truffe-blanche-250.webp",
   "truffle": "Truffe blanche",
-  "short": "Plus aillée et plus intense, l'huile signature des plats italiens.",
+  "short": "Le grand format, avec lamelles de truffe bianchetto : l'huile signature des plats italiens.",
   "desc": "Une huile d'olive vierge extra parfumée à la truffe blanche, au caractère plus puissant et légèrement aillé que la truffe noire. Parfaite pour les plats crémeux et les préparations à l'italienne, à ajouter hors du feu.",
   "uses": [
    "Tagliatelles au beurre et parmesan",
@@ -142,48 +71,57 @@
    "Carpaccio et burrata",
    "Frites maison et pop-corn"
   ],
-  "weight_g": null
+  "weight_g": 490,
+  "formats": "huile-blanche",
+  "format_label": "250 ml"
  },
  {
   "slug": "condiment-saveur-truffe-noire",
-  "name": "Condiment Saveur Truffe Noire",
+  "name": "Huile d'olive à la truffe noire — 100 ml",
   "cat": "huiles-condiments",
   "price": 15.0,
-  "img": "CondimentTruffeNoireShopify.png?v=1757668017",
+  "img": "/assets/p/huile-truffe-noire-100.webp",
   "truffle": "Truffe noire",
-  "short": "Un assaisonnement équilibré au goût de truffe noire.",
-  "desc": "Un condiment à l'arôme naturel de truffe noire, pensé pour relever en un geste les plats du quotidien comme les recettes de fête.",
+  "short": "La petite bouteille pour découvrir : quelques gouttes suffisent à parfumer un plat.",
+  "desc": "Huile d'olive vierge extra saveur truffe noire, en bouteille de 100 ml. Le produit le plus simple pour mettre de la truffe dans la cuisine de tous les jours : un filet en fin de cuisson, jamais en friture, pour garder tout l'arôme.",
   "uses": [
    "Toasts et œufs brouillés",
    "Pâtes et risottos",
    "Viandes grillées, légumes rôtis",
    "Foie gras, gratins, purées"
   ],
-  "weight_g": null
+  "weight_g": 195,
+  "promo": "pot3",
+  "formats": "huile-noire",
+  "format_label": "100 ml",
+  "bestseller": true
  },
  {
   "slug": "condiment-truffe-blanche-lamelles-bianchetto",
-  "name": "Condiment Saveur Truffe Blanche avec Lamelles de Truffe Bianchetto",
+  "name": "Huile d'olive à la truffe blanche — 100 ml",
   "cat": "huiles-condiments",
   "price": 15.0,
   "img": "CondimentTruffeBlancheShopify.png?v=1757668030",
   "truffle": "Truffe bianchetto (Tuber borchii)",
-  "short": "Saveur truffe blanche, avec de vraies lamelles de truffe bianchetto.",
-  "desc": "Un condiment au goût de truffe blanche dans lequel on retrouve des lamelles de truffe bianchetto, la « petite truffe blanche » de printemps. Le bon compromis entre praticité et vraie présence de truffe dans l'assiette.",
+  "short": "Avec lamelles de truffe bianchetto : plus intense, parfaite sur les plats crémeux.",
+  "desc": "Huile d'olive vierge extra saveur truffe blanche, avec des lamelles de truffe bianchetto, en bouteille de 100 ml. Plus puissante et légèrement aillée que la truffe noire, elle se verse hors du feu sur les pâtes, risottos, purées et carpaccios.",
   "uses": [
    "Toasts, bruschettas, feuilletés",
    "Poisson cru et carpaccios",
    "Pâtes fraîches, risotto",
    "Foie gras, volaille, légumes"
   ],
-  "weight_g": null
+  "weight_g": 195,
+  "promo": "pot3",
+  "formats": "huile-blanche",
+  "format_label": "100 ml"
  },
  {
   "slug": "condiment-saveur-truffe-ete-poudre",
-  "name": "Condiment Saveur Truffe d'été en Poudre",
+  "name": "Condiment truffe d'été en poudre — petit 30 g",
   "cat": "huiles-condiments",
   "price": 15.0,
-  "img": "PoudreTruffed_eteShopify.png?v=1757934972",
+  "img": "/assets/p/condiment-truffe-ete-poudre.webp",
   "truffle": "Truffe d'été (Tuber aestivum)",
   "short": "À saupoudrer comme un sel : la truffe en un tour de main.",
   "desc": "Une poudre assaisonnante à l'arôme naturel de truffe d'été, à utiliser comme une épice. Très pratique pour ceux qui découvrent la truffe ou pour les recettes rapides.",
@@ -193,7 +131,10 @@
    "Sauces et gratins",
    "Pop-corn et frites"
   ],
-  "weight_g": null
+  "weight_g": null,
+  "promo": "pot3",
+  "formats": "poudre",
+  "format_label": "Petit 30 g"
  },
  {
   "slug": "sel-de-guerande-saveur-truffe-noire",
@@ -210,7 +151,8 @@
    "Légumes rôtis",
    "Foie gras et toasts apéritifs"
   ],
-  "weight_g": null
+  "weight_g": null,
+  "promo": "pot3"
  },
  {
   "slug": "creme-vinaigre-balsamique-modene-truffe",
@@ -227,30 +169,32 @@
    "Risottos, viandes blanches, poissons",
    "Plateau de fromages"
   ],
-  "weight_g": null
+  "weight_g": null,
+  "promo": "pot3"
  },
  {
   "slug": "miel-acacia-saveur-truffe-ete",
-  "name": "Miel d'Acacia Saveur Truffe d'été",
+  "name": "Miel millefleurs saveur truffe d'été",
   "cat": "huiles-condiments",
-  "price": 13.0,
-  "img": "MielAcaciaSaveurTruffed_eteShopify.png?v=1757671942",
+  "price": 15.0,
+  "img": "/assets/p/miel-truffe-ete.webp",
   "truffle": "Truffe d'été (Tuber aestivum)",
-  "short": "L'accord sucré-salé préféré des amateurs de fromage.",
-  "desc": "Un miel d'acacia, doux et fluide, parfumé à la truffe d'été. L'accord surprise qui fait toujours son effet sur un plateau de fromages.",
+  "short": "Le sucré-salé qui sublime chèvre, brebis et fromages affinés.",
+  "desc": "Une spécialité à base de miel millefleurs avec des brisures de truffe d'été. Un filet sur un chèvre chaud, un brebis ou un fromage affiné, et le plateau de fromages devient un moment de fête.",
   "uses": [
    "Fromages de chèvre, brebis, bleus",
    "Foie gras",
    "Laquage de volaille ou magret",
    "Vinaigrette sucrée-salée"
   ],
-  "weight_g": 220
+  "weight_g": 220,
+  "promo": "pot3"
  },
  {
   "slug": "moutarde-brisures-truffe-brumale-poivre-noir",
   "name": "Moutarde aux Brisures de Truffe Brumale 1,2 % & Poivre Noir",
   "cat": "huiles-condiments",
-  "price": 13.0,
+  "price": 15.0,
   "img": "10_3e05eeea-75c2-4082-800b-43af087dcf56.png?v=1757935452",
   "truffle": "Truffe brumale (Tuber brumale) — 1,2 %",
   "short": "Moutarde à l'huile d'olive avec 1,2 % de brisures de truffe brumale.",
@@ -261,14 +205,34 @@
    "Poisson grillé",
    "Vinaigrettes et purées"
   ],
-  "weight_g": null
+  "weight_g": null,
+  "promo": "pot3"
+ },
+ {
+  "slug": "condiment-saveur-truffe-ete-poudre-100g",
+  "name": "Condiment truffe d'été en poudre — grand 100 g",
+  "cat": "huiles-condiments",
+  "price": 35.0,
+  "img": "/assets/p/condiment-truffe-ete-poudre.webp",
+  "truffle": "Truffe d'été",
+  "short": "Le grand format pour les vrais amateurs : la truffe en poudre à saupoudrer partout.",
+  "desc": "Condiment saveur truffe d'été en poudre, en grand format de 100 g. Il se saupoudre comme un sel ou une épice sur les œufs, les frites, le pop-corn, les pâtes ou une purée, pour un parfum de truffe immédiat.",
+  "uses": [
+   "Œufs, omelettes, œufs mimosa",
+   "Frites, pop-corn, pommes de terre",
+   "Pâtes, risotto, purée",
+   "Beurre truffé maison"
+  ],
+  "weight_g": null,
+  "formats": "poudre",
+  "format_label": "Grand 100 g"
  },
  {
   "slug": "creme-de-truffe-ete",
   "name": "Crème de Truffe d'été",
   "cat": "cremes-tartinables",
   "price": 15.0,
-  "img": "CremedeTruffed_eteShopify_f61f4901-cfb1-4e4b-9caf-378d4fc0e206.png?v=1757693189",
+  "img": "/assets/p/creme-de-truffe-ete.webp",
   "truffle": "Truffe d'été (Tuber aestivum)",
   "short": "Une crème onctueuse à tartiner ou à mélanger aux pâtes.",
   "desc": "Une crème de truffe d'été prête à l'emploi. Tartinée sur un toast chaud ou mélangée à des pâtes avec un peu d'eau de cuisson, elle donne un plat à la truffe en cinq minutes.",
@@ -279,7 +243,11 @@
    "Farce de volaille, œufs cocotte"
   ],
   "bestseller": true,
-  "weight_g": 314
+  "weight_g": 314,
+  "promo": "pot3",
+  "gallery": [
+   "/assets/p/creme-de-truffe-ete-2.webp"
+  ]
  },
  {
   "slug": "creme-de-cepes-truffe-blanche",
@@ -296,7 +264,8 @@
    "Purée et gratin",
    "Volaille et poisson"
   ],
-  "weight_g": null
+  "weight_g": null,
+  "promo": "pot3"
  },
  {
   "slug": "pesto-saveur-truffe-ete",
@@ -313,92 +282,44 @@
    "Légumes grillés",
    "Pizza et focaccia"
   ],
-  "weight_g": null
+  "weight_g": null,
+  "promo": "pot3"
  },
  {
-  "slug": "delice-artichaut-truffes-ete",
-  "name": "Délice d'Artichaut aux Truffes d'été",
+  "slug": "sauce-noire-truffe-ete",
+  "name": "Sauce noire saveur truffe d'été",
   "cat": "cremes-tartinables",
-  "price": 13.0,
-  "img": "Deliced_ArtichaudauxTruffesd_eteShopify.png?v=1757669587",
-  "truffle": "Truffe d'été (Tuber aestivum)",
-  "short": "Tartinable onctueux d'artichaut à la truffe d'été.",
-  "desc": "Une préparation onctueuse à base d'artichaut et de truffe d'été. Un incontournable de l'apéritif, qui se glisse aussi dans un risotto ou une purée.",
+  "price": 15.0,
+  "img": "/assets/p/sauce-noire-truffe.webp",
+  "truffle": "Truffe d'été",
+  "short": "Une sauce sombre et intense, prête à napper pâtes, viandes et toasts.",
+  "desc": "Une sauce noire saveur truffe d'été, au goût profond et boisé. Elle se réchauffe doucement ou s'utilise à froid : sur des pâtes fraîches, une viande grillée, des œufs ou en tartine pour l'apéritif.",
   "uses": [
-   "Toasts, crackers, blinis",
-   "Risotto, pâtes, purée",
-   "Poisson grillé",
-   "Volaille rôtie, gratins"
-  ],
-  "weight_g": null
- },
- {
-  "slug": "delice-aubergine-truffes-ete",
-  "name": "Délice d'Aubergine aux Truffes d'été",
-  "cat": "cremes-tartinables",
-  "price": 13.0,
-  "img": "",
-  "truffle": "Truffe d'été (Tuber aestivum)",
-  "short": "Caviar d'aubergine velouté relevé de truffe d'été.",
-  "desc": "Un tartinable velouté d'aubergine et de truffe d'été, entre caviar d'aubergine provençal et spécialité de truffier. Parfait en dip comme en accompagnement.",
-  "uses": [
-   "Toasts et crackers",
-   "Dip avec bâtonnets de légumes",
-   "Pâtes, risotto, purée",
-   "Poisson, volaille, légumes farcis"
-  ],
-  "weight_g": null
- },
- {
-  "slug": "delice-olives-noires-truffes-ete",
-  "name": "Délice d'Olives Noires aux Truffes d'été",
-  "cat": "cremes-tartinables",
-  "price": 13.0,
-  "img": "Deliced_OlivesNoiresauxTruffesd_eteShopify.png?v=1757670432",
-  "truffle": "Truffe d'été (Tuber aestivum)",
-  "short": "La tapenade version truffe, pour un apéritif qui change.",
-  "desc": "Olives noires méditerranéennes et truffe d'été : une tapenade gourmande qui trouve sa place sur toutes les planches apéritives.",
-  "uses": [
+   "Pâtes fraîches et gnocchis",
+   "Sur une viande grillée ou une volaille",
    "Toasts et bruschettas",
-   "Feuilletés et verrines",
-   "Sauce pour pâtes",
-   "Volaille rôtie, purée"
+   "Dans un risotto, hors du feu"
   ],
-  "weight_g": null
+  "weight_g": 334,
+  "promo": "pot3"
  },
  {
-  "slug": "delice-courgettes-truffes-ete",
-  "name": "Délice de Courgettes aux Truffes d'été",
+  "slug": "sauce-champignons-truffe-ete",
+  "name": "Sauce champignons saveur truffe d'été",
   "cat": "cremes-tartinables",
-  "price": 13.0,
-  "img": "DelicedeCourgetteauxTruffesd_eteShopify.png?v=1757670202",
-  "truffle": "Truffe d'été (Tuber aestivum)",
-  "short": "Tartinable doux de courgettes parfumé à la truffe d'été.",
-  "desc": "Une préparation douce de courgettes et de truffe d'été, légère et parfumée, qui plaît à tous les palais.",
+  "price": 15.0,
+  "img": "/assets/p/sauce-champignons-truffe.webp",
+  "truffle": "Truffe d'été",
+  "short": "Champignons et truffe d'été : la sauce express des risottos et pâtes crémeuses.",
+  "desc": "Une sauce aux champignons saveur truffe d'été, généreuse en morceaux. Deux cuillères suffisent pour un risotto, des tagliatelles ou une omelette au goût de sous-bois.",
   "uses": [
-   "Toasts et crackers",
-   "Verrines apéritives",
-   "Pâtes et risotto",
-   "Poisson et viandes blanches"
+   "Risotto et tagliatelles",
+   "Omelette et œufs brouillés",
+   "Toasts chauds à l'apéritif",
+   "Avec un steak ou une volaille"
   ],
-  "weight_g": null
- },
- {
-  "slug": "saucisson-truffe",
-  "name": "Saucisson Truffé",
-  "cat": "epicerie-charcuterie",
-  "price": 10.0,
-  "img": "4_a53bdb74-9b10-48c1-9d4b-0fd202e46430.png?v=1757935713",
-  "truffle": "Truffe noire",
-  "short": "Le saucisson de la planche apéro, version truffe noire.",
-  "desc": "Un saucisson sec à la truffe noire, à trancher finement pour une planche apéritive qui sort de l'ordinaire. Il complète idéalement un panier gourmand.",
-  "uses": [
-   "Planche apéritive avec fromages et vin",
-   "Entrée ou buffet festif",
-   "Panier cadeau",
-   "Pique-nique chic"
-  ],
-  "weight_g": null
+  "weight_g": 334,
+  "promo": "pot3"
  },
  {
   "slug": "tagliatelle-saveur-truffe-blanche",
@@ -416,5 +337,24 @@
    "Avec l'huile à la truffe blanche"
   ],
   "weight_g": null
+ },
+ {
+  "slug": "fuet-a-la-truffe",
+  "name": "Fuet à la truffe",
+  "cat": "epicerie-charcuterie",
+  "price": 10.0,
+  "img": "4_a53bdb74-9b10-48c1-9d4b-0fd202e46430.png?v=1757935713",
+  "truffle": "Truffe d'été",
+  "short": "Le saucisson sec catalan, parfumé à la truffe : 10 € pièce, 20 € les 3.",
+  "desc": "Un fuet, fin saucisson sec catalan, parfumé à la truffe. À trancher finement pour une planche apéritif, avec un verre de vin rouge et quelques fromages.",
+  "uses": [
+   "Planche apéro",
+   "Pique-nique chic",
+   "Avec un plateau de fromages",
+   "En cadeau gourmand"
+  ],
+  "weight_g": null,
+  "promo": "fuet3",
+  "bestseller": true
  }
 ]

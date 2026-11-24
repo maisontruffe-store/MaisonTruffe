@@ -9,7 +9,6 @@ products:
 - truffe-ete-en-lamelles
 - creme-de-truffe-ete
 - huile-olive-vierge-extra-truffe-noire
-- kit-pates-truffees
 faq:
 - q: Combien de temps se garde une truffe fraîche ?
   a: Quelques jours à une dizaine de jours au réfrigérateur, emballée dans du papier
@@ -50,4 +49,4 @@ Faut-il acheter une truffe fraîche ou des produits à la truffe ? Tout dépend 
 - **Un apéritif** : les tartinables aux truffes d'été.
 
 ## Notre conseil
-Commencez par les produits pour apprivoiser le goût, puis offrez-vous une truffe fraîche pour une grande occasion. Le [Kit Pâtes Truffées](/produit/kit-pates-truffees/) est une bonne porte d'entrée.
+Commencez par les produits pour apprivoiser le goût, puis offrez-vous une truffe fraîche pour une grande occasion. La [crème de truffe d'été](/produit/creme-de-truffe-ete/) est une bonne porte d'entrée.

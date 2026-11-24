@@ -67,6 +67,9 @@ export default async (req: Request, context: Context) => {
   const first = String(name).split(" ")[0] || ""
   const rows = lines.map((l) => `<tr><td style="padding:6px 0;border-bottom:1px solid #e8dcc6">${l.qty} × ${esc(l.name)}</td><td align="right" style="padding:6px 0;border-bottom:1px solid #e8dcc6">${eur(Math.round(l.price * 100) * l.qty)}</td></tr>`).join("")
   const shipCost = s.total_details?.amount_shipping ?? 0
+  const grossCents = lines.reduce((t, l) => t + Math.round(l.price * 100) * l.qty, 0)
+  const remise = s.amount_subtotal != null ? Math.max(0, grossCents - s.amount_subtotal) : 0
+  const remiseRow = remise ? `<tr><td style="padding:6px 0;color:#2f7a3b">Remise offres (lots)</td><td align="right" style="color:#2f7a3b">− ${eur(remise)}</td></tr>` : ""
   const addrHtml = [name, addr.line1, addr.line2, `${addr.postal_code ?? ""} ${addr.city ?? ""}`, ({ FR: "France", BE: "Belgique", LU: "Luxembourg", MC: "Monaco" } as Record<string, string>)[addr.country] ?? addr.country].filter(Boolean).map(esc).join("<br>")
   const relay = md.relais ? `<p><b>Point Relais choisi :</b> ${esc(md.relais)}</p>` : ""
 
@@ -78,7 +81,7 @@ export default async (req: Request, context: Context) => {
 <p>Votre commande est bien confirmée et votre paiement a été reçu. Nous la préparons avec soin : elle sera expédiée sous <b>1 à 3 jours ouvrés</b>, et vous recevrez un e-mail avec le suivi du colis dès son départ.</p>
 <h2 style="font-family:Georgia,serif;font-size:19px;margin:22px 0 6px">Votre commande</h2>
 <table width="100%" cellpadding="0" cellspacing="0" style="font-size:14px">${rows}
-<tr><td style="padding:6px 0">Livraison</td><td align="right">${shipCost ? eur(shipCost) : "Offerte"}</td></tr>
+${remiseRow}<tr><td style="padding:6px 0">Livraison</td><td align="right">${shipCost ? eur(shipCost) : "Offerte"}</td></tr>
 <tr><td style="padding:8px 0;font-weight:bold">Total payé</td><td align="right" style="font-weight:bold">${eur(s.amount_total ?? 0)}</td></tr></table>
 ${relay}${addrHtml ? `<p><b>Livraison :</b><br>${addrHtml}</p>` : ""}
 <h2 style="font-family:Georgia,serif;font-size:19px;margin:22px 0 6px">En attendant votre colis…</h2>

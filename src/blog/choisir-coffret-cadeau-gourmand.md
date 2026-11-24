@@ -7,9 +7,8 @@ order: 25
 category: Cadeaux
 products:
 - coffret-gourmand-autour-de-la-truffe
-- grand-coffret-truffe
-- box-apero-truffe
-- kit-pates-truffees
+- sauce-noire-truffe-ete
+- creme-de-truffe-ete
 faq:
 - q: Quel budget pour un coffret gourmand ?
   a: Entre 30 et 60 € pour un cadeau classique, davantage pour un cadeau marquant
@@ -21,9 +20,9 @@ faq:
 Un coffret gourmand est l'un des cadeaux les plus appréciés : il se partage, se consomme et ne prend pas de place. Encore faut-il bien le choisir.
 
 ## 1. Pensez à la personne
-- **Elle aime cuisiner** : des produits à utiliser en cuisine, comme le [Kit Pâtes Truffées](/produit/kit-pates-truffees/).
-- **Elle aime recevoir** : un assortiment apéritif, comme la [Box Apéro Truffé](/produit/box-apero-truffe/).
-- **Elle aime les belles choses** : un coffret prestigieux, comme le [Grand Coffret Truffe](/produit/grand-coffret-truffe/).
+- **Elle aime cuisiner** : des produits à utiliser en cuisine, comme la [crème de truffe d'été](/produit/creme-de-truffe-ete/) et la [sauce champignons à la truffe](/produit/sauce-champignons-truffe-ete/).
+- **Elle aime recevoir** : un assortiment apéritif, comme [3 pots au choix pour 40 €](/categorie/offres/) avec un [fuet à la truffe](/produit/fuet-a-la-truffe/).
+- **Elle aime les belles choses** : un coffret prestigieux, comme le [Coffret Gourmand Autour de la Truffe](/produit/coffret-gourmand-autour-de-la-truffe/).
 - **Vous ne la connaissez pas bien** : un coffret varié et prêt à offrir, comme le [Coffret Gourmand Autour de la Truffe](/produit/coffret-gourmand-autour-de-la-truffe/).
 
 ## 2. Fixez un budget

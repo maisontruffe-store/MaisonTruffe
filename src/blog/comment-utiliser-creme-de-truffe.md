@@ -8,7 +8,6 @@ category: Recettes
 products:
 - creme-de-truffe-ete
 - tagliatelle-saveur-truffe-blanche
-- kit-pates-truffees
 faq:
 - q: Faut-il chauffer la crème de truffe ?
   a: 'Le moins possible : ajoutez-la hors du feu ou en toute fin de cuisson pour garder
@@ -54,4 +53,4 @@ Blinis tièdes, crème de truffe, une pointe de crème fraîche : simple et él�
 La règle : commencer petit. La crème de truffe est puissante, et trop en mettre écrase les autres saveurs. Goûtez, puis ajustez.
 
 ## Pour tout avoir d'un coup
-Le [Kit Pâtes Truffées](/produit/kit-pates-truffees/) réunit la crème de truffe, les tagliatelles, l'huile à la truffe blanche et la poudre truffée, avec le carnet de recettes et la livraison offerts.
+Pour un dîner de pâtes complet : [crème de truffe](/produit/creme-de-truffe-ete/), [sauce champignons](/produit/sauce-champignons-truffe-ete/) et [huile à la truffe blanche 100 ml](/produit/condiment-truffe-blanche-lamelles-bianchetto/), soit 3 pots pour 40 €, plus les [tagliatelles](/produit/tagliatelle-saveur-truffe-blanche/).

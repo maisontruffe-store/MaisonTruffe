@@ -6,8 +6,8 @@ date: '2026-11-23'
 order: 24
 category: Apéritif
 products:
-- box-apero-truffe
-- saucisson-truffe
+- sauce-noire-truffe-ete
+- fuet-a-la-truffe
 - miel-acacia-saveur-truffe-ete
 faq:
 - q: Combien de fromage et de charcuterie par personne ?
@@ -24,8 +24,8 @@ Pour un apéritif : environ **50 g de fromage et 50 g de charcuterie par personn
 
 ## Les 6 éléments d'une planche réussie
 1. **Les fromages** : 3 familles différentes (un chèvre, une pâte pressée comme le comté, un bleu).
-2. **La charcuterie** : un jambon cru, un saucisson. Le [saucisson truffé](/produit/saucisson-truffe/) apporte l'effet « waouh ».
-3. **Les tartinables** : deux ou trois, comme les délices de légumes aux truffes d'été.
+2. **La charcuterie** : un jambon cru, un saucisson. Le [fuet à la truffe](/produit/fuet-a-la-truffe/) apporte l'effet « waouh ».
+3. **Les tartinables** : deux ou trois, comme la crème de truffe, la sauce noire ou la sauce champignons à la truffe.
 4. **Le sucré** : un bol de [miel truffé](/produit/miel-acacia-saveur-truffe-ete/), des figues, du raisin.
 5. **Le croquant** : noix, amandes, gressins, crackers.
 6. **Le frais** : tomates cerises, radis, bâtonnets de légumes.
@@ -41,4 +41,4 @@ Pour un apéritif : environ **50 g de fromage et 50 g de charcuterie par personn
 Sortez les fromages 30 minutes avant de servir.
 
 ## La solution clé en main
-La [Box Apéro Truffé](/produit/box-apero-truffe/) réunit les tartinables, le saucisson truffé et le miel truffé : il ne reste qu'à ajouter les fromages et le pain. Voir aussi nos [12 idées de toasts à la truffe](/blog/idees-toasts-apero-truffe/).
+Avec [3 pots au choix pour 40 €](/categorie/offres/) (tartinables, miel truffé) et un [fuet à la truffe](/produit/fuet-a-la-truffe/), il ne reste qu'à ajouter les fromages et le pain. Voir aussi nos [12 idées de toasts à la truffe](/blog/idees-toasts-apero-truffe/).

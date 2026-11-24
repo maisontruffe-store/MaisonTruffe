@@ -6,8 +6,8 @@ date: '2026-11-23'
 order: 16
 category: Menus
 products:
-- box-apero-truffe
-- grand-coffret-truffe
+- sauce-noire-truffe-ete
+- coffret-gourmand-autour-de-la-truffe
 - truffe-ete-en-lamelles
 faq:
 - q: Comment faire un repas de Noël à la truffe sans se ruiner ?
@@ -21,11 +21,11 @@ faq:
 Un repas de Noël à la truffe n'a pas besoin d'être compliqué ni hors de prix. Voici un menu pour 6 personnes, construit autour de produits faciles à utiliser.
 
 ## L'apéritif
-- Toasts au [délice d'artichaut](/produit/delice-artichaut-truffes-ete/) et à la [crème de cèpes & truffe blanche](/produit/creme-de-cepes-truffe-blanche/)
-- Fines tranches de [saucisson truffé](/produit/saucisson-truffe/)
+- Toasts à la [crème de truffe d'été](/produit/creme-de-truffe-ete/) et à la [crème de cèpes & truffe blanche](/produit/creme-de-cepes-truffe-blanche/)
+- Fines tranches de [fuet à la truffe](/produit/fuet-a-la-truffe/)
 - Chèvre et [miel truffé](/produit/miel-acacia-saveur-truffe-ete/)
 
-Tout est dans la [Box Apéro Truffé](/produit/box-apero-truffe/).
+Composez-le avec [3 pots au choix pour 40 €](/categorie/offres/).
 
 ## L'entrée : œufs cocotte à la truffe
 Un œuf par personne, une cuillère de crème de truffe, de la crème fraîche, 10 minutes au four. Recette détaillée dans [Œufs à la truffe : 3 recettes](/blog/oeufs-a-la-truffe-3-recettes/).

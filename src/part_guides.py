@@ -14,9 +14,9 @@ GUIDES = {
 <tr><td>Truffe brumale</td><td>Tuber brumale</td><td>Hiver</td><td>Musqué, puissant</td><td>Moutardes, sauces</td></tr>
 </tbody></table>
 <h2>La truffe d'été : la meilleure pour commencer</h2>
-<p>Plus abordable et plus douce, la truffe d'été est parfaite pour les produits du quotidien : <a href="/produit/creme-de-truffe-ete/">crème de truffe d'été</a>, <a href="/produit/truffe-ete-en-lamelles/">truffe d'été en lamelles</a>, <a href="/produit/pesto-saveur-truffe-ete/">pesto</a> ou les <a href="/categorie/cremes-tartinables/">délices de légumes aux truffes d'été</a>.</p>
+<p>Plus abordable et plus douce, la truffe d'été est parfaite pour les produits du quotidien : <a href="/produit/creme-de-truffe-ete/">crème de truffe d'été</a>, <a href="/produit/truffe-ete-en-lamelles/">truffe d'été en lamelles</a>, <a href="/produit/pesto-saveur-truffe-ete/">pesto</a> ou la <a href="/produit/sauce-champignons-truffe-ete/">sauce champignons à la truffe d'été</a>.</p>
 <h2>La truffe noire : l'intensité</h2>
-<p>Son parfum profond se marie avec les œufs, les pommes de terre, la volaille et le foie gras. Pour l'avoir toujours sous la main : <a href="/produit/huile-olive-vierge-extra-truffe-noire/">huile d'olive à la truffe noire</a>, <a href="/produit/sel-de-guerande-saveur-truffe-noire/">sel de Guérande truffé</a> ou <a href="/produit/saucisson-truffe/">saucisson truffé</a>.</p>
+<p>Son parfum profond se marie avec les œufs, les pommes de terre, la volaille et le foie gras. Pour l'avoir toujours sous la main : <a href="/produit/huile-olive-vierge-extra-truffe-noire/">huile d'olive à la truffe noire</a>, <a href="/produit/sel-de-guerande-saveur-truffe-noire/">sel de Guérande truffé</a> ou <a href="/produit/sauce-noire-truffe-ete/">sauce noire à la truffe</a>.</p>
 <h2>La truffe blanche : la puissance</h2>
 <p>La plus rare. Elle ne se cuit pas : on l'ajoute au dernier moment sur un plat chaud et crémeux. Version pratique : <a href="/produit/huile-olive-vierge-extra-truffe-blanche/">huile à la truffe blanche</a>, <a href="/produit/creme-de-cepes-truffe-blanche/">crème de cèpes & truffe blanche</a>, <a href="/produit/tagliatelle-saveur-truffe-blanche/">tagliatelles saveur truffe blanche</a>.</p>
 <h2>Truffe ou arôme de truffe ?</h2>
@@ -48,16 +48,16 @@ GUIDES = {
 """,
     },
     "idees-cadeaux-truffe": {
-        "title": "Idées cadeaux à la truffe : quoi offrir à un gourmand (de 8 € à 60 €)",
-        "desc": "Idées cadeaux gourmands à la truffe par budget : coffret, huile, crème, miel, saucisson. Pour Noël, un anniversaire ou un cadeau d'entreprise.",
+        "title": "Idées cadeaux à la truffe : quoi offrir à un gourmand (de 8 € à 40 €)",
+        "desc": "Idées cadeaux gourmands à la truffe par budget : coffret, huile, crème, miel, fuet. Pour Noël, un anniversaire ou un cadeau d'entreprise.",
         "body": """
 <p class="lead">La truffe est un cadeau qui fait toujours son effet : chic, gourmand, et utile. Voici nos idées par budget.</p>
 <h2>Moins de 15 €</h2>
-<ul class="ticks"><li><a href="/produit/tagliatelle-saveur-truffe-blanche/">Tagliatelles saveur truffe blanche</a> (8 €) — petit cadeau ou complément de panier.</li><li><a href="/produit/saucisson-truffe/">Saucisson truffé</a> (10 €) — pour les amateurs d'apéro.</li><li><a href="/produit/miel-acacia-saveur-truffe-ete/">Miel d'acacia saveur truffe</a> (13 €) — l'original, pour les fans de fromage.</li><li><a href="/produit/moutarde-brisures-truffe-brumale-poivre-noir/">Moutarde à la truffe brumale</a> (13 €).</li></ul>
+<ul class="ticks"><li><a href="/produit/tagliatelle-saveur-truffe-blanche/">Tagliatelles saveur truffe blanche</a> (8 €) — petit cadeau ou complément de panier.</li><li><a href="/produit/fuet-a-la-truffe/">Fuet à la truffe</a> (10 €, 20 € les 3) — pour les amateurs d'apéro.</li><li><a href="/produit/miel-acacia-saveur-truffe-ete/">Miel millefleurs saveur truffe</a> (15 €) — l'original, pour les fans de fromage.</li><li><a href="/produit/moutarde-brisures-truffe-brumale-poivre-noir/">Moutarde à la truffe brumale</a> (15 €).</li></ul>
 <h2>De 15 € à 30 €</h2>
-<ul class="ticks"><li><a href="/produit/creme-de-truffe-ete/">Crème de truffe d'été</a> (15 €) — le best-seller.</li><li><a href="/produit/huile-olive-vierge-extra-truffe-noire/">Huile d'olive à la truffe noire</a> (25 €) — le cadeau utile par excellence.</li><li><a href="/produit/coffret-gourmand-autour-de-la-truffe/">Coffret Gourmand Autour de la Truffe</a> (30 €) — quatre spécialités prêtes à offrir.</li><li><a href="/produit/truffe-ete-en-lamelles/">Truffe d'été en lamelles</a> (30 €) — de la vraie truffe, pour un repas de fête.</li></ul>
+<ul class="ticks"><li><a href="/produit/creme-de-truffe-ete/">Crème de truffe d'été</a> (15 €) — le best-seller.</li><li><a href="/produit/huile-olive-vierge-extra-truffe-noire/">Huile d'olive à la truffe noire 250 ml</a> (25 €) — le cadeau utile par excellence.</li><li><a href="/categorie/offres/">3 pots au choix</a> (40 €) — crème, sauce, miel… à composer soi-même.</li><li><a href="/produit/coffret-gourmand-autour-de-la-truffe/">Coffret Gourmand Autour de la Truffe</a> (30 €) — quatre spécialités prêtes à offrir.</li><li><a href="/produit/truffe-ete-en-lamelles/">Truffe d'été en lamelles</a> (15 €) — de la vraie truffe, pour un repas de fête.</li></ul>
 <h2>Composer un panier à 60 € (livraison offerte)</h2>
-<p>Coffret Gourmand (30 €) + huile à la truffe noire (25 €) + tagliatelles (8 €) = 63 € : un panier complet, livraison offerte.</p>
+<p>3 pots au choix (40 €) + huile à la truffe noire 250 ml (25 €) = 65 € : un panier complet, livraison offerte.</p>
 <h2>Cadeaux d'entreprise</h2>
 <p>Pour des cadeaux clients ou salariés en quantité, <a href="/contact/">contactez-nous</a> : nous préparons un devis adapté.</p>
 """,

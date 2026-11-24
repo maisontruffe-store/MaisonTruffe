@@ -6,8 +6,8 @@ date: '2026-11-23'
 order: 7
 category: Accords
 products:
-- box-apero-truffe
-- grand-coffret-truffe
+- sauce-noire-truffe-ete
+- coffret-gourmand-autour-de-la-truffe
 faq:
 - q: Vin rouge ou blanc avec la truffe ?
   a: 'Les deux fonctionnent : rouge souple et évolué avec la truffe noire et la viande,
@@ -41,4 +41,4 @@ Les **blancs ronds** sont parfaits :
 - **Apéritif truffé** : champagne, crémant ou blanc sec et fruité.
 
 ## L'apéritif idéal
-Pour un apéritif à la truffe, la [Box Apéro Truffé](/produit/box-apero-truffe/) réunit deux tartinables aux truffes d'été, la crème de cèpes et truffe blanche, le saucisson truffé et le miel truffé pour les fromages. Il ne reste qu'à déboucher la bouteille.
+Pour un apéritif à la truffe, composez [3 pots au choix pour 40 €](/categorie/offres/) (crème de truffe, sauce noire, miel truffé pour les fromages) avec un fuet à la truffe. Il ne reste qu'à déboucher la bouteille.

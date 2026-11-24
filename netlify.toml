@@ -27,3 +27,45 @@
   to = "https://maisontruffe.fr/:splat"
   status = 301
   force = true
+
+# Produits retirés du catalogue (novembre 2026)
+[[redirects]]
+  from = "/produit/kit-pates-truffees/*"
+  to = "/categorie/offres/"
+  status = 301
+
+[[redirects]]
+  from = "/produit/box-apero-truffe/*"
+  to = "/categorie/offres/"
+  status = 301
+
+[[redirects]]
+  from = "/produit/grand-coffret-truffe/*"
+  to = "/produit/coffret-gourmand-autour-de-la-truffe/"
+  status = 301
+
+[[redirects]]
+  from = "/produit/saucisson-truffe/*"
+  to = "/produit/fuet-a-la-truffe/"
+  status = 301
+
+[[redirects]]
+  from = "/produit/delice-artichaut-truffes-ete/*"
+  to = "/categorie/cremes-tartinables/"
+  status = 301
+
+[[redirects]]
+  from = "/produit/delice-aubergine-truffes-ete/*"
+  to = "/categorie/cremes-tartinables/"
+  status = 301
+
+[[redirects]]
+  from = "/produit/delice-olives-noires-truffes-ete/*"
+  to = "/produit/sauce-noire-truffe-ete/"
+  status = 301
+
+[[redirects]]
+  from = "/produit/delice-courgettes-truffes-ete/*"
+  to = "/categorie/cremes-tartinables/"
+  status = 301
+

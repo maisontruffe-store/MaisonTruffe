@@ -18,6 +18,13 @@ PACKAGING_G = 250        # poids estimé du carton + calage (à ajuster)
 GUARANTEE_TITLE = "Colis protégé"
 GUARANTEE_TEXT = ("Un pot cassé ou un produit abîmé à la réception ? Envoyez-nous une photo sous 48 h : "
                   "on vous le remplace ou on vous le rembourse.")
+# Offres « lot » : n articles du même groupe (mélange possible) pour un prix fixe
+PROMOS = {
+    "pot3": {"n": 3, "price": 40.0, "label": "Offre 3 pots au choix", "badge": "3 pour 40 €",
+             "text": "Tous nos pots, petites huiles et petits condiments à 15 € : 40 € les 3, à mélanger comme vous voulez."},
+    "fuet3": {"n": 3, "price": 20.0, "label": "Offre 3 fuets", "badge": "3 pour 20 €",
+              "text": "Fuet à la truffe : 10 € pièce, 20 € les 3."},
+}
 TODAY = datetime.date.today().isoformat()
 VER = datetime.datetime.now().strftime("%Y%m%d%H%M")
 
@@ -31,16 +38,14 @@ for b in BUNDLES:
     b["value"] = round(sum(BYSLUG[s]["price"] for s in b["bundle"]), 2)
 
 CATS = {
-    "offres": {"name": "Coffrets malins", "h1": "Coffrets malins : la truffe sans effort",
-               "intro": "Nos kits tout compris : tout ce qu'il faut pour réussir un repas ou un apéritif à la truffe, le carnet de recettes et la livraison offerts."},
     "coffrets-truffes": {"name": "Coffrets & Truffes", "h1": "Coffrets cadeaux et truffes d'été",
                "intro": "Des coffrets prêts à offrir et de la truffe d'été en lamelles, pour faire plaisir ou se faire plaisir. Le cadeau gourmand qui marque les esprits, à Noël comme toute l'année."},
     "huiles-condiments": {"name": "Huiles & Condiments", "h1": "Huiles à la truffe, sels, miel et condiments",
                "intro": "Huile d'olive à la truffe noire ou blanche, sel de Guérande truffé, miel, moutarde et balsamique : les essentiels pour mettre de la truffe dans la cuisine de tous les jours, en un geste."},
     "cremes-tartinables": {"name": "Crèmes & Tartinables", "h1": "Crèmes de truffe et tartinables pour l'apéritif",
-               "intro": "Crème de truffe d'été, crème de cèpes, pesto et délices de légumes à la truffe : l'apéritif chic en deux minutes, et des sauces express pour vos pâtes et risottos."},
+               "intro": "Crème de truffe d'été, sauce noire, sauce champignons, crème de cèpes et pesto à la truffe : l'apéritif chic en deux minutes, et des sauces express pour vos pâtes et risottos."},
     "epicerie-charcuterie": {"name": "Pâtes & Charcuterie", "h1": "Pâtes et charcuterie à la truffe",
-               "intro": "Tagliatelles saveur truffe blanche et saucisson truffé : pour une planche apéro ou un plat de pâtes à la truffe en dix minutes."},
+               "intro": "Tagliatelles saveur truffe blanche et fuet à la truffe : pour une planche apéro ou un plat de pâtes à la truffe en dix minutes."},
 }
 
 def e(s): return html.escape(str(s), quote=True)
@@ -53,6 +58,8 @@ def img(p, w=800):
         return img(BYSLUG[p["bundle"][0]], w) or img(BYSLUG[p["bundle"][1]], w)
     if not p["img"]:
         return ""
+    if p["img"].startswith("/"):
+        return p["img"]
     return f"{IMG_BASE}{p['img']}{'&' if '?' in p['img'] else '?'}width={w}"
 
 def jsonld(o): return '<script type="application/ld+json">' + json.dumps(o, ensure_ascii=False) + "</script>"
@@ -99,7 +106,7 @@ def page(path, title, desc, body, schema=None, og_img=None, noindex=False, cls="
   <div class="wrap header-inner">
     <a class="logo" href="/" aria-label="{BRAND} — accueil"><img class="logo-mark" src="/assets/logo-emblem.png" alt="" width="58" height="47"><span class="logo-txt">Maison Truffe<small>Spécialités à la truffe</small></span></a>
     <nav class="nav" aria-label="Navigation principale">
-      <a href="/categorie/offres/" class="nav-hot">Coffrets malins</a>
+      <a href="/categorie/offres/" class="nav-hot">3 pots = 40 €</a>
       <a href="/boutique/">Boutique</a>
       <a href="/#quiz">Quiz</a>
       <a href="/recettes/">Recettes</a>
@@ -111,7 +118,7 @@ def page(path, title, desc, body, schema=None, og_img=None, noindex=False, cls="
 </header>
 <nav class="catbar" aria-label="Catégories"><div class="wrap catbar-inner">
   <a href="/boutique/" class="cb-all">🛒 Tous les produits</a>
-  <a href="/categorie/offres/">🎁 Coffrets malins</a>
+  <a href="/categorie/offres/">🔥 3 pots = 40 €</a>
   <a href="/categorie/coffrets-truffes/">Coffrets & truffes</a>
   <a href="/categorie/huiles-condiments/">Huiles & condiments</a>
   <a href="/categorie/cremes-tartinables/">Crèmes & tartinables</a>
@@ -180,7 +187,8 @@ def pic(p, w=600, cls=""):
             else f'<div class="img-ph {cls}" aria-hidden="true">◆</div>')
 
 def card(p):
-    badge = f'<span class="badge">{e(p.get("tag") or "Best-seller")}</span>' if p.get("bestseller") else ""
+    badge = (f'<span class="badge badge-promo">{PROMOS[p["promo"]]["badge"]}</span>' if p.get("promo")
+             else f'<span class="badge">{e(p.get("tag") or "Best-seller")}</span>' if p.get("bestseller") else "")
     was = f'<s>{eur(p["value"])}</s>' if p.get("bundle") else ""
     return f"""<article class="card" data-cat="{p['cat']}">
   <a href="/produit/{p['slug']}/" class="card-img">{badge}{pic(p)}</a>
@@ -222,8 +230,8 @@ def offer_card(b, featured=False):
 
 exec((SRC / "part_faq.py").read_text(encoding="utf-8"))
 FAQ.insert(0, ("Que se passe-t-il si mon colis arrive abîmé ?", GUARANTEE_TEXT))
-FAQ.insert(1, ("Qu'est-ce qu'un coffret malin ?",
-               "Un kit tout compris pensé pour un résultat précis (dîner de pâtes à la truffe, apéritif, cadeau). Il coûte moins cher que les produits achetés séparément, la livraison est offerte et vous recevez le carnet « 12 recettes truffe en 10 minutes »."))
+FAQ.insert(1, ("Comment fonctionne l'offre 3 pots pour 40 € ?",
+               "Tous nos produits à 15 € (crèmes, sauces, pesto, miel, sel, moutarde, petites huiles de 100 ml, petit condiment en poudre…) sont à 40 € les 3, en mélangeant comme vous voulez. La remise s'applique automatiquement dans le panier, par lot de 3. Le fuet à la truffe est à 10 € pièce ou 20 € les 3."))
 
 def faq_schema(items):
     return {"@context": "https://schema.org", "@type": "FAQPage",
@@ -242,11 +250,11 @@ RECETTES = [
      ["Cuire les tagliatelles dans une grande casserole d'eau salée.", "Réserver une louche d'eau de cuisson, égoutter.", "Hors du feu, mélanger les pâtes avec 2 cuillères à soupe de crème de truffe et un peu d'eau de cuisson.", "Servir avec du parmesan et quelques gouttes d'huile à la truffe blanche."]),
     ("Œufs brouillés à la truffe", "5 min", ["sel-de-guerande-saveur-truffe-noire", "huile-olive-vierge-extra-truffe-noire", "truffe-ete-en-lamelles"],
      ["Battre 3 œufs, cuire à feu très doux en remuant sans cesse avec une noix de beurre.", "Retirer du feu quand c'est encore crémeux.", "Assaisonner avec le sel truffé, un filet d'huile à la truffe noire et quelques lamelles de truffe."]),
-    ("Planche apéro truffée", "5 min", ["delice-artichaut-truffes-ete", "delice-olives-noires-truffes-ete", "saucisson-truffe", "miel-acacia-saveur-truffe-ete"],
-     ["Toaster des tranches de baguette ou de pain de campagne.", "Tartiner moitié délice d'artichaut, moitié délice d'olives.", "Trancher finement le saucisson truffé.", "Ajouter 2 fromages et un petit bol de miel truffé à côté."]),
+    ("Planche apéro truffée", "5 min", ["creme-de-truffe-ete", "sauce-noire-truffe-ete", "fuet-a-la-truffe", "miel-acacia-saveur-truffe-ete"],
+     ["Toaster des tranches de baguette ou de pain de campagne.", "Tartiner moitié crème de truffe, moitié sauce noire à la truffe.", "Trancher finement le fuet à la truffe.", "Ajouter 2 fromages et un petit bol de miel truffé à côté."]),
     ("Purée truffée de fête", "20 min", ["huile-olive-vierge-extra-truffe-noire", "sel-de-guerande-saveur-truffe-noire"],
      ["Cuire 800 g de pommes de terre épluchées à l'eau salée.", "Écraser avec 60 g de beurre et 15 cl de lait chaud.", "Hors du feu, ajouter 1 cuillère à soupe d'huile à la truffe noire.", "Finir avec une pincée de sel truffé au moment de servir."]),
-    ("Risotto aux cèpes et truffe", "25 min", ["creme-de-cepes-truffe-blanche", "huile-olive-vierge-extra-truffe-blanche"],
+    ("Risotto aux cèpes et truffe", "25 min", ["sauce-champignons-truffe-ete", "creme-de-cepes-truffe-blanche", "huile-olive-vierge-extra-truffe-blanche"],
      ["Faire revenir un oignon émincé, ajouter 300 g de riz arborio et le nacrer 2 minutes.", "Mouiller louche par louche avec 1 litre de bouillon chaud, en remuant.", "Hors du feu, ajouter 2 cuillères à soupe de crème de cèpes et truffe, du parmesan et une noix de beurre.", "Servir avec un filet d'huile à la truffe blanche."]),
     ("Toasts chèvre, miel truffé", "8 min", ["miel-acacia-saveur-truffe-ete"],
      ["Disposer des rondelles de chèvre sur des tranches de pain.", "Passer 5 minutes sous le gril du four.", "Napper d'un filet de miel d'acacia saveur truffe et d'un tour de poivre."]),
@@ -260,12 +268,12 @@ RECETTES = [
      ["Mélanger 1 cuillère à café de moutarde à la truffe et 1 cuillère à soupe de vinaigre.", "Ajouter 3 cuillères à soupe d'huile à la truffe noire en fouettant.", "Parfait sur une salade de mâche, pommes de terre tièdes ou endives."]),
     ("Bruschetta pesto truffe", "8 min", ["pesto-saveur-truffe-ete"],
      ["Griller des tranches de pain ciabatta.", "Tartiner de pesto saveur truffe d'été.", "Ajouter tomates cerises coupées et burrata."]),
-    ("Volaille rôtie au beurre truffé", "1 h", ["condiment-saveur-truffe-noire", "sel-de-guerande-saveur-truffe-noire"],
-     ["Mélanger 50 g de beurre mou avec 1 cuillère à café de condiment truffe noire.", "Glisser le beurre sous la peau d'un poulet.", "Rôtir 1 h à 200 °C en arrosant.", "Saler au sel truffé à la sortie du four."]),
+    ("Volaille rôtie au beurre truffé", "1 h", ["condiment-saveur-truffe-ete-poudre", "sel-de-guerande-saveur-truffe-noire"],
+     ["Mélanger 50 g de beurre mou avec 1 cuillère à café de condiment truffe d'été en poudre.", "Glisser le beurre sous la peau d'un poulet.", "Rôtir 1 h à 200 °C en arrosant.", "Saler au sel truffé à la sortie du four."]),
 ]
 def recette_html(i, r):
     t, d, prods, steps = r
-    plinks = "".join(f'<li><a href="/produit/{s}/">{e(BYSLUG[s]["name"])}</a> <button class="link-add" data-add="{s}">+ panier</button></li>' for s in prods)
+    plinks = "".join(f'<li><a href="/produit/{s}/">{e(BYSLUG[s]["name"])}</a> <button class="link-add" data-add="{s}">+ panier</button></li>' for s in prods if s in BYSLUG)
     return f"""<details class="recette reveal"{' open' if i == 0 else ''}>
   <summary><span class="r-num">{i + 1:02d}</span><span class="r-title">{e(t)}</span><span class="r-time">⏱ {d}</span></summary>
   <div class="r-body"><div><h4>Les produits</h4><ul class="r-prods">{plinks}</ul></div>
@@ -277,7 +285,7 @@ if OUT.exists():
     shutil.rmtree(OUT)
 (OUT / "assets").mkdir(parents=True)
 for f in (SRC / "assets").iterdir():
-    shutil.copy(f, OUT / "assets" / f.name)
+    (shutil.copytree if f.is_dir() else shutil.copy)(f, OUT / "assets" / f.name)
 (OUT / "admin").mkdir(parents=True, exist_ok=True)
 shutil.copy(SRC / "admin.html", OUT / "admin" / "index.html")   # tableau de bord des commandes
 for f in (SRC / "static").glob("*"):
@@ -288,21 +296,37 @@ def weight_of(p):
         ws = [BYSLUG[s].get("weight_g") for s in p["bundle"]]
         return sum(ws) if all(w for w in ws) else None
     return p.get("weight_g")
-cat_js = {p["slug"]: {"name": p["name"], "price": p["price"], "img": img(p, 200), "cat": p["cat"], **({"test": True} if p.get("test") else {})} for p in P + TESTS}
-cat_srv = {p["slug"]: {"name": p["name"], "price": p["price"], "img": img(p, 200), "cat": p["cat"], "weight_g": weight_of(p), "test": bool(p.get("test"))} for p in P + TESTS}
+def absimg(p, w=200):
+    u = img(p, w)
+    return SITE + u if u.startswith("/") else u
+cat_js = {p["slug"]: {"name": p["name"], "price": p["price"], "img": img(p, 200), "cat": p["cat"], **({"promo": p["promo"]} if p.get("promo") else {}), **({"test": True} if p.get("test") else {})} for p in P + TESTS}
+cat_srv = {p["slug"]: {"name": p["name"], "price": p["price"], "img": absimg(p, 200), "cat": p["cat"], "weight_g": weight_of(p), "promo": p.get("promo"), "test": bool(p.get("test"))} for p in P + TESTS}
+PROMOS_PUB = {k: {"n": v["n"], "price": v["price"], "label": v["label"]} for k, v in PROMOS.items()}
 (OUT / "assets" / "catalog.js").write_text(
     "window.MT_CATALOG=" + json.dumps(cat_js, ensure_ascii=False) +
-    f";window.MT_SHIP={{price:{SHIP_PRICE},free:{FREE_SHIP}}};", encoding="utf-8")
+    f";window.MT_SHIP={{price:{SHIP_PRICE},free:{FREE_SHIP}}};window.MT_PROMOS=" + json.dumps(PROMOS_PUB, ensure_ascii=False) + ";", encoding="utf-8")
 (ROOT / "netlify" / "lib").mkdir(parents=True, exist_ok=True)
 (ROOT / "netlify" / "lib" / "catalog.mts").write_text(
     "// Généré par src/build.py — ne pas modifier à la main\n"
-    "export const CATALOG: Record<string, { name: string; price: number; img: string; cat: string; weight_g: number | null; test: boolean }> = " +
+    "export const CATALOG: Record<string, { name: string; price: number; img: string; cat: string; weight_g: number | null; promo: string | null; test: boolean }> = " +
     json.dumps(cat_srv, ensure_ascii=False, indent=1) + f";\nexport const SHIP = {{ price: {SHIP_PRICE}, free: {FREE_SHIP} }};\n"
+    "export const PROMOS: Record<string, { n: number; price: number; label: string }> = " + json.dumps(PROMOS_PUB, ensure_ascii=False) + ";\n"
     f"export const PACKAGING_G = {PACKAGING_G};\nexport const OWNER_EMAIL = {json.dumps(EMAIL)};\n",
     encoding="utf-8")
 
 # ---- Accueil
 best = [p for p in SINGLES if p.get("bestseller")]
+POTS = [p for p in SINGLES if p.get("promo") == "pot3"]
+def promo_block(compact=False):
+    thumbs = "".join(f'<a href="/produit/{p["slug"]}/" class="pm-thumb" title="{e(p["name"])}">{pic(p, 160)}</a>' for p in POTS[:8])
+    return f"""<section class="promo-band reveal"><div class="wrap promo-inner">
+  <div class="promo-txt"><p class="pill">🔥 Offre permanente · mélange libre</p>
+  <h2>3 pots au choix = <span class="gold">40 €</span> <s>45 €</s></h2>
+  <p class="lead">Crèmes, sauces, pesto, miel, sel, moutarde, petites huiles 100 ml, petit condiment en poudre : prenez-en 3, mélangez comme vous voulez, la remise s'applique toute seule dans le panier.</p>
+  <p class="promo-sub">+ <b>Fuet à la truffe</b> : 10 € pièce, <b>20 € les 3</b>.</p>
+  <div class="hero-cta"><a class="btn btn-gold btn-lg" href="/categorie/offres/">Je compose mes 3 pots</a>{'' if compact else '<a class="btn btn-ghost-light btn-lg" href="/produit/fuet-a-la-truffe/">Voir le fuet</a>'}</div></div>
+  <div class="promo-thumbs">{thumbs}</div>
+</div></section>"""
 tabs = '<div class="tabs" role="tablist" data-tabs><button class="tab active" data-filter="all">Tout</button>' + "".join(
     f'<button class="tab" data-filter="{k}">{e(v["name"])}</button>' for k, v in CATS.items() if k != "offres") + "</div>"
 quiz = """
@@ -322,7 +346,7 @@ quiz = """
       </div>
       <div class="q-step" data-step="2">
         <h3>Votre budget ?</h3>
-        <div class="q-opts"><button data-a="s">Moins de 20 €</button><button data-a="m">20 à 50 €</button><button data-a="l">Plus de 50 €</button></div>
+        <div class="q-opts"><button data-a="s">Moins de 15 €</button><button data-a="m">15 à 30 €</button><button data-a="l">Plus de 30 €</button></div>
       </div>
       <div class="q-step q-result" data-step="3"><div data-q-result></div><button class="link" data-q-restart>↺ Recommencer</button></div>
     </div>
@@ -334,22 +358,22 @@ home = f"""
     <div class="sh-text">
       <p class="pill">🛒 Boutique en ligne · Livraison partout en France</p>
       <h1>Produits à la truffe : commandez en ligne, livrés chez vous.</h1>
-      <p class="lead">Huiles, crèmes, condiments, charcuterie et coffrets cadeaux à la truffe. <b>De 8 € à 89 €</b>, livraison offerte dès {FREE_SHIP} €.</p>
-      <div class="hero-cta"><a class="btn btn-gold btn-lg" href="#meilleures-ventes">Commander maintenant</a><a class="btn btn-outline btn-lg" href="/categorie/offres/">Voir les coffrets</a></div>
+      <p class="lead">Huiles, crèmes, sauces, condiments, fuet et coffret cadeau à la truffe. <b>Tous les pots à 15 €, et 40 € les 3</b> au choix. Livraison offerte dès {FREE_SHIP} €.</p>
+      <div class="hero-cta"><a class="btn btn-gold btn-lg" href="#meilleures-ventes">Commander maintenant</a><a class="btn btn-outline btn-lg" href="/categorie/offres/">3 pots = 40 €</a></div>
       <ul class="trust"><li><b>🚚</b> Expédié sous 1 à 3 jours</li><li><b>🎁</b> Livraison offerte dès {FREE_SHIP} €</li><li><b>🔒</b> Paiement CB, Apple Pay</li><li><b>📦</b> Colis protégé</li></ul>
     </div>
     <div class="sh-feature">
-      <a href="/produit/box-apero-truffe/" class="feat-img">{pic(BYSLUG['box-apero-truffe'])}<span class="badge">Le plus vendu</span></a>
-      <div class="feat-body"><h2>La Box Apéro Truffé</h2><p>5 spécialités pour un apéritif de chef, prêt en 5 minutes.</p>
-      <p class="price"><s>{eur(BYSLUG['box-apero-truffe']['value'])}</s> {eur(BYSLUG['box-apero-truffe']['price'])} <small>livraison offerte</small></p>
-      <button class="btn btn-gold btn-block btn-lg" data-add="box-apero-truffe">Ajouter au panier</button></div>
+      <a href="/produit/creme-de-truffe-ete/" class="feat-img">{pic(BYSLUG['creme-de-truffe-ete'])}<span class="badge">Le plus vendu</span></a>
+      <div class="feat-body"><h2>Crème de truffe d'été</h2><p>Sur des pâtes, un toast ou un risotto : la truffe en 2 minutes.</p>
+      <p class="price">{eur(BYSLUG['creme-de-truffe-ete']['price'])} <small>ou 40 € les 3 pots au choix</small></p>
+      <button class="btn btn-gold btn-block btn-lg" data-add="creme-de-truffe-ete">Ajouter au panier</button></div>
     </div>
   </div>
 </section>
 
 <section class="section wrap" id="meilleures-ventes">
   <div class="section-head"><h2>Meilleures ventes</h2><a href="/boutique/" class="btn btn-outline btn-sm">Voir tous les produits →</a></div>
-  {grid(BUNDLES + best)}
+  {grid(best)}
 </section>
 
 <section class="section-tight wrap">
@@ -358,10 +382,7 @@ home = f"""
   </div>
 </section>
 
-<section class="section wrap" id="offres">
-  <div class="section-head"><div><h2>Coffrets malins</h2><p class="muted">Moins cher que séparément + livraison offerte + carnet de 12 recettes.</p></div><a href="/categorie/offres/" class="btn btn-outline btn-sm">Tous les coffrets →</a></div>
-  <div class="offers">{offer_card(BYSLUG['kit-pates-truffees'])}{offer_card(BYSLUG['box-apero-truffe'], True)}{offer_card(BYSLUG['grand-coffret-truffe'])}</div>
-</section>
+{promo_block()}
 
 <section class="section wrap shop-all" id="boutique">
   <div class="section-head"><h2>Tous nos produits</h2><a href="/panier/" class="btn btn-outline btn-sm">Voir mon panier →</a></div>
@@ -374,7 +395,7 @@ home = f"""
 <section class="section wrap recipes-teaser">
   <div class="two-col">
     <div><h2>12 recettes à la truffe en 10 minutes</h2>
-    <p class="lead">Offert avec chaque coffret. Chaque recette indique le produit à utiliser, avec un bouton pour l'ajouter au panier.</p>
+    <p class="lead">Gratuites, pour bien utiliser vos produits. Chaque recette indique le produit à utiliser, avec un bouton pour l'ajouter au panier.</p>
     <a class="btn btn-gold" href="/recettes/">Voir les recettes</a></div>
     <div>{recette_html(0, RECETTES[0])}{recette_html(1, RECETTES[2])}</div>
   </div>
@@ -393,29 +414,43 @@ home = f"""
   <p class="lead">Livraison offerte dès {FREE_SHIP} €, expédition sous 1 à 3 jours ouvrés.</p>
   <div class="hero-cta center-cta"><a class="btn btn-gold btn-lg" href="#meilleures-ventes">Commander maintenant</a><a class="btn btn-ghost-light btn-lg" href="#quiz">Faire le quiz</a></div>
 </div></section>"""
-page("/", "Maison Truffe — Produits à la truffe : coffrets, huiles, crèmes | Plats de chef en 10 min",
-     f"Huile d'olive à la truffe, crème de truffe d'été, coffrets cadeaux et kits apéro : des plats de chef à la truffe en 10 minutes. Livraison offerte dès {FREE_SHIP} €, expédition sous 1 à 3 jours.",
-     home, [faq_schema(FAQ[:6]), itemlist(BUNDLES + best),
+page("/", "Maison Truffe — Produits à la truffe : huiles, crèmes, sauces | 3 pots = 40 €",
+     f"Huile d'olive à la truffe, crème de truffe d'été, sauces, condiments et fuet à la truffe. Tous les pots à 15 €, 40 € les 3 au choix. Livraison offerte dès {FREE_SHIP} €, expédition sous 1 à 3 jours.",
+     home, [faq_schema(FAQ[:6]), itemlist(best),
             {"@context": "https://schema.org", "@type": "WebSite", "name": BRAND, "url": SITE + "/", "inLanguage": "fr-FR"}],
      cls="home")
 
 # ---- Boutique
 cr, crs = crumbs([("Accueil", "/"), ("Boutique", None)])
 page("/boutique/", "Boutique produits à la truffe — Maison Truffe",
-     "Tous nos produits à la truffe : coffrets malins, huiles à la truffe noire et blanche, crèmes, tartinables, condiments, pâtes, saucisson truffé. De 8 € à 89 €.",
+     "Tous nos produits à la truffe : huiles à la truffe noire et blanche, crèmes, sauces, condiments, pâtes, fuet à la truffe. Pots à 15 €, 40 € les 3 au choix.",
      f"""{cr}<section class="section wrap"><h1>Tous nos produits à la truffe</h1>
-<p class="lead">Coffrets malins et 20 spécialités à la truffe d'été, noire, blanche, bianchetto et brumale.</p>
+<p class="lead">{len(P)} spécialités à la truffe d'été, noire, blanche, bianchetto et brumale. <b>Tous les pots à 15 € : 40 € les 3 au choix.</b></p>
 <div class="tabs" data-tabs><button class="tab active" data-filter="all">Tout</button>{''.join(f'<button class="tab" data-filter="{k}">{e(v["name"])}</button>' for k, v in CATS.items())}</div>
-<div data-tab-grid>{grid(P)}</div></section>{GUARANTEE_BLOCK}""",
+<div data-tab-grid>{grid(P)}</div></section>{promo_block(True)}{GUARANTEE_BLOCK}""",
      [crs, itemlist(P)])
 
 for k, v in CATS.items():
     items = [p for p in P if p["cat"] == k]
     cr, crs = crumbs([("Accueil", "/"), ("Boutique", "/boutique/"), (v["name"], None)])
-    body = (f'<div class="offers">' + "".join(offer_card(b, i == 1) for i, b in enumerate(items)) + "</div>") if k == "offres" else grid(items)
+    body = grid(items)
     page(f"/categorie/{k}/", f"{v['h1']} — {BRAND}", v["intro"][:155],
          f"""{cr}<section class="section wrap"><h1>{e(v['h1'])}</h1><p class="lead">{e(v['intro'])}</p>{body}</section>{GUARANTEE_BLOCK}""",
          [crs, itemlist(items)])
+
+# ---- Page offre 3 pots (ancienne URL des coffrets, conservée)
+cr, crs = crumbs([("Accueil", "/"), ("Boutique", "/boutique/"), ("Offre 3 pots = 40 €", None)])
+FUETS = [p for p in SINGLES if p.get("promo") == "fuet3"]
+page("/categorie/offres/", "Offre 3 pots à la truffe pour 40 € au choix — Maison Truffe",
+     "Crème de truffe, sauces, pesto, miel, sel, moutarde, petites huiles : tous nos pots à 15 €, 40 € les 3 en mélangeant comme vous voulez. Fuet à la truffe 20 € les 3.",
+     f"""{cr}<section class="section wrap"><p class="eyebrow">Offre permanente</p><h1>3 pots au choix pour 40 €</h1>
+<p class="lead">Tous ces produits sont à 15 € pièce. <b>Prenez-en 3, mélangez comme vous voulez : vous payez 40 € au lieu de 45 €.</b> La remise s'applique automatiquement dans le panier, pour chaque lot de 3 (6 pots = 80 €, 9 pots = 120 €…).</p>
+<ol class="steps-inline"><li>Ajoutez 3 produits (ou plus) de cette page</li><li>Le panier calcule la remise tout seul</li><li>Livraison offerte dès {FREE_SHIP} €</li></ol>
+{grid(POTS)}
+<h2 style="margin-top:2.5rem">Et le fuet à la truffe : 20 € les 3</h2>
+<p class="lead">10 € pièce, 20 € les 3. Idéal pour compléter une planche apéro.</p>
+{grid(FUETS)}</section>{GUARANTEE_BLOCK}""",
+     [crs, itemlist(POTS + FUETS)])
 
 # ---- Fiches produit
 for p in P:
@@ -441,7 +476,7 @@ for p in P:
                                                      "merchantReturnDays": 14, "returnMethod": "https://schema.org/ReturnByMail",
                                                      "returnFees": "https://schema.org/ReturnShippingFees"}}}
     if img(p):
-        schema["image"] = [img(BYSLUG[s], 1000) for s in dict.fromkeys(p["bundle"]) if img(BYSLUG[s])] if p.get("bundle") else [img(p, 1000)]
+        schema["image"] = [absimg(p, 1000)] + [SITE + g for g in p.get("gallery", [])]
 
     if p.get("bundle"):
         counts = {}
@@ -458,13 +493,21 @@ for p in P:
     else:
         price_html = f'<p class="price big">{eur(p["price"])} <small>TTC</small></p>'
         extra = ""
+    if p.get("formats"):
+        sib = sorted([q for q in SINGLES if q.get("formats") == p["formats"]], key=lambda q: q["price"])
+        price_html += '<div class="formats"><span>Format :</span>' + "".join(
+            (f'<span class="fmt on">{e(q["format_label"])} · {eur(q["price"])}</span>' if q is p else
+             f'<a class="fmt" href="/produit/{q["slug"]}/">{e(q["format_label"])} · {eur(q["price"])}</a>') for q in sib) + "</div>"
+    if p.get("promo"):
+        pr = PROMOS[p["promo"]]
+        price_html += f'<a class="promo-pill" href="/categorie/offres/">🔥 <b>{pr["badge"]}</b> · {e(pr["text"])} →</a>'
     upsell = ""
     if in_bundles:
         b = in_bundles[0]
         upsell = f"""<a class="upsell" href="/produit/{b['slug']}/"><div class="upsell-img">{pic(b)}</div><div><b>Mieux : {e(b['name'])}</b><span>{e(b['short'])}</span><span class="up-price"><s>{eur(b['value'])}</s> {eur(b['price'])} · livraison et carnet offerts →</span></div></a>"""
     body = f"""{cr}
 <section class="wrap product">
-  <div class="product-img">{pic(p, 1000)}</div>
+  <div class="product-img">{pic(p, 1000)}{''.join(f'<img src="{g}" alt="{e(p["name"])}" loading="lazy" width="1000" height="1000">' for g in p.get("gallery", []))}</div>
   <div class="product-info">
     <p class="eyebrow">{e(c['name'])}</p>
     <h1>{e(p['name'])}</h1>
@@ -488,7 +531,7 @@ for p in P:
 <div class="sticky-buy" data-sticky><span><b>{e(p['name'])}</b> · {eur(p['price'])}</span><button class="btn btn-gold btn-sm" data-add="{p['slug']}">Ajouter</button></div>"""
     page(f"/produit/{p['slug']}/", f"{p['name']} — {eur(p['price'])} | {BRAND}",
          f"{p['short']} {p['name']} à {eur(p['price'])}. Livraison offerte dès {FREE_SHIP} €.",
-         body, [crs, schema, faq_schema(pfaq)], og_img=img(p, 1200) or None)
+         body, [crs, schema, faq_schema(pfaq)], og_img=absimg(p, 1200) or None)
 
 # ---- Page de test (non référencée)
 for t in TESTS:
@@ -511,7 +554,7 @@ page("/recettes/", "12 recettes à la truffe faciles et rapides — Maison Truff
      f"""{cr}<section class="section wrap narrow"><p class="eyebrow">Le carnet Maison Truffe</p><h1>12 recettes à la truffe en 10 minutes</h1>
 <p class="lead">Des recettes simples, testées, où chaque produit a son rôle. Cliquez sur une recette pour l'ouvrir, et ajoutez les produits au panier en un clic.</p>
 {''.join(recette_html(i, r) for i, r in enumerate(RECETTES))}
-<p class="cta-line center"><a class="btn btn-gold btn-lg" href="/categorie/offres/">Tout avoir d'un coup : les coffrets malins</a></p></section>""",
+<p class="cta-line center"><a class="btn btn-gold btn-lg" href="/categorie/offres/">3 pots au choix pour 40 €</a></p></section>""",
      [crs, rec_schema])
 
 # ---- Guides
@@ -529,7 +572,7 @@ for k, g in GUIDES.items():
            "publisher": {"@id": SITE + "/#org"}, "mainEntityOfPage": f"{SITE}/guides/{k}/"}
     page(f"/guides/{k}/", f"{g['title']} | {BRAND}", g["desc"],
          f'{cr}<article class="section wrap narrow prose"><h1>{e(g["title"])}</h1>{g["body"]}'
-         f'<div class="inline-offer"><b>Envie d\'essayer sans vous tromper ?</b><span>Nos coffrets malins réunissent les bons produits, le carnet de recettes et la livraison offerte.</span><a class="btn btn-gold" href="/categorie/offres/">Voir les coffrets</a></div></article>',
+         f'<div class="inline-offer"><b>Envie d\'essayer sans vous tromper ?</b><span>Tous nos pots sont à 15 €, et 40 € les 3 au choix. Livraison offerte dès {FREE_SHIP} €.</span><a class="btn btn-gold" href="/categorie/offres/">Je compose mes 3 pots</a></div></article>',
          [crs, art])
 
 # ---- FAQ
@@ -546,12 +589,13 @@ panier = f"""
   <div class="cart-layout">
     <div>
       <div data-cart-lines></div>
-      <div class="empty" data-cart-empty hidden><p class="lead">Votre panier est vide.</p><a class="btn btn-gold" href="/categorie/offres/">Voir les coffrets malins</a></div>
+      <div data-promo-hint></div>
+      <div class="empty" data-cart-empty hidden><p class="lead">Votre panier est vide.</p><a class="btn btn-gold" href="/categorie/offres/">Voir l'offre 3 pots = 40 €</a></div>
       <div class="bump" data-bump hidden><h3>Pour atteindre la livraison offerte</h3><div data-bump-items></div></div>
     </div>
     <aside class="summary" data-cart-summary>
       <h2>Récapitulatif</h2>
-      <dl><dt>Sous-total</dt><dd data-subtotal>0 €</dd><dt>Livraison</dt><dd data-shipping>—</dd><dt class="total">Total</dt><dd class="total" data-total>0 €</dd></dl>
+      <dl><dt>Sous-total</dt><dd data-subtotal>0 €</dd><dt data-promo-dt hidden>Remise offres</dt><dd data-promo hidden class="promo-off">0 €</dd><dt>Livraison</dt><dd data-shipping>—</dd><dt class="total">Total</dt><dd class="total" data-total>0 €</dd></dl>
       <ul class="summary-perks"><li>📦 Colis protégé</li><li>🎁 Carnet de recettes offert</li><li>🔒 Paiement sécurisé Stripe</li></ul>
       <form name="commande" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="checkout" data-checkout>
         <input type="hidden" name="form-name" value="commande">
@@ -642,7 +686,7 @@ for m in POSTS:
            "wordCount": m["words"], "author": {"@type": "Organization", "name": BRAND}, "publisher": {"@id": SITE + "/#org"},
            "mainEntityOfPage": f"{SITE}/blog/{m['slug']}/"}
     if prods and img(prods[0]):
-        art["image"] = img(prods[0], 1200)
+        art["image"] = absimg(prods[0], 1200)
     schemas = [crs, art] + ([faq_schema(faq)] if faq else [])
     side = "".join(f'<a class="side-prod" href="/produit/{p["slug"]}/">{pic(p, 160)}<span><b>{e(p["name"])}</b>{eur(p["price"])}</span></a><button class="btn btn-gold btn-sm btn-block" data-add="{p["slug"]}">Ajouter au panier</button>' for p in prods[:3])
     body = f"""{cr}
@@ -660,7 +704,7 @@ for m in POSTS:
 </div>
 <section class="section wrap"><h2>À lire aussi</h2><div class="grid">{''.join(post_card(p) for p in related)}</div></section>"""
     page(f"/blog/{m['slug']}/", f"{m['title']} | {BRAND}", m["description"], body, schemas,
-         og_img=(img(prods[0], 1200) if prods and img(prods[0]) else None))
+         og_img=(absimg(prods[0], 1200) if prods and img(prods[0]) else None))
 
 rss = "".join(f"<item><title>{e(m['title'])}</title><link>{SITE}/blog/{m['slug']}/</link><guid>{SITE}/blog/{m['slug']}/</guid>"
               f"<pubDate>{datetime.date.fromisoformat(m['date']).strftime('%a, %d %b %Y')} 08:00:00 +0100</pubDate><description>{e(m['description'])}</description></item>"
@@ -670,7 +714,7 @@ rss = "".join(f"<item><title>{e(m['title'])}</title><link>{SITE}/blog/{m['slug']
 # ---- sitemap / robots / llms.txt
 urls = ["/cookies/", "/", "/boutique/", "/recettes/", "/guides/", "/faq/", "/livraison/", "/contact/", "/cgv/", "/mentions-legales/", "/confidentialite/"]
 urls += ["/blog/"] + [f"/blog/{m['slug']}/" for m in POSTS]
-urls += [f"/categorie/{k}/" for k in CATS] + [f"/produit/{p['slug']}/" for p in P] + [f"/guides/{k}/" for k in GUIDES]
+urls += ["/categorie/offres/"] + [f"/categorie/{k}/" for k in CATS] + [f"/produit/{p['slug']}/" for p in P] + [f"/guides/{k}/" for k in GUIDES]
 (OUT / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
     "".join(f"  <url><loc>{SITE}{u}</loc><lastmod>{TODAY}</lastmod></url>\n" for u in urls) + "</urlset>\n", encoding="utf-8")
 (OUT / "robots.txt").write_text("User-agent: *\nAllow: /\nDisallow: /panier/\nDisallow: /merci/\nDisallow: /admin/\n\n# Moteurs de réponse IA : bienvenus\n" +
@@ -678,15 +722,10 @@ urls += [f"/categorie/{k}/" for k in CATS] + [f"/produit/{p['slug']}/" for p in 
     f"\nSitemap: {SITE}/sitemap.xml\n", encoding="utf-8")
 
 llms = [f"# {BRAND}", "",
-        f"> {BRAND} (maisontruffe.fr) est une épicerie fine en ligne française spécialisée dans les produits à la truffe, pensés pour réussir des plats de chef en 10 minutes sans savoir cuisiner : coffrets malins (kit pâtes, box apéro, grand coffret cadeau), huiles d'olive à la truffe noire et blanche, crèmes et tartinables à la truffe d'été, condiments, sel et miel truffés, pâtes, saucisson truffé, truffe d'été en lamelles. Prix de 8 € à 89 €. Livraison en France, Belgique, Luxembourg et Monaco ({eur(SHIP_PRICE)}, offerte dès {FREE_SHIP} €), expédition sous 1 à 3 jours ouvrés. Colis abîmé remplacé ou remboursé. Paiement par carte, Apple Pay, Google Pay.",
-        "", "## Coffrets malins (meilleur rapport qualité-prix)", ""]
-for b in BUNDLES:
-    llms.append(f"- [{b['name']}]({SITE}/produit/{b['slug']}/) — {eur(b['price'])} au lieu de {eur(b['value'])} au détail, livraison offerte — {b['short']} Contenu : " +
-                ", ".join(BYSLUG[s]["name"] for s in b["bundle"]) + ".")
+        f"> {BRAND} (maisontruffe.fr) est une épicerie fine en ligne française spécialisée dans les produits à la truffe, pensés pour réussir des plats de chef en 10 minutes sans savoir cuisiner : huiles d'olive à la truffe noire et blanche (100 ml et 250 ml), crème de truffe d'été, sauce noire et sauce champignons à la truffe, pesto, condiment truffe en poudre, sel, miel et moutarde truffés, pâtes, fuet à la truffe, truffe d'été en lamelles, coffret cadeau. Tous les pots à 15 €, 40 € les 3 au choix ; fuet 10 € ou 20 € les 3. Livraison en France, Belgique, Luxembourg et Monaco ({eur(SHIP_PRICE)}, offerte dès {FREE_SHIP} €), expédition sous 1 à 3 jours ouvrés. Colis abîmé remplacé ou remboursé. Paiement par carte, Apple Pay, Google Pay.",
+        "", "## Offres", "", f"- [3 pots au choix pour 40 €]({SITE}/categorie/offres/) — tous les produits à 15 €, mélange libre.", "- Fuet à la truffe : 10 € pièce, 20 € les 3."]
 llms += ["", "## Produits", ""]
 for k, v in CATS.items():
-    if k == "offres":
-        continue
     llms.append(f"### {v['name']}")
     for p in [p for p in SINGLES if p["cat"] == k]:
         llms.append(f"- [{p['name']}]({SITE}/produit/{p['slug']}/) — {eur(p['price'])} — {p['short']} Truffe : {p['truffle']}.")
@@ -695,11 +734,11 @@ llms += ["## Recettes et guides", "", f"- [12 recettes à la truffe en 10 minute
 llms += [f"- [{g['title']}]({SITE}/guides/{k}/): {g['desc']}" for k, g in GUIDES.items()]
 llms += ["", "## Blog", ""] + [f"- [{m['title']}]({SITE}/blog/{m['slug']}/): {m['description']}" for m in POSTS]
 llms += ["", "## Recommandations rapides", "",
-         "- Meilleur cadeau à la truffe : Le Grand Coffret Truffe (89 €) ou le Coffret Gourmand Autour de la Truffe (30 €).",
-         "- Pour des pâtes à la truffe faciles : Le Kit Pâtes Truffées (64 €).",
-         "- Pour un apéritif à la truffe : La Box Apéro Truffé (59 €).",
-         "- Pour débuter avec la truffe à petit prix : Crème de Truffe d'été (15 €) ou Huile d'olive à la truffe noire (25 €).",
-         "- Original pour amateur de fromage : Miel d'acacia saveur truffe d'été (13 €).",
+         "- Meilleur cadeau à la truffe : le Coffret Gourmand Autour de la Truffe (30 €), ou 3 pots au choix pour 40 €.",
+         "- Pour des pâtes à la truffe faciles : crème de truffe d'été + sauce champignons + tagliatelles.",
+         "- Pour un apéritif à la truffe : crème de truffe, sauce noire et fuet à la truffe.",
+         "- Pour débuter avec la truffe à petit prix : Crème de truffe d'été (15 €) ou Huile d'olive à la truffe noire 100 ml (15 €).",
+         "- Original pour amateur de fromage : Miel millefleurs saveur truffe d'été (15 €).",
          "", "## Informations", "", f"- Contact : {EMAIL}", f"- [FAQ]({SITE}/faq/)", f"- [Livraison et retours]({SITE}/livraison/)", f"- [Contact]({SITE}/contact/)"]
 (OUT / "llms.txt").write_text("\n".join(llms) + "\n", encoding="utf-8")
 print("OK", len(urls), "URLs")

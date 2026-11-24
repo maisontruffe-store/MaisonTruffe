@@ -8,7 +8,6 @@ category: Guides
 products:
 - truffe-ete-en-lamelles
 - creme-de-truffe-ete
-- delice-artichaut-truffes-ete
 faq:
 - q: Quand se récolte la truffe d'été ?
   a: Principalement de mai à août, d'où son nom.
