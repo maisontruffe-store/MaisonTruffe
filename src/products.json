@@ -6,7 +6,7 @@
   "price": 30.0,
   "img": "/assets/p/coffret-gourmand.webp",
   "truffle": "Truffe d'été (Tuber aestivum)",
-  "short": "Le cadeau prêt à offrir : crème de truffe, sauce noire, sauce champignons et huile à la truffe blanche.",
+  "short": "Le cadeau prêt à offrir : crème de truffe, sauce noire, sauce champignons et petite huile saveur truffe blanche.",
   "desc": "Un coffret kraft prêt à offrir qui réunit quatre spécialités à la truffe d'été : une crème de truffe, une sauce noire, une sauce champignons et une petite bouteille d'huile d'olive à la truffe blanche (55 ml). De quoi réussir pâtes, toasts et risottos à la truffe, sans rien préparer.",
   "uses": [
    "Toasts et bruschettas à l'apéritif",
@@ -15,7 +15,11 @@
    "Cadeau d'anniversaire, de Noël ou de remerciement"
   ],
   "bestseller": true,
-  "weight_g": 540
+  "weight_g": 540,
+  "net": "Huile 55 ml + crème de truffe 45 g + sauce noire 45 g + sauce champignons 50 g",
+  "ingredients": "Préparation culinaire à base d'huile d'olive vierge extra et arôme de truffe blanche (55 ml) : huile d'olive vierge extra 99 %, arôme. — Crème de truffe saveur truffe d'été (45 g) : champignons (Agaricus bisporus), huile d'olive vierge extra, huile de tournesol, olives noires, truffe d'été 2 % (Tuber aestivum Vitt.), arôme, sel. — Sauce noire saveur truffe d'été (45 g) : champignons (Agaricus bisporus), huile de tournesol, truffe d'été 5 % (Tuber aestivum Vitt.), olives noires, cèpes (Boletus edulis et groupe), sel, sucre, poivre, encre de seiche, arôme, arôme naturel. — Sauce champignons saveur truffe d'été (50 g) : champignons (Agaricus bisporus), huile d'olive vierge extra, huile de tournesol, olives noires, truffe d'été 1 % (Tuber aestivum Vitt.), sel, arôme.",
+  "allergens": "Encre de seiche (mollusques), dans la sauce noire.",
+  "conservation": "Pots : à conserver au réfrigérateur après ouverture et à consommer rapidement."
  },
  {
   "slug": "truffe-ete-en-lamelles",
@@ -33,15 +37,18 @@
    "Fromages affinés, volaille, purée"
   ],
   "bestseller": false,
-  "weight_g": 123
+  "weight_g": 123,
+  "net": "50 g (poids égoutté : 30 g)",
+  "ingredients": "Truffe d'été (Tuber aestivum Vitt.), huile de tournesol, sel, arôme.",
+  "conservation": "À conserver au réfrigérateur après ouverture et à consommer sous 7 jours."
  },
  {
   "slug": "truffe-ete-entiere",
-  "name": "Truffe d'été entière — 40 g",
+  "name": "Truffe d'été entière — 35 g",
   "cat": "coffrets-truffes",
   "price": 30.0,
   "img": "/assets/p/truffe-ete-entiere.webp",
-  "truffle": "Truffe d'été",
+  "truffle": "Truffe d'été (Tuber aestivum)",
   "short": "Une truffe d'été entière, à râper ou à trancher finement sur vos plats de fête.",
   "desc": "Une truffe d'été (Tuber aestivum) entière, conservée en bocal. Râpée ou tranchée très finement au dernier moment, elle parfume pâtes fraîches, œufs, risotto, purée ou carpaccio pour un vrai repas de fête. Le jus du bocal se garde pour parfumer une sauce ou un risotto.",
   "uses": [
@@ -50,8 +57,11 @@
    "Risotto, purée, polenta",
    "Carpaccio et burrata"
   ],
-  "weight_g": null,
-  "bestseller": false
+  "weight_g": 142,
+  "bestseller": false,
+  "net": "35 g (poids égoutté : 25 g)",
+  "ingredients": "Truffe d'été (Tuber aestivum Vitt.), eau, sel, arôme.",
+  "conservation": "À conserver au réfrigérateur après ouverture et à consommer sous 6 jours."
  },
  {
   "slug": "huile-olive-vierge-extra-truffe-noire",
@@ -59,9 +69,9 @@
   "cat": "huiles-condiments",
   "price": 25.0,
   "img": "/assets/p/huile-truffe-noire-250.webp",
-  "truffle": "Truffe noire",
+  "truffle": "Arôme truffe noire, avec truffe d'été séchée (0,5 %)",
   "short": "L'indispensable : quelques gouttes suffisent à parfumer un plat.",
-  "desc": "Une huile d'olive vierge extra parfumée à la truffe noire, aux notes profondes et terreuses. C'est le produit le plus simple pour mettre de la truffe dans la cuisine de tous les jours : un filet en fin de cuisson, jamais en friture, pour garder tout l'arôme.",
+  "desc": "Une préparation à base d'huile d'olive vierge extra et d'arôme de truffe noire, avec des morceaux de truffe d'été séchée, en bouteille de 250 ml. Un filet en fin de cuisson, jamais en friture, pour garder tout l'arôme.",
   "uses": [
    "Filet sur pâtes, risotto, purée",
    "Œufs brouillés ou au plat",
@@ -69,9 +79,12 @@
    "Vinaigrette de fête"
   ],
   "bestseller": false,
-  "weight_g": 490,
+  "weight_g": 493,
   "formats": "huile-noire",
-  "format_label": "250 ml"
+  "format_label": "250 ml",
+  "net": "250 ml",
+  "ingredients": "Huile d'olive vierge extra, truffe d'été séchée 0,5 % (Tuber aestivum Vitt.), arôme.",
+  "conservation": "À conserver dans un endroit sec et frais, à l'abri de la lumière."
  },
  {
   "slug": "huile-olive-vierge-extra-truffe-blanche",
@@ -79,7 +92,7 @@
   "cat": "huiles-condiments",
   "price": 25.0,
   "img": "/assets/p/huile-truffe-blanche-250.webp",
-  "truffle": "Truffe blanche",
+  "truffle": "Arôme truffe blanche, avec lamelles de truffe bianchetto (Tuber borchii)",
   "short": "Le grand format, avec lamelles de truffe bianchetto : l'huile signature des plats italiens.",
   "desc": "Une huile d'olive vierge extra parfumée à la truffe blanche, au caractère plus puissant et légèrement aillé que la truffe noire. Parfaite pour les plats crémeux et les préparations à l'italienne, à ajouter hors du feu.",
   "uses": [
@@ -88,9 +101,12 @@
    "Carpaccio et burrata",
    "Frites maison et pop-corn"
   ],
-  "weight_g": 490,
+  "weight_g": 493,
   "formats": "huile-blanche",
-  "format_label": "250 ml"
+  "format_label": "250 ml",
+  "net": "250 ml",
+  "ingredients": "Huile d'olive vierge extra 98,9 %, truffe bianchetto déshydratée 0,1 % (Tuber borchii Vitt.), arôme.",
+  "conservation": "À conserver en lieu frais et sec, à l'abri de la lumière et de la chaleur."
  },
  {
   "slug": "condiment-saveur-truffe-noire",
@@ -98,20 +114,23 @@
   "cat": "huiles-condiments",
   "price": 15.0,
   "img": "/assets/p/huile-truffe-noire-100.webp",
-  "truffle": "Truffe noire",
+  "truffle": "Arôme truffe noire, avec truffe d'été séchée (0,5 %)",
   "short": "La petite bouteille pour découvrir : quelques gouttes suffisent à parfumer un plat.",
-  "desc": "Huile d'olive vierge extra saveur truffe noire, en bouteille de 100 ml. Le produit le plus simple pour mettre de la truffe dans la cuisine de tous les jours : un filet en fin de cuisson, jamais en friture, pour garder tout l'arôme.",
+  "desc": "Huile d'olive vierge extra saveur truffe noire, avec des morceaux de truffe d'été séchée, en bouteille de 100 ml. Le produit le plus simple pour mettre de la truffe dans la cuisine de tous les jours : un filet en fin de cuisson, jamais en friture, pour garder tout l'arôme.",
   "uses": [
    "Toasts et œufs brouillés",
    "Pâtes et risottos",
    "Viandes grillées, légumes rôtis",
    "Foie gras, gratins, purées"
   ],
-  "weight_g": 195,
+  "weight_g": 193,
   "formats": "huile-noire",
   "format_label": "100 ml",
   "bestseller": true,
-  "promo": "pot3"
+  "promo": "pot3",
+  "net": "100 ml",
+  "ingredients": "Huile d'olive vierge extra 98,5 %, truffe d'été séchée 0,5 % (Tuber aestivum Vitt.), arôme.",
+  "conservation": "À conserver dans un endroit sec et frais, à l'abri de la lumière."
  },
  {
   "slug": "condiment-truffe-blanche-lamelles-bianchetto",
@@ -119,7 +138,7 @@
   "cat": "huiles-condiments",
   "price": 15.0,
   "img": "/assets/p/huile-truffe-blanche-100.webp",
-  "truffle": "Truffe bianchetto (Tuber borchii)",
+  "truffle": "Arôme truffe blanche, avec lamelles de truffe bianchetto (Tuber borchii)",
   "short": "Avec lamelles de truffe bianchetto : plus intense, parfaite sur les plats crémeux.",
   "desc": "Huile d'olive vierge extra saveur truffe blanche, avec des lamelles de truffe bianchetto, en bouteille de 100 ml. Plus puissante et légèrement aillée que la truffe noire, elle se verse hors du feu sur les pâtes, risottos, purées et carpaccios.",
   "uses": [
@@ -128,10 +147,13 @@
    "Pâtes fraîches, risotto",
    "Foie gras, volaille, légumes"
   ],
-  "weight_g": 195,
+  "weight_g": 193,
   "formats": "huile-blanche",
   "format_label": "100 ml",
-  "promo": "pot3"
+  "promo": "pot3",
+  "net": "100 ml",
+  "ingredients": "Huile d'olive vierge extra 98,9 %, truffe bianchetto déshydratée 0,1 % (Tuber borchii Vitt.), arôme.",
+  "conservation": "À conserver en lieu frais et sec, à l'abri de la lumière et de la chaleur."
  },
  {
   "slug": "condiment-saveur-truffe-ete-poudre",
@@ -139,19 +161,22 @@
   "cat": "huiles-condiments",
   "price": 15.0,
   "img": "/assets/p/condiment-truffe-ete-poudre.webp",
-  "truffle": "Truffe d'été (Tuber aestivum)",
+  "truffle": "Truffe d'été déshydratée (Tuber aestivum) — 5 %",
   "short": "À saupoudrer comme un sel : la truffe en un tour de main.",
-  "desc": "Une poudre assaisonnante à l'arôme naturel de truffe d'été, à utiliser comme une épice. Très pratique pour ceux qui découvrent la truffe ou pour les recettes rapides.",
+  "desc": "Un condiment en poudre à base de truffe d'été déshydratée (5 %) et de champignons, en boîte saupoudreuse de 30 g. Il s'utilise comme une épice, pour un parfum de truffe immédiat sur les œufs, les frites, les pâtes ou une purée.",
   "uses": [
    "Toasts et œufs brouillés",
    "Pâtes, risottos, purées",
    "Sauces et gratins",
    "Pop-corn et frites"
   ],
-  "weight_g": null,
+  "weight_g": 51,
   "formats": "poudre",
   "format_label": "Petit 30 g",
-  "promo": "pot3"
+  "promo": "pot3",
+  "net": "30 g",
+  "ingredients": "Sel, fécule de pomme de terre, farine de riz, truffe d'été déshydratée 5 % (Tuber aestivum Vitt.), champignons déshydratés 3 % (Agaricus bisporus), arômes.",
+  "conservation": "À conserver dans un endroit sec et frais, à l'abri de la lumière."
  },
  {
   "slug": "sel-de-guerande-saveur-truffe-noire",
@@ -195,7 +220,7 @@
   "cat": "huiles-condiments",
   "price": 15.0,
   "img": "/assets/p/miel-truffe-ete.webp",
-  "truffle": "Truffe d'été (Tuber aestivum)",
+  "truffle": "Truffe d'été (Tuber aestivum) — 3 %",
   "short": "Le sucré-salé qui sublime chèvre, brebis et fromages affinés.",
   "desc": "Une spécialité à base de miel millefleurs avec des brisures de truffe d'été. Un filet sur un chèvre chaud, un brebis ou un fromage affiné, et le plateau de fromages devient un moment de fête.",
   "uses": [
@@ -205,7 +230,10 @@
    "Vinaigrette sucrée-salée"
   ],
   "weight_g": 220,
-  "promo": "pot3"
+  "promo": "pot3",
+  "net": "120 g",
+  "ingredients": "Miel millefiori 96 %, truffe d'été 3 % (Tuber aestivum Vitt.), arôme.",
+  "conservation": "À conserver dans un endroit sec et frais, à l'abri de la lumière."
  },
  {
   "slug": "moutarde-brisures-truffe-brumale-poivre-noir",
@@ -231,9 +259,9 @@
   "cat": "huiles-condiments",
   "price": 35.0,
   "img": "/assets/p/condiment-truffe-ete-poudre.webp",
-  "truffle": "Truffe d'été",
+  "truffle": "Truffe d'été déshydratée (Tuber aestivum) — 5 %",
   "short": "Le grand format pour les vrais amateurs : la truffe en poudre à saupoudrer partout.",
-  "desc": "Condiment saveur truffe d'été en poudre, en grand format de 100 g. Il se saupoudre comme un sel ou une épice sur les œufs, les frites, le pop-corn, les pâtes ou une purée, pour un parfum de truffe immédiat.",
+  "desc": "Le même condiment à base de truffe d'été déshydratée (5 %) et de champignons, en grand format de 100 g. Il se saupoudre comme un sel ou une épice sur les œufs, les frites, le pop-corn, les pâtes ou une purée.",
   "uses": [
    "Œufs, omelettes, œufs mimosa",
    "Frites, pop-corn, pommes de terre",
@@ -242,7 +270,10 @@
   ],
   "weight_g": null,
   "formats": "poudre",
-  "format_label": "Grand 100 g"
+  "format_label": "Grand 100 g",
+  "net": "100 g",
+  "ingredients": "Sel, fécule de pomme de terre, farine de riz, truffe d'été déshydratée 5 % (Tuber aestivum Vitt.), champignons déshydratés 3 % (Agaricus bisporus), arômes.",
+  "conservation": "À conserver dans un endroit sec et frais, à l'abri de la lumière."
  },
  {
   "slug": "creme-de-truffe-ete",
@@ -250,7 +281,7 @@
   "cat": "cremes-tartinables",
   "price": 15.0,
   "img": "/assets/p/creme-de-truffe-ete.webp",
-  "truffle": "Truffe d'été (Tuber aestivum)",
+  "truffle": "Truffe d'été (Tuber aestivum) — 2 %",
   "short": "Une crème onctueuse à tartiner ou à mélanger aux pâtes.",
   "desc": "Une crème de truffe d'été prête à l'emploi. Tartinée sur un toast chaud ou mélangée à des pâtes avec un peu d'eau de cuisson, elle donne un plat à la truffe en cinq minutes.",
   "uses": [
@@ -264,7 +295,10 @@
   "promo": "pot3",
   "gallery": [
    "/assets/p/creme-de-truffe-ete-2.webp"
-  ]
+  ],
+  "net": "160 g",
+  "ingredients": "Champignons (Agaricus bisporus), huile d'olive vierge extra, huile de tournesol, olives noires, truffe d'été 2 % (Tuber aestivum Vitt.), arôme, sel.",
+  "conservation": "À conserver au réfrigérateur après ouverture et à consommer sous 7 jours."
  },
  {
   "slug": "creme-de-cepes-truffe-blanche",
@@ -308,17 +342,21 @@
   "cat": "cremes-tartinables",
   "price": 15.0,
   "img": "/assets/p/sauce-noire-truffe.webp",
-  "truffle": "Truffe d'été",
+  "truffle": "Truffe d'été (Tuber aestivum) — 5 %",
   "short": "Une sauce sombre et intense, prête à napper pâtes, viandes et toasts.",
-  "desc": "Une sauce noire saveur truffe d'été, au goût profond et boisé. Elle se réchauffe doucement ou s'utilise à froid : sur des pâtes fraîches, une viande grillée, des œufs ou en tartine pour l'apéritif.",
+  "desc": "Une sauce noire à 5 % de truffe d'été, avec champignons, cèpes et olives noires, au goût profond et boisé. Elle se réchauffe doucement ou s'utilise à froid : sur des pâtes fraîches, une viande grillée, des œufs ou en tartine pour l'apéritif.",
   "uses": [
    "Pâtes fraîches et gnocchis",
    "Sur une viande grillée ou une volaille",
    "Toasts et bruschettas",
    "Dans un risotto, hors du feu"
   ],
-  "weight_g": 334,
-  "promo": "pot3"
+  "weight_g": 333,
+  "promo": "pot3",
+  "net": "180 g",
+  "ingredients": "Champignons (Agaricus bisporus), huile de tournesol, truffe d'été 5 % (Tuber aestivum Vitt.), olives noires, cèpes (Boletus edulis et groupe), sel, sucre, poivre, encre de seiche, arômes, arômes naturels.",
+  "allergens": "Encre de seiche (mollusques).",
+  "conservation": "À conserver au réfrigérateur après ouverture et à consommer sous 7 jours."
  },
  {
   "slug": "sauce-champignons-truffe-ete",
@@ -326,7 +364,7 @@
   "cat": "cremes-tartinables",
   "price": 15.0,
   "img": "/assets/p/sauce-champignons-truffe.webp",
-  "truffle": "Truffe d'été",
+  "truffle": "Truffe d'été (Tuber aestivum) — 1 %",
   "short": "Champignons et truffe d'été : la sauce express des risottos et pâtes crémeuses.",
   "desc": "Une sauce aux champignons saveur truffe d'été, généreuse en morceaux. Deux cuillères suffisent pour un risotto, des tagliatelles ou une omelette au goût de sous-bois.",
   "uses": [
@@ -335,8 +373,11 @@
    "Toasts chauds à l'apéritif",
    "Avec un steak ou une volaille"
   ],
-  "weight_g": 334,
-  "promo": "pot3"
+  "weight_g": 330,
+  "promo": "pot3",
+  "net": "180 g",
+  "ingredients": "Champignons (Agaricus bisporus), huile d'olive vierge extra, huile de tournesol, olives noires, truffe d'été 1 % (Tuber aestivum Vitt.), arôme, sel.",
+  "conservation": "À conserver au réfrigérateur après ouverture et à consommer sous 7 jours."
  },
  {
   "slug": "tagliatelle-saveur-truffe-blanche",

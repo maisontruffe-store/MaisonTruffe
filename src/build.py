@@ -14,7 +14,8 @@ IMG_BASE = "https://latruffieredemarcel.com/cdn/shop/files/"
 # ------------------------------------------------------------ réglages commerciaux
 SHIP_PRICE = 6.90          # frais de port
 FREE_SHIP = 59             # livraison offerte à partir de
-PACKAGING_G = 250        # poids estimé du carton + calage (à ajuster)
+PACKAGING_G = 90         # carton S35 vide (31 x 23 x 11 cm)
+PARCEL = {"name": "S35", "length_cm": 31, "width_cm": 23, "height_cm": 11, "weight_g": 90}
 GUARANTEE_TITLE = "Colis protégé"
 GUARANTEE_TEXT = ("Un pot cassé ou un produit abîmé à la réception ? Envoyez-nous une photo sous 48 h : "
                   "on vous le remplace ou on vous le rembourse.")
@@ -311,6 +312,7 @@ PROMOS_PUB = {k: {"n": v["n"], "price": v["price"], "label": v["label"]} for k, 
     "export const CATALOG: Record<string, { name: string; price: number; img: string; cat: string; weight_g: number | null; promo: string | null; test: boolean }> = " +
     json.dumps(cat_srv, ensure_ascii=False, indent=1) + f";\nexport const SHIP = {{ price: {SHIP_PRICE}, free: {FREE_SHIP} }};\n"
     "export const PROMOS: Record<string, { n: number; price: number; label: string }> = " + json.dumps(PROMOS_PUB, ensure_ascii=False) + ";\n"
+    "export const PARCEL = " + json.dumps(PARCEL) + ";\n"
     f"export const PACKAGING_G = {PACKAGING_G};\nexport const OWNER_EMAIL = {json.dumps(EMAIL)};\n",
     encoding="utf-8")
 
@@ -453,6 +455,12 @@ page("/categorie/offres/", "Offre 3 pots à la truffe pour 40 € au choix — M
      [crs, itemlist(POTS + FUETS)])
 
 # ---- Fiches produit
+def compo_html(p):
+    rows = [("Contenance", p.get("net")), ("Ingrédients", p.get("ingredients")), ("Allergènes", p.get("allergens")), ("Conservation", p.get("conservation"))]
+    rows = [(k, v) for k, v in rows if v]
+    if not rows:
+        return ""
+    return '<h2>Composition et conservation</h2><dl class="specs compo">' + "".join(f"<dt>{k}</dt><dd>{e(v)}</dd>" for k, v in rows) + "</dl>"
 for p in P:
     c = CATS[p["cat"]]
     cr, crs = crumbs([("Accueil", "/"), (c["name"], f"/categorie/{p['cat']}/"), (p["name"], None)])
@@ -522,6 +530,7 @@ for p in P:
     {extra}
     <h2>Description</h2><p>{e(p['desc'])}</p>
     <dl class="specs"><dt>Truffe</dt><dd>{e(p['truffle'])}</dd><dt>Prix</dt><dd>{eur(p['price'])} TTC</dd><dt>Livraison</dt><dd>France métropolitaine, Monaco</dd></dl>
+    {compo_html(p)}
     <h2>Comment l'utiliser</h2><ul class="ticks">{''.join(f'<li>{e(u)}</li>' for u in p['uses'])}</ul>
   </div>
 </section>
