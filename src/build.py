@@ -14,8 +14,8 @@ IMG_BASE = "https://latruffieredemarcel.com/cdn/shop/files/"
 # ------------------------------------------------------------ réglages commerciaux
 SHIP_PRICE = 6.90          # frais de port
 FREE_SHIP = 59             # livraison offerte à partir de
-PACKAGING_G = 90 + 120   # carton S35 vide (90 g) + protections pour pots (120 g)
-PARCEL = {"name": "S35", "length_cm": 31, "width_cm": 23, "height_cm": 11, "weight_g": 90}
+PACKAGING_G = 120        # carton S35 + protections pour pots
+PARCEL = {"name": "S35", "length_cm": 31, "width_cm": 23, "height_cm": 11, "weight_g": 120}
 GUARANTEE_TITLE = "Colis protégé"
 GUARANTEE_TEXT = ("Un pot cassé ou un produit abîmé à la réception ? Envoyez-nous une photo sous 48 h : "
                   "on vous le remplace ou on vous le rembourse.")

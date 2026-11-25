@@ -183,6 +183,6 @@ export const CATALOG: Record<string, { name: string; price: number; img: string;
 };
 export const SHIP = { price: 6.9, free: 59 };
 export const PROMOS: Record<string, { n: number; price: number; label: string }> = {"pot3": {"n": 3, "price": 40.0, "label": "Offre 3 produits au choix"}, "fuet3": {"n": 3, "price": 20.0, "label": "Offre 3 saucissons"}};
-export const PARCEL = {"name": "S35", "length_cm": 31, "width_cm": 23, "height_cm": 11, "weight_g": 90};
-export const PACKAGING_G = 210;
+export const PARCEL = {"name": "S35", "length_cm": 31, "width_cm": 23, "height_cm": 11, "weight_g": 120};
+export const PACKAGING_G = 120;
 export const OWNER_EMAIL = "maisontruffe.boutique@outlook.fr";
