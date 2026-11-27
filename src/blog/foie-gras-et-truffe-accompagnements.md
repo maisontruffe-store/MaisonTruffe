@@ -1,6 +1,6 @@
 ---
 title: 'Foie gras et truffe : 6 accompagnements pour les fêtes'
-description: 'Foie gras et truffe : sel truffé, miel, balsamique, pain et chutney. Nos idées d''accompagnements faciles pour un foie gras de fête réussi à Noël et au Nouvel An.'
+description: 'Foie gras et truffe : sel truffé, miel, balsamique, pain et chutney. Idées d''accompagnements faciles pour un foie gras de fête réussi à Noël et au Nouvel An.'
 date: '2026-11-27'
 order: 34
 category: Accords
